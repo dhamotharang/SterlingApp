@@ -3948,5 +3948,30 @@ namespace Fintrak.Client.IFRS.Proxies
         #endregion
 
 
+
+        #region PostingGLMapping
+
+        public PostingGLMapping UpdatePostingGLMapping(PostingGLMapping postingglmapping)
+        {
+            return Channel.UpdatePostingGLMapping(postingglmapping);
+        }
+
+        public void DeletePostingGLMapping(int ID)
+        {
+            Channel.DeletePostingGLMapping(ID);
+        }
+
+        public PostingGLMapping GetPostingGLMapping(int ID)
+        {
+            return Channel.GetPostingGLMapping(ID);
+        }
+
+        public PostingGLMapping[] GetAllPostingGLMappings()
+        {
+            return Channel.GetAllPostingGLMappings();
+        }
+
+        #endregion
+
     }
 }

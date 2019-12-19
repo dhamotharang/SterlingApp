@@ -12734,5 +12734,83 @@ namespace Fintrak.Business.IFRS.Managers
         #endregion
 
 
+
+        #region PostingGLMapping operations
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public PostingGLMapping UpdatePostingGLMapping(PostingGLMapping postingglmapping)
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                var groupNames = new List<string>() { GROUP_ADMINISTRATOR, GROUP_USER };
+                AllowAccessToOperation(SOLUTION_NAME, groupNames);
+
+                IPostingGLMappingRepository postingglmappingRepository = _DataRepositoryFactory.GetDataRepository<IPostingGLMappingRepository>();
+
+                PostingGLMapping updatedEntity = null;
+
+                if (postingglmapping.ID == 0)
+                    updatedEntity = postingglmappingRepository.Add(postingglmapping);
+                else
+                    updatedEntity = postingglmappingRepository.Update(postingglmapping);
+
+                return updatedEntity;
+            });
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void DeletePostingGLMapping(int postingglmappingId)
+        {
+            ExecuteFaultHandledOperation(() =>
+            {
+                var groupNames = new List<string>() { GROUP_ADMINISTRATOR };
+                AllowAccessToOperation(SOLUTION_NAME, groupNames);
+
+                IPostingGLMappingRepository postingglmappingRepository = _DataRepositoryFactory.GetDataRepository<IPostingGLMappingRepository>();
+
+                postingglmappingRepository.Remove(postingglmappingId);
+            });
+        }
+
+        public PostingGLMapping GetPostingGLMapping(int postingglmappingId)
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                var groupNames = new List<string>() { GROUP_ADMINISTRATOR, GROUP_USER };
+                AllowAccessToOperation(SOLUTION_NAME, groupNames);
+
+                IPostingGLMappingRepository postingglmappingRepository = _DataRepositoryFactory.GetDataRepository<IPostingGLMappingRepository>();
+
+                PostingGLMapping postingglmappingEntity = postingglmappingRepository.Get(postingglmappingId);
+                if (postingglmappingEntity == null)
+                {
+                    NotFoundException ex = new NotFoundException(string.Format("PostingGLMapping with ID of {0} is not in database", postingglmappingId));
+                    throw new FaultException<NotFoundException>(ex, ex.Message);
+                }
+
+                return postingglmappingEntity;
+            });
+        }
+
+        public PostingGLMapping[] GetAllPostingGLMappings()
+        {
+            return ExecuteFaultHandledOperation(() =>
+            {
+                var groupNames = new List<string>() { GROUP_ADMINISTRATOR, GROUP_USER };
+                AllowAccessToOperation(SOLUTION_NAME, groupNames);
+
+                IPostingGLMappingRepository postingglmappingRepository = _DataRepositoryFactory.GetDataRepository<IPostingGLMappingRepository>();
+
+                IEnumerable<PostingGLMapping> postingglmappings = postingglmappingRepository.Get().ToArray();
+
+                return postingglmappings.ToArray();
+            });
+        }
+
+
+        #endregion
+
+
+
     }
 }

@@ -309,6 +309,11 @@ namespace Fintrak.Data.IFRS
 
 
 
+        public DbSet<PostingGLMapping> PostingGLMappingSet { get; set; }
+
+
+
+
 
         public DbSet<IfrsProjectedCummDefaultFrq> IfrsProjectedCummDefaultFrqSet { get; set; }
         public DbSet<IfrsMonthlyForwardPDMacroVar> IfrsMonthlyForwardPDMacroVarSet { get; set; }
@@ -351,6 +356,16 @@ namespace Fintrak.Data.IFRS
             modelBuilder.Entity<CcfAnalysisOverDraftSTRLB>().HasKey<int>(e => e.ID).Ignore(e => e.EntityId);
             modelBuilder.Entity<CcfAnalysisOverDraftSTRLB>().Property(c => c.RowVersion).IsRowVersion();
             modelBuilder.Entity<CcfAnalysisOverDraftSTRLB>().ToTable("ifrs_CCFAnalysis_OverDraft_STRLB");
+
+
+
+
+            //PostingGLMapping
+            modelBuilder.Entity<PostingGLMapping>().HasKey<int>(e => e.ID).Ignore(e => e.EntityId);
+            modelBuilder.Entity<PostingGLMapping>().Property(c => c.RowVersion).IsRowVersion();
+            modelBuilder.Entity<PostingGLMapping>().ToTable("ifrs_PostingGLMapping");
+            
+            
 
 
 

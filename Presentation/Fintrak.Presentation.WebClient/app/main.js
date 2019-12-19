@@ -6158,6 +6158,30 @@ App.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: rootUrl + 'app/IFRS9/views/collateralinput-edit-view.html',
             controller: 'CollateralInputEditController as vm'
 
+
+
+        }).state('ifrs9-postingglmapping-list', {
+            url: "/ifrs9-postingglmapping-list",
+            templateUrl: rootUrl + 'app/IFRS9/views/postingglmapping-list-view.html',
+            controller: 'PostingGLMappingListController as vm',
+            resolve: {
+                loadMyCtrl: ['$ocLazyLoad', function ($ocLazyLoad) {
+                    return $ocLazyLoad.load({
+                        files: [
+                            rootUrl + 'app/assets/js/plugins/dataTable/jquery.dataTables.min.js',
+                            rootUrl + 'app/assets/js/plugins/dataTable/dataTables.bootstrap.js',
+                            rootUrl + 'app/assets/js/plugins/dataTable/exts/dataTables.tableTools.min.js']
+                    });
+                }]
+            }
+
+        }).state('ifrs9-postingglmapping-edit', {
+            url: "/ifrs9-postingglmapping-edit/:ID",
+            templateUrl: rootUrl + 'app/IFRS9/views/postingglmapping-edit-view.html',
+            controller: 'PostingGLMappingEditController as vm'
+
+
+
         }).state('ifrs9-assumption-list', {
             url: "/ifrs9-assumption-list",
             templateUrl: rootUrl + 'app/IFRS9/views/assumption-list-view.html',
@@ -6177,6 +6201,9 @@ App.config(function ($stateProvider, $urlRouterProvider) {
             url: "/ifrs9-assumption-edit/:InstrumentID",
             templateUrl: rootUrl + 'app/IFRS9/views/assumption-edit-view.html',
             controller: 'AssumptionEditController as vm'
+
+
+
 
         }).state('ifrs9-spcumulativepd-list', {
             url: "/ifrs9-spcumulativepd-list",

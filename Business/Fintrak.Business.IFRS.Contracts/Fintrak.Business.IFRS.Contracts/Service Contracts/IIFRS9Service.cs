@@ -3038,7 +3038,24 @@ namespace Fintrak.Business.IFRS.Contracts
 
         #endregion
 
+        #region PostingGLMapping
 
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        PostingGLMapping UpdatePostingGLMapping(PostingGLMapping PostingGLMapping);
+
+        [OperationContract]
+        [TransactionFlow(TransactionFlowOption.Allowed)]
+        void DeletePostingGLMapping(int postingglmapping);
+
+        [OperationContract]
+        [FaultContract(typeof(NotFoundException))]
+        PostingGLMapping GetPostingGLMapping(int postingglmapping);
+
+        [OperationContract]
+        PostingGLMapping[] GetAllPostingGLMappings();
+
+        #endregion
 
     }
 }
