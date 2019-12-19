@@ -1,0 +1,139 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <!--  <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCummulativeLifetimePdBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form> --->
+
+                </div>
+            </div>
+            <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+
+            <table id="cummulativeLIFETIMEPDTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>PD Type</th>
+                        <th>Year_0</th>
+                        <th>Year_1	</th>
+                        <th>Year_2	</th>
+                        <th>Year_3	</th>
+                        <th>Year_4	</th>
+                        <th>Year_5	</th>
+                        <th>Year_6	</th>
+                        <th>Year_7	</th>
+                        <th>Year_8	</th>
+                        <th>Year_9</th>
+                        <th>Year_10</th>
+                        <th>Year_11</th>
+                        <th>Year_12</th>
+                        <th>Year_13</th>
+                        <th>Year_14</th>
+                        <th>Year_15</th>
+                        <th>Year_16</th>
+                        <th>Year_17</th>
+                        <th>Year_18</th>
+                        <th>Year_19</th>
+                        <th>Year_20</th>
+                        <th>Year_21</th>
+                        <th>Year_22</th>
+                        <th>Year_23</th>
+                        <th>Year_24</th>
+                        <th>Year_25</th>
+                        <th>Year_26</th>
+                        <th>Year_27</th>
+                        <th>Year_28</th>
+                        <th>Year_29</th>
+                        <th>Year_30</th>
+                        <th>Year_31</th>
+                        <th>Year_32</th>
+                        <th>Year_33</th>
+                        <th>Year_34</th>
+                        <th>Year_35</th>
+                        <th>Year_36</th>
+                        <th>Year_37</th>
+                        <th>Year_38</th>
+                        <th>Year_39</th>
+                        <th>Year_40</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cummulativeLIFETIMEPDs in vm.cummulativeLIFETIMEPD">
+
+                        <td>{{ cummulativeLIFETIMEPDs.ProductType}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.sub_type}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.CummulativeLifeTimePD}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr1	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr2	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr3 | number	}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr4	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr5	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr6	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr7	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr8	| number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr9 | number  }} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr10 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr11 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr12 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr13 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr14 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr15 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr16 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr17 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr18 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr19 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr20 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr21 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr22 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr23 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr24 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr25 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr26 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr27 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr28 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr29 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr30 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr31 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr32 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr33 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr34 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr35 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr36 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr37 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr38 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr39 | number}} </td>
+                        <td>{{ cummulativeLIFETIMEPDs.OutBalAfter_yr40 | number}} </td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

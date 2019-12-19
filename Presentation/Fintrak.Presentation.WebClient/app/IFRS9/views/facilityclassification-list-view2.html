@@ -1,0 +1,79 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form>   
+                        <br />
+                        <br />
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number | Customer No" ng-model="vm.searchParam" style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBySearch()">Search</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                    </form>
+                </div>
+            </div>
+            <br />
+            
+            <table id="facStagingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">Action</th>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductType</th>
+                        <th>SubType</th>                        
+                        <th>Sector</th>
+                        <th>FacilityType</th>
+                        <!--<th>ReportDate</th>-->
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="facstaging in vm.facilityclassification">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-transition-edit({transitionId: transition.TransitionId})">
+                        Edit
+        </a>
+            </td>
+                        <td>
+                            {{ facstaging.Refno}}
+                        </td>
+                        <td>
+                            {{ facstaging.AccountNo}}
+                        </td>
+                        <td>
+                            {{ facstaging.ProductType}}
+                        </td>
+                        <td>
+                            {{ facstaging.SubType}}
+                        </td>
+                        <td>
+                            {{ facstaging.Sector}}
+                        </td>
+                        <td>
+                            {{ facstaging.FacilityType}}
+                        </td>                 
+                        <!--<td>
+                            {{ facstaging.ReportDate | date}}
+                        </td>-->
+                
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

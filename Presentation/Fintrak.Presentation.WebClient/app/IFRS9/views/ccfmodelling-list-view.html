@@ -1,0 +1,108 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            
+           
+            <br />
+ 
+            
+            <table id="ccfModellingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" >
+
+                <thead>
+                    <tr>
+                        
+                        <!--<th>Refno</th>-->
+                        <th>AccountNo</th>
+                        <!--<th>Grouping</th>
+                        <th>ValueDate</th>-->
+                        <th>DefaultDate</th>
+                        <th>OutstandingBal</th>
+                        <th>ODLimit</th>
+                        <th>Rating</th>
+                        <th>Bucket</th>                       
+                        <th>BalRefDate</th>
+                        <th>DefaultDatebal</th>
+                        <th>CCF</th>
+                        <th>DrawnAmt</th>
+                        <th>UnDrawnAmt</th>
+                        <th>TimeOfDefault</th>
+                        <th>UtilizationFactor</th>
+                        <th>UndrawnPercentage</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ccfModelling in vm.ccfModelling">
+                        <!--<td>
+                            {{ ccfModelling.Refno}}
+                        </td>-->
+                        <td>
+                            {{ ccfModelling.AccountNo}}
+                        </td>
+                        <!--<td>
+                            {{ ccfModelling.Grouping}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.ValueDate | date}}
+                        </td>-->
+                        <td>
+                            {{ ccfModelling.DefaultDate | date}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.PrincipalOutstandingBal | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.ODLimit | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.Rating}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.Bucket}}
+                        </td>
+                       
+                        <td>
+                            {{ ccfModelling.BalatRefDate | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.DefaultDatebal | currency :"":0}}
+                        </td>
+
+                        <td>
+                            {{ ccfModelling.CCF | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.DrawnAmt | currency :"":0}}
+                        </td>
+
+                        <td>
+                            {{ ccfModelling.UnDrawnAmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.TimeOfDefault}}
+                        </td>
+
+
+                        <td>
+                            {{ ccfModelling.UtilizationFactor | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ccfModelling.UndrawnPercentage | currency :"":0 }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

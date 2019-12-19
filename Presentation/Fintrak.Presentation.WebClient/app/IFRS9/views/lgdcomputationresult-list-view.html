@@ -1,0 +1,123 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            
+            <br />
+
+            <table id="lgdComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>Currency</th>
+                        <th>ExchangeRate</th>
+                        <th>date_pmt</th>
+                        <th>Amt_LCY</th>
+                        <th>AMT_FCY</th>
+                        <th>eir</th>
+                        <th>CollateralValue</th>
+                        <th>CollateralgrowthRate</th>
+                        <th>CollateralgrowthValue</th>
+                        <th>Rundate</th>
+                        <th>Collateral_Realiazation_Date</th>
+                        <th>CollateralHaircut</th>
+                        <th>Realization_period</th>
+                        <th>Cost_of_Recovery_Rate</th>
+                        <th>Hair_cut_Cost</th>
+                        <th>Cost_of_recovery</th>
+                        <th>Values_at_rundate</th>
+                        <th>Net_Cash_Flow</th>
+                        <th>DiscountedValue</th>
+                        <th>LGD</th>
+                        <th>CollateralType</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lgdComputationResult in vm.lgdComputationResults">
+                        <td>
+                            {{ lgdComputationResult.AccountNo }}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Currency }}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.date_pmt | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Amt_LCY | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.AMT_FCY | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.eir }}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.CollateralValue | number }}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.CollateralgrowthRate}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.CollateralgrowthValue | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Rundate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Collateral_Realiazation_Date | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.CollateralHaircut | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Realization_period }}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Cost_of_Recovery_Rate | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Hair_cut_Cost | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Cost_of_recovery | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Values_at_rundate | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.Net_Cash_Flow | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.DiscountedValue | number}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.LGD}}
+                        </td>
+                        <td>
+                            {{ lgdComputationResult.CollateralType}}
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+

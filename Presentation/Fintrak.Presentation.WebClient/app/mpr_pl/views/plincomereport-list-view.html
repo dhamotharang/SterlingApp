@@ -1,0 +1,107 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Search Type :</label>
+                    <select class="input-sm" ng-model="vm.selectedsearchType" ng-options="searchType.Name as searchType.Name for searchType in vm.searchTypes" style="width:150px;"></select>
+                    <input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:350px" />
+                </div>
+
+                <div class="col-md-5">
+                    <label for="" class="control-label">Count:</label>
+                    <input type="number" class="input-sm" data-ng-model="vm.number" style="width:150px;" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadPLReports()">Load</button>
+                </div>
+
+            </div>
+            <br />
+
+                <table id="plIncomeReportTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>TransId</th>
+                            <th>TransDate</th>
+                            <th>Narrative</th>
+                            <th>BranchCode</th>
+                            <th>TeamCode</th>
+                            <th>AccountOfficerCode</th>
+                            <th>GLCode</th>
+                            <th>Caption</th>
+                            <th>GLAccount</th>
+                            <th>CustCode</th>
+                            <th>AccountTitle</th>
+                            <th>RelatedAccount</th>
+                            <th>Amount</th>
+                            <th>Rundate</th>
+                            <th>EntryStatus</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-scroll-repeat="plIncomeReport in vm.plIncomeReports" page-size="20" tolerance="200">
+                       
+                            <td>
+                                {{ plIncomeReport.TransId}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.TransDate}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.Narrative}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.BranchCode}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.TeamCode}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.AccountOfficerCode}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.GLCode}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.Caption}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.GLAccount}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.CustCode}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.AccountTitle}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.RelatedAccount}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.Amount}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.Rundate| date}}
+                            </td>
+                            <td>
+                                {{ plIncomeReport.EntryStatus}}
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <label for="" class="control-label">Classification:</label>
+                <select class="input-sm" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:250px;"></select>
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification()">Load</button>
+
+                <label for="" class="control-label">Maturity Date :</label>
+                <select class="input-sm" ng-model="vm.MaturityDate" ng-options="maturitydates.MaturityDate as maturitydates.MaturityDate|date:'yyyy-MMM-dd' for maturitydates in vm.distinctMaturityDate" style="width:150px;" | date></select>
+                <button class="btn btn-info btn-sm" ng-click="vm.getBondbyMatDate()"> Load</button> 
+
+              
+                    <label for="" class="control-label">Current Market Yield :</label>             
+                <input type="text" class="input-sm" data-ng-model="vm.ifrsBond.CurrentMarketYield" style="width:150px" />
+                    <button class="btn btn-info btn-sm" ng-click="vm.updateBondbyMatDate()"> Update</button>
+                <!--<button type="button" ng-csv="vm.ifrsBonds" filename="IfrsBondExport.csv">Full Export</button>-->
+                <button ng-click="vm.exportToExcel('#ifrsBondTable')">Export</button>
+            </div> 
+            <br />
+            
+            <table id="ifrsBondTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">Action</th>    
+                        <th>RefNo</th>   
+                        <th>Narration</th>   
+                        <th>Classification</th>  
+                        <th>Value Date</th>  
+                        <th>Maturity Date</th>  
+                        <th>CleanPrice</th>  
+                        <th>FaceValue</th> 
+                        <th>PortfolioID</th>  
+                        <th>Coupon Rate</th>  
+                        <th>Rating</th>  
+                        <th>Market Yield</th>  
+                        <th>First Coupon Date</th>  
+                        <th>Price</th>  
+                        <th>Category</th>  
+                        <!--<th>Split</th>-->  
+                        <th>Stage</th>  
+                        <th>CollateralType</th>  
+                        <th>CollateralValue</th>   
+
+                        <!--Access Start-->
+                        <th>redemption</th>
+                        <th>Coupon_payment_freg</th>
+                        <th>Prin_Repayment_Freg</th>
+                        <th>Current_Carrying_amount_GAAP</th>
+                        <th>Current_Carrying_amount_IFRS</th>
+                        <th>EIR</th>
+                        <th>IAS39_Impairment</th>
+                        <th>Princ_Rep_Frq_int</th>
+                        <th>Interest_rep_frg_int</th>
+                        <th>CounterParty</th>
+                        <th>Previous_rating</th>
+                        <th>purchase_date</th>
+                        <th>cust_id</th>
+
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsBond in vm.ifrsBonds">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-bonddata-edit({bondId: ifrsBond.BondId})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ ifrsBond.RefNo}}
+                        </td>   
+                        <td>
+                            {{ ifrsBond.Narration}}
+                        </td>  
+                        <td>
+                            {{ ifrsBond.Classification}}
+                        </td> 
+                        <td>
+                            {{ ifrsBond.ValueDate | date }}
+                        </td>  
+                        <td>
+                            {{ ifrsBond.MaturityDate | date}}
+                        </td>  
+                        <td>
+                            {{ ifrsBond.CleanPrice | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.FaceValue | currency :"":0}}
+                        </td>  
+                        <td>
+                            {{ ifrsBond.PortfolioID}}
+                        </td> 
+                      
+                        <td>
+                            {{ ifrsBond.CouponRate}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.SandP_Rating}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.CurrentMarketYield}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.FirstCouponDate | date }}
+                        </td>  
+                        <td>
+                            {{ ifrsBond.Price | currency :"":0}}
+                        </td> 
+                        <td>
+                            {{ ifrsBond.Classification_Category}}
+                        </td> 
+                        <!--<td>
+                            {{ ifrsBond.Split}}
+                        </td>-->
+                        <td>
+                            {{ ifrsBond.Stage}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.CollateralType}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.CollateralValue}}
+                        </td>
+
+                            <!--Access Start-->
+
+                        <td>
+                            {{ ifrsBond.redemption}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Coupon_payment_freg}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Prin_Repayment_Freg}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Current_Carrying_amount_GAAP}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Current_Carrying_amount_IFRS}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.EIR}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.IAS39_Impairment}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Princ_Rep_Frq_int}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Interest_rep_frg_int}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.CounterParty}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.Previous_rating}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.purchase_date}}
+                        </td>
+                        <td>
+                            {{ ifrsBond.cust_id}}
+                        </td>
+
+                        <!--Access End-->
+
+                                                            
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

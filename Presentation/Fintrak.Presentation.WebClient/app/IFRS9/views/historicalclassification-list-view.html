@@ -1,0 +1,87 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-historicalclassification-edit({historicalclassificationId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="historicalClassificationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>CustomerNo</th>
+                        <th>CustomerName</th>
+                        <th>Sector</th>
+                        <th>Classification</th>
+                        <!--<th>SubClassification</th>-->
+                        <th>Outstanding Balance</th>
+                        <th>Recoverable Amount</th>
+                        <th>Collateral Type</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <!--<th>CompanyCode</th>-->
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="historicalClassification in vm.historicalClassifications">
+                        <td>
+                            {{ historicalClassification.CustomerNo}}
+                        </td>
+                        <td>
+                            {{ historicalClassification.CustomerName}}
+                        </td>
+
+                        <td>
+                            {{ historicalClassification.SectorIndustry}}
+                        </td>
+                        <td>
+                            {{ historicalClassification.Classification}}
+                        </td>
+                        <!--<td>
+                            {{ historicalClassification.SubClassification}}
+                        </td>-->
+                        <td>
+                            {{ historicalClassification.OutstandingBal | currency :"":0}}
+                        </td>
+
+                        <td>
+                            {{ historicalClassification.RecoverableAmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ historicalClassification.Collateral_Type}}
+                        </td>
+                        <td>
+                            {{ historicalClassification.Period}}
+                        </td>
+                        <td>
+                            {{ historicalClassification.Year}}
+                        </td>
+                        <!--<td>
+                            {{ historicalClassification.CompanyCode}}
+                        </td>-->
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-historicalclassification-edit({historicalclassificationId: historicalClassification.HistoricalClassificationId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

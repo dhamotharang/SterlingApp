@@ -1,0 +1,80 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadObeECLResultBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.exportAllData()">Export All</button>
+                    </form>
+                </div>
+            </div>          
+
+            <table id="obeECLresultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Customer No</th>
+                        <th>RefNo</th>
+                        <th>CustomerName</th>
+                        <th>Producttype	</th>
+                        <th>SubType</th>
+                        <th>Currency</th>
+                        <th>Stage</th>
+                        <th>AmortizedCost</th>
+                        <th>EIR</th>
+                        <th>PrincipalOutBal</th>
+                        <th>FinalECLOptimistic</th>
+                        <th>FinalECLBest</th>
+                        <th>FinalECLDownTurn</th>
+                        <th>FinalEChtAvg</th>
+                        <th>Rundate</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="obeECLresults in vm.obeECLresult">
+
+                        <td>{{ obeECLresults.AccountNo }}</td>
+                        <td>{{ obeECLresults.RefNo }}</td>
+                        <td>{{ obeECLresults.CustomerName }}</td>
+                        <td>{{ obeECLresults.Producttype	 }}</td>
+                        <td>{{ obeECLresults.SubType }}</td>
+                        <td>{{ obeECLresults.Currency }}</td>
+                        <td>{{ obeECLresults.Stage }}</td>
+                        <td>{{ obeECLresults.AmortizedCost | number }}</td>
+                        <td>{{ obeECLresults.EIR | number }}</td>
+                        <td>{{ obeECLresults.PrincipalOutBal | number }}</td>
+                        <td>{{ obeECLresults.FinalECLOptimistic | number}}</td>
+                        <td>{{ obeECLresults.FinalECLBest | number}}</td>
+                        <td>{{ obeECLresults.FinalECLDownTurn | number}}</td>
+                        <td>{{ obeECLresults.FinalECLWeightAvg | number}}</td>
+                        <td>{{ obeECLresults.Rundate |date }}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

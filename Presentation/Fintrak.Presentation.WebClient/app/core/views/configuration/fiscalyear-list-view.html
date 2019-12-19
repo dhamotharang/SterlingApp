@@ -1,0 +1,57 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-fiscalyear-edit({fiscalyearId:0})"> Create New.</a>
+            </div> 
+            <br />
+            
+            <table id="fiscalYearTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Name</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Closed</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="fiscalYear in vm.fiscalYears">
+
+                        <td>
+                            {{ fiscalYear.Name}}
+                        </td>
+                        <td>
+                            {{ fiscalYear.StartDate | date}}
+                        </td>
+                        <td>
+                            {{ fiscalYear.EndDate | date}}
+                        </td>
+                        <td>
+                            {{ fiscalYear.Closed}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-fiscalyear-edit({fiscalyearId: fiscalYear.FiscalYearId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

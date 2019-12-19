@@ -1,0 +1,60 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-role-edit({roleId:0})"> Create New</a>
+
+                <select class="input-sm" ng-model="vm.roleType" ng-options="roleType.Id as roleType.Name for roleType in vm.roleTypes" style="width:150px;"></select>
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+            </div>
+            <br />
+            
+            <table id="roleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Role Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Solution Name</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="role in vm.roles">
+
+                        <td>
+                            {{ role.Name}}
+                        </td>
+                        <td>
+                            {{ role.Description}}
+                        </td>
+                        <td>
+                            {{ role.TypeName}}
+                        </td>
+                        <td>
+                            {{ role.SolutionName}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-role-edit({roleId: role.RoleId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

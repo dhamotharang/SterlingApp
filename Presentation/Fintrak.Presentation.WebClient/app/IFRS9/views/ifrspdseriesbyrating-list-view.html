@@ -1,0 +1,109 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <select class="form-control" ng-model="vm.rating" ng-change="vm.getIfrsPdSeriesByRating(vm.rating)" ng-options="rating as rating for rating in vm.ratings" style="width: 250px;background-color: lightblue">
+                <option value="" ng-disabled="vm.disabled" selected>-- Select a rating --</option>
+            </select>
+            <br />
+            
+            <table id="ifrsPdSeriesByRatingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Sno</th>
+                        <th>Rating</th>
+                        <th>Seq</th>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>PD Year</th>
+                        <th>Marginal Default PD</th>
+                        <th>Marginal PD (BEST)</th>
+                        <th>Marginal PD (Downturn)</th>
+                        <th>Marginal P (Optimistic)</th>
+                        <th>Survival PD (Downturn)</th>
+                        <th>Survival PD (Optimistic)</th>
+                        <th>LifeTime PD (BEST)</th>
+                        <th>LifeTime PD (Downturn)</th>
+                        <th>LifeTime PD (Optimistic)</th>
+                        <th>Run Date</th>
+                        <th>End Date</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsPdSeriesByRating in vm.ifrsPdSeriesByRatings">
+                        <td>
+                            {{ ifrsPdSeriesByRating.Sno}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.Rating}}
+                        </td>
+
+                        <td>
+                            {{ ifrsPdSeriesByRating.seq}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.Year}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.Period}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.PDYear}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.MarginalDefaultPD}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.MarginalPD_BEST}}
+                        </td>
+
+                        <td>
+                            {{ ifrsPdSeriesByRating.MarginalPD_Downturn}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.MarginalPD_Optimistic}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.SurvivalPD_Downturn}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.SurvivalPD_Optimistic}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.LifeTimePD_BEST}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.LifeTimePD_Downturn}}
+                        </td>
+
+                        <td>
+                            {{ ifrsPdSeriesByRating.LifeTimePD_Optimistic}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.RunDate}}
+                        </td>
+                        <td>
+                            {{ ifrsPdSeriesByRating.EndDate}}
+                        </td>
+                        <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrspdseriesbyrating-edit({ifrspdseriesbyratingId: ifrsPdSeriesByRating.ifrsPdSeriesByRatingId})">
+                        Edit
+                    </a>
+                </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

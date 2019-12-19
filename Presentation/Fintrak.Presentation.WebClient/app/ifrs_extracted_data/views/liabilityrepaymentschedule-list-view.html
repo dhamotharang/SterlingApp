@@ -1,0 +1,112 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <!--<a class="btn btn-info btn-xs" data-ui-sref="ifrs-liabilityrepaymentschedule-edit({liabilityRepayId:0})"> Create New</a>-->
+                <!--<button type="button" ng-csv="vm.integralFee" filename="IntegralFeeExport.csv">Full Export</button>-->
+            </div>
+            <br />
+            
+            <table id="liabilityrepaymentscheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Contract Status</th>
+                        <th>CounterParty</th>
+                        <!--<th>Booking Date</th>-->
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Value Date</th>
+                        <th>Currency</th>
+                        <th>Ex Rate</th>
+                        <th>Comp. Rate</th>
+                        <th>Last Int Rate PytDate</th>
+                        <th>Next Int Rate PytDate</th>
+                        <th>Maturity Date</th>
+                        <!--<th>CF Status</th>-->
+                        <th>Contract EndDate</th>
+                        <th>GL Code</th>
+                        <!--<th>RunDate</th>-->
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="liabilityrepaymentschedule in vm.liabilityrepaymentschedule">
+                        <td>
+                            {{ liabilityrepaymentschedule.CONTRACT_REF_NO }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.CONTRACT_STATUS }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.COUNTERPARTY }}
+                        </td>
+                        <!--<td>
+                    {{ liabilityrepaymentschedule.BOOKING_DATE | date}}
+                </td>-->
+                        <td>
+                            {{ liabilityrepaymentschedule.AMOUNT | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.PRODUCT_DESCRIPTION }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.VALUE_DATE | date}}
+                        </td>
+
+                        <td>
+                            {{ liabilityrepaymentschedule.CURRENCY }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.EXCHANGE_RATE }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.MAIN_COMP_RATE }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.LAST_INTEREST_PAYDATE | date}}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.NEXT_INTEREST_PAYDATE | date }}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.MATURITY_DATE | date}}
+                        </td>
+
+                        <!--<td>
+                    {{ liabilityrepaymentschedule.CF_CONTRACT_STATUS }}
+                </td>-->
+
+                        <td>
+                            {{ liabilityrepaymentschedule.CONTRACT_END_DATE | date}}
+                        </td>
+                        <td>
+                            {{ liabilityrepaymentschedule.GL_CODE }}
+                        </td>
+                        <!--<td>
+                    {{ liabilityrepaymentschedule.Rundate | date }}
+                </td>-->
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-liabilityrepaymentschedule-edit({liabilityRepayId:liabilityrepaymentschedule.liabilityRepayId})">
+                                Edit
+                            </a>
+                        </td>-->
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

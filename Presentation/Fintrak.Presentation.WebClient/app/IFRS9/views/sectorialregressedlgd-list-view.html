@@ -1,0 +1,62 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-computedforcastedpdlgd-edit({computedforcastedpdlgdId:0})"> Create New</a>
+            </div> 
+            <br />-->
+            
+            <table id="sectorialRegressedLGDTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Sector</th>
+                        <th>Year</th>
+                        <th>LGD</th>
+                        <th>RunDate</th>
+                        <!--<th>Description</th>
+                        <th>CompanyCode</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sectorialRegressedLGD in vm.sectorialRegressedLGDs">
+                        <td>
+                            {{ sectorialRegressedLGD.SectorCode}}
+                        </td>
+                        <td>
+                            {{ sectorialRegressedLGD.Year}}
+                        </td>
+
+                        <td>
+                            {{ sectorialRegressedLGD.lgd}}
+                        </td>
+
+                        <td>
+                            {{ sectorialRegressedLGD.RunDate | date}}
+                        </td>
+
+                        <!--<td>
+                            {{ sectorialRegressedLGD.Description}}
+                        </td>
+
+                        <td>
+                            {{ sectorialRegressedLGD.CompanyCode}}
+                        </td>-->
+                      
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

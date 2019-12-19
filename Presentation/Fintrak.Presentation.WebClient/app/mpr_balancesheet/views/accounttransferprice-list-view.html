@@ -1,0 +1,67 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-accounttransferprice-edit({accounttransferpriceId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="accountTransferPriceTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Account Name</th>
+                        <th>Category</th>
+                        <th>Rate</th>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>Solution Id</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="accountTransferPrice in vm.accountTransferPrices">
+                        <td>
+                            {{ accountTransferPrice.AccountNo}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.AccountName}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.CategoryName}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.Rate}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.Year}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.Period}}
+                        </td>
+                        <td>
+                            {{ accountTransferPrice.SolutionName}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-accounttransferprice-edit({accounttransferpriceId: accountTransferPrice.AccountTransferPriceId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

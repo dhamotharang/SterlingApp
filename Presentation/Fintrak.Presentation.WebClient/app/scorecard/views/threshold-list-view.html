@@ -1,0 +1,75 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="scd-threshold-edit({thresholdId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="thresholdTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>KPI</th>
+                        <th>KPI Name</th>
+                        <th>Classification</th>
+                        <th>Classification Name</th>
+                        <th>Staff</th>
+                        <th>Staff Name</th>
+                        <th>Minimum</th>
+                        <th>Maximum</th>
+                        <th>Color</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="threshold in vm.thresholds">
+                        <td>
+                            {{threshold.KPICode}}
+                        </td>
+                        <td>
+                            {{threshold.KPIName}}
+                        </td>
+                        <td>
+                            {{threshold.TeamClassificationCode}}
+                        </td>
+                        <td>
+                            {{threshold.TeamClassificationName}}
+                        </td>
+                        <td>
+                            {{threshold.StaffCode}}
+                        </td>
+                        <td>
+                            {{threshold.StaffName}}
+                        </td>
+                        <td>
+                            {{threshold.Minimum}}
+                        </td>
+                        <td>
+                            {{threshold.Maximum}}
+                        </td>
+                        <td>
+                            {{threshold.Color}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="scd-threshold-edit({thresholdId:threshold.ThresholdId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

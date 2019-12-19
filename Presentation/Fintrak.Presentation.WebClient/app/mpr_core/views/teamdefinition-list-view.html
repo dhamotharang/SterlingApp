@@ -1,0 +1,69 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-teamdefinition-edit({teamdefinitionId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="teamDefinitionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th>Classified</th>
+                        <th>Staff ID</th>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="teamDefinition in vm.teamDefinitions">
+                        <td>
+                            {{ teamDefinition.Code}}
+                        </td>
+
+                        <td>
+                            {{ teamDefinition.Name}}
+                        </td>
+
+                        <td>
+                            {{ teamDefinition.Position}}
+                        </td>
+                        <td>
+                            {{ teamDefinition.CanClassified}}
+                        </td>
+                        <td>
+                            {{ teamDefinition.CanUseStaffId}}
+                        </td>
+                        <td>
+                            {{ teamDefinition.Year}}
+                        </td>
+                        <td>
+                            {{ teamDefinition.Period}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-teamdefinition-edit({teamdefinitionId: teamDefinition.TeamDefinitionId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

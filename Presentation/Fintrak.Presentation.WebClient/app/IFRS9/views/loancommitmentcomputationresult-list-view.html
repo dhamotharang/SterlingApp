@@ -1,0 +1,138 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <br />
+
+            <table id="loanCommitmentComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Refno</th>
+                        <th>CustomerName</th>
+                        <th>date_pmt</th>
+                        <th>YTM</th>
+                        <th>Code</th>
+                        <th>FacilityType</th>
+                        <th>Stage</th>
+                        <th>Seq</th>
+                        <th>AmortizedCost</th>
+                        <th>Currency</th>
+                        <th>Exchange</th>
+                        <th>LifetimePD</th>
+                        <th>DiscountFactor</th>
+                        <th>DiscountedCollateralValue</th>
+                        <th>LGD</th>
+                        <th>Sector</th>
+                        <th>CollateralStatus</th>
+                        <th>UnAdjusted ECL</th>
+                        <th>MacroBest</th>
+                        <th>ECLBest</th>
+                        <th>MacroOptimistic</th>
+                        <th>ECLOptimistic</th>
+                        <th>MacroDownTurn</th>
+                        <th>ECLDownTurn</th>
+                        <th>Prob.Weighted.ECL</th>
+                        <th>Rundate</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanCommitmentComputationResult in vm.loanCommitmentComputationResults">
+                        <td>
+                            {{ loanCommitmentComputationResult.Refno }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.CustomerName }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.date_pmt | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.YTM}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Code}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.FacilityType}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Stage }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Seq }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.AmortizedCost | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Currency}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Exchange}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.LifetimePD}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.DiscountFactor }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.DiscountedCollateralValue }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.LGD }}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.Sector}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.CollateralStatus}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.ECLOutput | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.MEcoECLBest | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.FinalECLBest | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.MEcoECLOptimistic | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.FinalECLOptimistic | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.MEcoECLDownTurn | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.FinalECLDownTurn | number}}
+                        </td>
+                        <td>
+                            {{ loanCommitmentComputationResult.FinalECLWeightAvg | number}}
+                        </td>
+
+                        <td>
+                            {{ loanCommitmentComputationResult.Rundate | date:'dd-MM-yyyy'}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

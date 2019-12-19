@@ -1,0 +1,148 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.getOffBalancesheetECL(vm.SearchParam)">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search by Account No or Customer Name..." data-ng-model="vm.SearchParam" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.getOffBalancesheetECL(vm.SearchParam)">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.reloadPage()">Refresh</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+
+            <table id="offBalancesheetECLTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Customer Name</th>
+                        <th>Internal Rating</th>
+                        <th>Rating</th>
+                        <th>Years-to-Maturity</th>
+                        <th>FacilityType</th>
+                        <th>Balance</th>
+                        <th>Seq</th>
+                        <th>EAD</th>
+                        <th>Lifetime Best PD</th>
+                        <th>Lifetime Optimistic PD</th>
+                        <th>Lifetime Downturn PD</th>
+                        <th>Discount Factor</th>
+                        <th>LGD Best</th>
+                        <th>LGD Optimistic</th>
+                        <th>LGD Downturn</th>
+                        <th>ECL Monthly Best</th>
+                        <th>ECL Monthly Optimistic</th>
+                        <th>ECL Monthly Downturn</th>
+                        <th>ECL Best</th>
+                        <th>ECL Optimistic</th>
+                        <th>ECL Downturn</th>
+                        <th>Macro Best</th>
+                        <th>Macro Optimistic</th>
+                        <th>Macro Downturn</th>
+                        <th>Impairment</th>
+                        <th>RunDate</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="offBalancesheetECL in vm.offBalancesheetECL">
+                        <td>
+                            {{ offBalancesheetECL.Account_No}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.CustomerName}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.InternalRating}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Rating}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.YTM}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.FacilityType}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.OutstandingBalance | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Seq}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.EAD | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LifetimePDBest | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LifetimePDOptimistic | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LifetimePDDownturn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.DiscountFactor | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LGD_Best | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LGD_Optimistic | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.LGD_Downturn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_MonthlyBest | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_MonthlyOptimistic | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_MonthlyDownturn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_Best | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_Optimistic | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.ECL_Downturn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Macroeconomic_Best | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Macroeconomic_Optimistic | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Macroeconomic_Downturn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.Impairment | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalancesheetECL.RunDate | date}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

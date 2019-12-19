@@ -1,0 +1,66 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="scd-kpiclassification-edit({classificationId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="classificationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>KPI</th>
+                        <th>KPI Name</th>
+                        <th>KPI Collection</th>
+                        <th>KPI Collection Name</th>
+                        <th>Perspective Code</th>
+                        <th>Perspective Name</th>
+                        
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="classification in vm.classifications">
+                        <td>
+                            {{classification.KPICode}}
+                        </td>
+                        <td>
+                            {{classification.KPIName}}
+                        </td>
+                        <td>
+                            {{classification.TeamClassificationCode}}
+                        </td>
+                        <td>
+                            {{classification.TeamClassificationName}}
+                        </td>
+
+                        <td>
+                            {{classification.CategoryCode}}
+                        </td>
+                        <td>
+                            {{classification.CategoryName}}
+                        </td>
+                    
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="scd-kpiclassification-edit({classificationId:classification.ClassificationId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

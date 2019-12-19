@@ -1,0 +1,63 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="finstat-glmapping-edit({glmappingId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="glMappingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GL Code</th>
+                        <th>Description</th>
+                        <th>Main Caption</th>
+                        <th>Sub Caption</th>
+                        <th>Sub Position</th>
+                        <th>Can Switch</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-scroll-repeat="glMapping in vm.glMappings" page-size="5000" tolerance="200">
+                        <td>
+                            {{ glMapping.GLCode}}
+                        </td>
+                        <td>
+                            {{ glMapping.GLDescription}}
+                        </td>
+                        <td>
+                            {{ glMapping.MainCaption}}
+                        </td>
+                        <td>
+                            {{ glMapping.SubCaption}}
+                        </td>
+                        <td>
+                            {{ glMapping.SubPosition}}
+                        </td>
+                        <td>
+                            {{ glMapping.CanSwitch}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-glmapping-edit({glmappingId: glMapping.GLMappingId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

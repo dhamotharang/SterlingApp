@@ -1,0 +1,117 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div class="row">
+                <div class="col-md-9">
+                    <label for="" class="control-label">Upload Template:</label>
+                    <select class="input-sm" ng-model="vm.uploadSelection.UploadId" ng-options="upload.UploadId as upload.Title for upload in vm.uploads" style="width:250px;"></select>
+
+                   <label for="attachment" class="control-label">Attachment:</label>
+                    <input type="file" name="attachment" data-ak-file-model="vm.uploadSelection.Attachment" />
+                    
+                    <br/>
+                    <a class="btn btn-info btn-sm" data-ng-click="vm.runPreview(vm.uploadSelection)"> Preview</a>
+                    <a class="btn btn-danger btn-sm" data-ng-click="vm.runUpload(vm.uploadSelection)"> Upload</a>
+                </div>
+                <div class="col-md-3">
+                   
+                </div>
+
+            </div>
+
+            <br />-->
+
+            <div class="row">
+                <div class="col-md-9">
+                    <form action="" method="post" enctype="multipart/form-data">
+
+                        <!--<div class="mail-header clearfix">
+                           
+                            <div class="float-right col-md-4 pad0A">
+                                <div class="input-group">
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <div class='form-group'>
+                            <label for='excel_file'>Select Excel File</label>
+                            <input type="file" file-model="vm.myFile" />
+                            <!--<input type="file" name="excel_file" accept=".xlsx" onchange="angular.element(this).scope().fileChanged(this.files);" required="true">-->
+                           
+                        </div>
+
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" ng-model="vm.showPreview" ng-change="vm.showPreviewChanged();">Show preview of excel file
+                                &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                                <input type="checkbox" ng-model="vm.showJSONPreview">Show JSON preview of selected sheet
+                            </label>
+                        </div>
+  
+                        <div ng-show="vm.isProcessing">
+                            <span>Processing ...</span>
+                        </div>
+
+                        <br/>
+
+                        <div class='form-group'>
+                            <label for='upload_item'>Data to Upload</label>
+                            <select class="input-sm" ng-model="vm.uploadSelection.UploadId" ng-options="upload.UploadId as upload.Title for upload in vm.uploads" style="width:250px;"></select>
+                            <!--<select id="upload_item" class="form-control input-xs" ng-model="vm.selectedUploadItem" required>
+                                <option ng-repeat="title in vm.uploadItems">{{ title }}</option>
+                            </select>-->
+                            <!--<select id="upload_item" class="form-control" ng-model="selectedUploadItem" required="true" ng-required="true" ng-options="itemName as itemName for (itemName, itemData) in uploadItems">
+                <option value="">---- Select a item ----</option>
+            </select>-->
+
+                        </div>
+
+                        <div class='form-group'>
+                            <label for='sheet_name'>Sheet Name</label>
+                            <select id="sheet_name" class="input-sm" ng-change="vm.updateJSONString()" ng-model="vm.selectedSheetName" required="true" ng-required="true" ng-options="sheetName as sheetName for (sheetName, sheetData) in vm.sheets" style="width:250px;">
+                                <option value="">---- Select a sheet ----</option>
+                            </select>
+                        </div>
+
+                        <input type="hidden" name="sheet_name" value="{{ vm.selectedSheetName }}">
+
+                        <input type="button" value="Submit" ng-click="vm.submitUpload()">
+                        <br /><br />
+                        <div ng-show="vm.showJSONPreview">
+                            <h4>JSON Preview of selected sheet</h4>
+<pre class="langauge-javascript">
+<code>{{ vm.json_string }}</code>
+</pre>
+                        </div>
+                        <div ng-show="vm.showPreview">
+                            <table class="table table-bordered" ng-repeat="(sheetName, sheetData) in vm.sheets" ng-show="sheetName == vm.selectedSheetName">
+                                <thead>
+                                    <tr>
+                                        <th ng-bind="sheetName"></th>
+                                    </tr>
+                                </thead>
+                                <tr ng-repeat="row in sheetData.data">
+                                    <td ng-repeat="col in row" ng-bind="col"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </form>
+                </div>
+                    
+
+                </div>
+
+        </div>
+    </div>
+</div>

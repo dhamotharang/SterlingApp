@@ -1,0 +1,78 @@
+/*	
+*	################################################################################
+*	
+*	My Custom Style for KINGADMIN
+*	---------------------------------------------------------------------
+*
+*	Version		1.0
+*	Author		Your Name
+*	
+*	Override theme style or create your new styles. Direct change to main.css
+*	is not recommended to avoid problems when theme updates arrived in the future
+*	
+*	################################################################################
+*/
+
+
+.button1 {
+    -webkit-animation: glowing 1500ms infinite;
+    -moz-animation: glowing 1500ms infinite;
+    -o-animation: glowing 1500ms infinite;
+    animation: glowing 2500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+    0% {
+        -webkit-box-shadow: 0 0 1px #B20000;
+    }
+
+    50% {
+        -webkit-box-shadow: 0 0 20px #FF0000;
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 1px #B20000;
+    }
+}
+
+@-moz-keyframes glowing {
+    0% {
+        -moz-box-shadow: 0 0 1px #B20000;
+    }
+
+    50% {
+        -moz-box-shadow: 0 0 20px #FF0000;
+    }
+
+    100% {
+        -moz-box-shadow: 0 0 1px #B20000;
+    }
+}
+
+@-o-keyframes glowing {
+    0% {
+        box-shadow: 0 0 1px #B20000;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #FF0000;
+    }
+
+    100% {
+        box-shadow: 0 0 1px #B20000;
+    }
+}
+
+@keyframes glowing {
+    0% {
+        box-shadow: 0 0 1px #B20000;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #FF0000;
+    }
+
+    100% {
+        box-shadow: 0 0 1px #B20000;
+    }
+}

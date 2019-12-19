@@ -1,0 +1,87 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-assumption-edit({InstrumentID:0})"> Create New</a>
+            </div> -->
+            <br />
+            
+            <table id="assumptionsTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Instrument</th>
+                        <th>Highest_Level_of_Speculative</th>
+                        <th>Notches_for_SICR</th>
+                        <th>Defaulted</th>
+                        <th>Assumed_Rating</th>
+                        <th>Assumed_EIR</th>
+                        <th>Assumed_Tenor</th>
+                        <!--<th>Assumed_MaturityDate</th>
+                        <!--<th>Assumed_StartDate</th>-->
+                        <th>Assumed_CCF</th>
+                        <!--<th>Assumed_CCF_LCs</th>
+                        <th>Rating</th>-->
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="assumption in vm.assumptions">
+                        <td>
+                            {{ assumption.Instrument }}
+                        </td>
+                        <td>
+                            {{ assumption.Highest_Level_of_Speculative }}
+                        </td>
+                        <td>
+                            {{ assumption.Notches_for_sicr }}
+                        </td>
+                        <td>
+                            {{ assumption.Default_Rating }}
+                        </td>
+                        <td>
+                            {{ assumption.Assumed_DefaultRating }}
+                        </td>
+                        <td>
+                            {{ assumption.Assumed_EIR }}
+                        </td>
+                        <td>
+                            {{ assumption.Assumed_Tenor }}
+                        </td>
+                        <!--<td>
+                            {{ assumption.Assumed_MaturityDate | date}}
+                        </td>
+                        <!--<td>
+                            {{ assumption.Assumed_StartDate | date}}
+                        </td>-->
+                        <td>
+                            {{ assumption.Assumed_CCF_Guarantee }}
+                        </td>
+                        <!--<td>
+                            {{ assumption.Assumed_CCF_LCs }}
+                        </td>
+                        <td>
+                            {{ assumption.Rating }}
+                        </td>-->
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-assumption-edit({InstrumentID: assumption.InstrumentID})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,81 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <a class="btn btn-info btn-sm" data-ui-sref="ifrs-cashflow-edit({CashflowId:0})"> Add New Cashflow</a>&nbsp;&nbsp;&nbsp;
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.serachParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCashFlowBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                    </form>
+                </div>
+            </div>
+            <!--<div>
+                <button type="button" ng-csv="vm.cashFlow" filename="LoanPryExport.csv">Full Export</button>
+            </div>
+            <br />-->
+
+            <table id="cashFlowTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Action</th>
+                        <th>RefNo</th>
+                        <th>Date PMT</th>
+                        <!--<th>ProductCode</th>-->
+                        <th>Principal Amount</th>
+                        <th>Interest Amount</th>
+                        <th>Fee Amount</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cashFlows in vm.cashFlow">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-cashflow-edit({CashflowId:cashFlows.CashflowId})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ cashFlows.RefNo}}
+                        </td>
+                        <td>
+                            {{ cashFlows.datepmt | date }}
+                        </td>
+
+                        <td>
+                            {{ cashFlows.amt_prin_pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ cashFlows.amt_int_pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ cashFlows.amt_fee_pay | currency :"":0}}
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

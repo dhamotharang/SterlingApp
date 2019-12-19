@@ -1,0 +1,104 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCollateralRecAmtStagingBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="collateralRECAMTstagingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Refno</th>
+                        <th>CustomerName</th>
+                        <th>Date_Pmt</th>
+                        <th>MaturityDate</th>
+                        <th>ProductType</th>
+                        <th>SubType</th>
+                        <th>CollDescript</th>
+                        <th>CollType</th>
+                        <th>ColAmt1</th>
+                        <th>ColAmt2</th>
+                        <th>ColAmt3</th>
+                        <th>ColAmt4</th>
+                        <th>MappedColType1</th>
+                        <th>MappedColType2</th>
+                        <th>MappedColType3</th>
+                        <th>MappedColType4</th>
+                        <th>ColRecAmt1</th>
+                        <th>ColRecAmt2</th>
+                        <th>ColRecAmt3</th>
+                        <th>ColRecAmt4</th>
+                        <th>GrowthRate1</th>
+                        <th>GrowthRate2</th>
+                        <th>GrowthRate3</th>
+                        <th>GrowthRate4</th>
+                        <th>FinCol1</th>
+                        <th>FinCol2	</th>
+                        <th>FinCol3</th>
+                        <th>FinCol4</th>
+                        <th>TotalColRecAmt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="collateralRECAMTstagings in vm.collateralRECAMTstaging">
+
+                        <td>{{ collateralRECAMTstagings.Refno}} </td>
+                        <td>{{ collateralRECAMTstagings.CustomerName}} </td>
+                        <td>{{ collateralRECAMTstagings.date_pmt | date}} </td>
+                        <td>{{ collateralRECAMTstagings.MaturityDate | date}} </td>
+                        <td>{{ collateralRECAMTstagings.ProductType}} </td>
+                        <td>{{ collateralRECAMTstagings.SubType}} </td>
+                        <td>{{ collateralRECAMTstagings.CollateralDescription}} </td>
+                        <td>{{ collateralRECAMTstagings.CollateralType}} </td>
+                        <td>{{ collateralRECAMTstagings.ColAmt1 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColAmt2 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColAmt3 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColAmt4 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.MappedColType1 }} </td>
+                        <td>{{ collateralRECAMTstagings.MappedColType2 }} </td>
+                        <td>{{ collateralRECAMTstagings.MappedColType3 }} </td>
+                        <td>{{ collateralRECAMTstagings.MappedColType4 }} </td>
+                        <td>{{ collateralRECAMTstagings.ColRecAmt1 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColRecAmt2 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColRecAmt3 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.ColRecAmt4 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.growthrate1 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.growthrate2}} </td>
+                        <td>{{ collateralRECAMTstagings.growthrate3}} </td>
+                        <td>{{ collateralRECAMTstagings.growthrate4}} </td>
+                        <td>{{ collateralRECAMTstagings.finCol1 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.finCol2	| number}} </td>
+                        <td>{{ collateralRECAMTstagings.finCol3 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.finCol4 | number}} </td>
+                        <td>{{ collateralRECAMTstagings.TotalColRecAmt | number}} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

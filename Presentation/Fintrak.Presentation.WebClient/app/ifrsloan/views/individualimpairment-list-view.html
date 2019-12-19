@@ -1,0 +1,80 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-individualimpairment-edit({individualimpairmentId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="individualImpairmentTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductName</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <th>RunDate</th>
+                        <th>Processed</th>
+                        <th>Amount</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="individualImpairment in vm.individualImpairments">
+
+                        <td>
+                            {{ individualImpairment.RefNo}}
+                        </td>
+                        <td>
+                            {{ individualImpairment.AccountNo}}
+                        </td>
+
+                        <td>
+                            {{ individualImpairment.ProductName}}
+                        </td>
+
+                        <td>
+                            {{ individualImpairment.ValueDate| date:'MM-dd-yyyy'}}
+                        </td>
+                        <td>
+                            {{ individualImpairment.MaturityDate| date:'MM-dd-yyyy'}}
+                        </td>
+
+                        <td>
+                            {{ individualImpairment.RunDate| date:'MM-dd-yyyy'}}
+                        </td>
+                        <td>
+                            {{ individualImpairment.Processed}}
+                        </td>
+
+                        <td>
+                            {{ individualImpairment.Amount}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-individualimpairment-edit({individualimpairmentId: individualImpairment.Id})">
+                                Edit
+                            </a>
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

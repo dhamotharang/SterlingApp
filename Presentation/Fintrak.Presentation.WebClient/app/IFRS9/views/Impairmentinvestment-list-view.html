@@ -1,0 +1,81 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-externalrating-edit({externalratingId:0})"> Create New</a>
+            </div>--> 
+            <br />
+            
+            <table id="impairmentInvestmentTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Customer ID</th>
+                        <th>Counterparty</th>
+                        <th>Asset Name</th>
+                        <th>Rating</th>
+                        <th>Stage Allocation</th>
+                        <th>Outstanding Bal</th>
+                        <th>Best ECL</th>
+                        <th>Optimistic ECL</th>
+                        <th>Downturn ECL</th>
+                        <th>Impairment</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="impairmentInvestment in vm.impairmentInvestments">
+                        <td>
+                            {{ impairmentInvestment.cust_id}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.counterparty}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.asset_name}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.rating}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.stage_allocation}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.outstanding_bal}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.best_ecl}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.Optimistic_ecl}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.downturn_ecl}}
+                        </td>
+                        <td>
+                            {{ impairmentInvestment.Impairment}}
+                        </td>
+
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-externalrating-edit({externalratingId: impairmentInvestment.ExternalRatingId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

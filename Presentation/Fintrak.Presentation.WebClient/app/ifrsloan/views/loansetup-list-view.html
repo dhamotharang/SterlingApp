@@ -1,0 +1,69 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-loansetup-edit({loansetupId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="loanSetupTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>
+                        Delete
+                        </th>
+                        <th>Significant Loan Markup</th>
+                        <th>Rating Type</th>
+                        <th>EP Option</th>
+                        <th>Default EP</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanSetup in vm.loanSetups">
+                        <td>
+                            <input type="checkbox"
+                                   value="{{loanSetup.LoanSetupId}}"
+                                   ng-checked="selection.indexOf(loanSetup.LoanSetupId) > -1"
+                                   ng-click="toggleSelection(loanSetup.LoanSetupId)" />
+                             {{loanSetup.LoanSetupId}}
+                        </td>
+                        <td>
+                            {{ loanSetup.SignificantLoanMarkUp}}
+                        </td>
+                        <td>
+                            {{ loanSetup.RatingTypeName}}
+                        </td>
+                        <td>
+                            {{ loanSetup.EPOption}}
+                        </td>
+                        <td>
+                            {{ loanSetup.EPDefault}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-loansetup-edit({loansetupId: loanSetup.LoanSetupId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a class="btn btn-info btn-xs" ng-click="vm.delete()"> Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+

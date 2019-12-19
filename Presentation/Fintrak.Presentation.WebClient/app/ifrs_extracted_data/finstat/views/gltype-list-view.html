@@ -1,0 +1,49 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="finstat-gltype-edit({gltypeId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="glTypeTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="glType in vm.glTypes">
+                        <td>
+                            {{ glType.Name}}
+                        </td>
+                        <td>
+                            {{ glType.Description}}
+                        </td>
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-gltype-edit({gltypeId: glType.GLTypeId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

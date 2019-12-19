@@ -1,0 +1,75 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <!-- <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCummulativeDefaultAmtBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>  --->
+
+                </div>
+            </div>
+            <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+
+            <table id="cummulativeDEFAULTamtTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>YOO</th>
+                        <th>OriginationYearBal</th>
+                        <th>CumDefaulAmt_yr0</th>
+                        <th>CumDefaulAmt_yr1</th>
+                        <th>CumDefaulAmt_yr2</th>
+                        <th>CumDefaulAmt_yr3</th>
+                        <th>CumDefaulAmt_yr4</th>
+                        <th>CumDefaulAmt_yr5</th>
+                        <th>CumDefaulAmt_yr6</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cummulativeDEFAULTamts in vm.cummulativeDEFAULTamt">
+
+                        <td>{{ cummulativeDEFAULTamts.ProductType	 }}</td>
+                        <td>{{ cummulativeDEFAULTamts.sub_type }}</td>
+                        <td>{{ cummulativeDEFAULTamts.Origin_yr }}</td>
+                        <td>{{ cummulativeDEFAULTamts.AdjBal | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr1 | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr2 | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr3 | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr4 | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr5 | number}}</td>
+                        <td>{{ cummulativeDEFAULTamts.OutBalAfter_yr6 | number}}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

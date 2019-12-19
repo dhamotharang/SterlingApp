@@ -1,0 +1,77 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" ng-click="vm.getUnMappedGLs()"> Check Un-Mapped GLs</a>
+            </div>
+            <br />
+
+            <table id="unMappedGLTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GL Code</th>
+                        <th>Description</th>
+                        <th>Auto Maincaption</th>
+                        <th>Auto SubCaption</th>
+                        <th>Auto Position</th>
+                        <th style="width: 7%;">Action</th>
+                      <!--  <th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="unMappedGL in vm.unMappedGLs">
+                        <td>
+                            {{ unMappedGL.GLCode}}
+                        </td>
+                        <td>
+                            {{ unMappedGL.GLDescription}}
+                        </td>
+                        <td>
+                            {{ unMappedGL.MainCaption}}
+                        </td>
+                        <td>
+                            {{ unMappedGL.SubCaption}}
+                        </td>
+                        <td>
+                            {{ unMappedGL.SubPosition}}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-unmappedgl-edit({glcode: unMappedGL.GLCode})">
+                                Edit 
+                            </a>
+                        </td>-->
+                        <td>
+                            <a id="edit" class="" data-ui-sref="finstat-unmappedgl-edit({glcode: unMappedGL.GLCode})"> Edit |</a> 
+                            <a id="update" class="" data-ui-sref="finstat-unmappedgl-list" ng-click="vm.updateGL(unMappedGL.GLCode)">Update</a> 
+                            <br />
+                        </td>
+                        <!--<td>
+                       <a class="btn btn-orange btn-xs" ng-click="vm.updateGL(unMappedGL.GLCode)">
+                       Update
+                       </a>
+                       </td>-->
+
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" ng-click="vm.updateGL(unMappedGL.GLCode)">
+                                Update
+                            </a>
+                        </td>-->
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

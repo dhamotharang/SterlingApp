@@ -1,0 +1,959 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <label for="" class="control-label">Select Reference Number then Date :</label>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="dropdown dropdown-scroll">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                        Select Reference No. <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" style="max-height: 400px; width: 200px; overflow: auto;" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation">
+                                            <div class="input-group input-group-sm search-control" style="padding: 5px 10px;">
+                                                <input type="text" class="form-control" placeholder="Search Referencce No." ng-model="vm.selectedRefNos[0].name">
+                                                <button class="input-group-addon" ng-click="vm.onClearSelected()">
+                                                    <span class="glyphicon glyphicon-erase">Reset</span>
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li role="presentation" ng-repeat='item in vm.distinctRefNos | filter: vm.selectedRefNos[0].name'>
+                                            <button class="input-group-addon" ng-click="vm.onSelectList(item.name)"> {{item.name}} </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control input-sm" data-ng-model="vm.selectedRefNos[0].name"
+                                       style="width:250px;background-color:lightblue" /> <!--ng-disabled="true" />-->
+                            </div>
+                            <div class="col-md-4">
+                                <input type="date" class="input-sm" placeholder="Provide Tentative Date" data-ng-model="vm.Date " style="width:150px" |date />
+                                &nbsp;&nbsp;&nbsp;
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Search</button>
+                            </div>
+                        </div>
+                        <br />
+                        <!--<div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>-->
+                    </form>
+                </div>
+            </div>
+            <br />
+
+
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active"><a href="#loaneclresult" role="tab" data-toggle="tab">Current Details</a></li>
+                <li><a href="#collateraldetails" role="tab" data-toggle="tab">Collateral Details</a></li>
+                <li><a href="#loanpry" role="tab" data-toggle="tab" ng-show="vm.loan">Primary Data</a></li>
+                <li><a href="#loancashflow" role="tab" data-toggle="tab" ng-show="vm.loan">Cash Flow Schedule</a></li>
+                <li><a href="#loanschedule" role="tab" data-toggle="tab" ng-show="vm.loan">Daily Amortized Cost Schedule</a></li>
+                <li><a href="#loanmonthlyead" role="tab" data-toggle="tab" ng-show="vm.loan">Monthly EAD Schedule</a></li>
+                <li><a href="#loaneclcomputationresult" role="tab" data-toggle="tab" ng-show="vm.loan">ECL Schedule</a></li>
+            </ul>
+
+
+            <div class="tab-content">
+
+                <div class="tab-pane fade in active" id="loaneclresult">
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="tab-content">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">RefNo</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.RefNo"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">ProductCode</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.ProductCode"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Value Date</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loandetails.ValueDate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loandetails.ValueDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                            <!--<div class="col-sm-1">
+            <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+        </div>-->
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Prin. Out Bal.</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loandetails.PrincipalOutstandingBal" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Past Due Amount</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" ng-model="vm.loandetailedinfo.loandetails.PastDueAmount" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">ODLimit</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loandetails.ODLimit"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Expected Credit Loss</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loaneclresult.FinalECLWeightAvg" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">FinalECLBest</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loaneclresult.FinalECLBest" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Rate (%)</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Rate" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Principal First RepayDate</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="date" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.PrincipalFirstRepaymentDate"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Prin Repay Freq</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.PrincipalRepayFreq"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Rating</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Sector" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Sector"
+                                                    style="width:250px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">HC1</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.ProductType"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Classification</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Classification"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="tab-content">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">AccountNo</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.AccountNo"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Product Name</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.ProductName"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Maturity Date</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loandetails.MaturityDate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loandetails.MaturityDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate2" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                            <!--<div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </div>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Amortized Cost</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loaneclresult.AmortizedCost" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Interest Receivable</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loandetails.Interest_Receiv_Pay_UnEarn" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Amortized Cost Adjustment</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.AmortAdj" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">FinalECLOptimistic</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loaneclresult.FinalECLOptimistic" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">FinalECLDownturn</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loaneclresult.FinalECLDownTurn" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">EIR (%)</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loaneclresult.EIR" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Int.First RepayDate</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="date" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.FirstRepaymentdate"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Int. Repay Freq</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.InterestRepayFreq"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">IFRS9 Stage</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Stage"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">HC2</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.Sub_Type"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Sub Classification</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loandetails.SubClassification"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <!--<table id="loaneclresultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+            <thead>
+                <tr>
+                    <th>CustomerNo</th>
+                    <th>RefNo</th>
+                    <th>CustomerName</th>
+                    <th>Producttype	</th>
+                    <th>SubType</th>
+                    <th>Currency</th>
+                    <th>Stage</th>
+                    <th>AmortizedCost</th>
+                    <th>EIR</th>
+                    <th>PrincipalOutBal</th>
+                    <th>FinalECLOptimistic</th>
+                    <th>FinalECLBest</th>
+                    <th>FinalECLDownTurn</th>
+                    <th>FinalECLWTAvg</th>
+                    <th>Rundate</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="loanECLresults in vm.loandetailedinfo.loaneclresult">
+
+                    <td>{{ loanECLresults.AccountNo }}</td>
+                    <td>{{ loanECLresults.RefNo }}</td>
+                    <td>{{ loanECLresults.CustomerName }}</td>
+                    <td>{{ loanECLresults.Producttype	 }}</td>
+                    <td>{{ loanECLresults.SubType }}</td>
+                    <td>{{ loanECLresults.Currency }}</td>
+                    <td>{{ loanECLresults.Stage }}</td>
+                    <td>{{ loanECLresults.AmortizedCost  | number}}</td>
+                    <td>{{ loanECLresults.EIR | number }}</td>
+                    <td>{{ loanECLresults.PrincipalOutBal | number }}</td>
+                    <td>{{ loanECLresults.FinalECLOptimistic | number}}</td>
+                    <td>{{ loanECLresults.FinalECLBest | number}}</td>
+                    <td>{{ loanECLresults.FinalECLDownTurn | number}}</td>
+                    <td>{{ loanECLresults.FinalECLWeightAvg | number}}</td>
+                    <td>{{ loanECLresults.Rundate | date:'dd-MM-yyyy'}}</td>
+
+                </tr>
+
+
+            </tbody>
+
+
+        </table>-->
+
+                </div>
+
+
+                <div class="tab-pane fade" id="loanpry" ng-show="vm.loan">
+
+                    <div class="row">
+
+                        <div class="col-md-5">
+
+                            <div class="tab-content">
+
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">RefNo</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.RefNo"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">ProductCode</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.ProductCode"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Value Date</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loanpry.ValueDate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loanpry.ValueDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                            <!--<div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </div>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Int RepayDate</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loanpry.FirstRepaymentdate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loanpry.FirstRepaymentdate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate3" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                            <!--<div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate3($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </div>-->
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Int Frequency</label>
+                                            <div class="col-sm-3">
+                                                <input type="number" ng-model="vm.loandetailedinfo.loanpry.InterestRepayFreq" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loanpry.FirstRepaymentdate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate3" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Amount</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" format="number" data-ng-model="vm.loandetailedinfo.loanpry.Amount" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <!--<div class="form-group">
+                                <label class="col-sm-3 control-label">Periodic Repay Amt</label>
+                                <div class="col-sm-9 controls">
+                                    <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.PeriodicRepaymentAmount" style="width:150px;background-color:lightblue" ng-disabled="true"/>
+                                </div>
+                            </div>-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Schedule Type</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.Schedule_Type" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="tab-content">
+                                <form action="#" class="form-horizontal">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">AccountNo</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.AccountNo"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Product Name</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.ProductName"
+                                                       style="width:250px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Maturity Date</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loanpry.MaturityDate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!-- <input type="text" ng-model="vm.loandetailedinfo.loanpry.MaturityDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate2" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+                                            <!--<div class="col-sm-1">
+                                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                </div>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Prin RepayDate</label>
+                                            <div class="col-sm-3">
+                                                <input type="date" ng-model="vm.loandetailedinfo.loanpry.InterestFirstRepayDate" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loanpry.FirstRepaymentdate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate3" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Prin Frequency</label>
+                                            <div class="col-sm-3">
+                                                <input type="number" ng-model="vm.loandetailedinfo.loanpry.PrincipalRepayFreq" class="form-control input-sm" style="width:200px;background-color:lightblue" ng-disabled="true" />
+                                                <!--<input type="text" ng-model="vm.loandetailedinfo.loanpry.FirstRepaymentdate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate3" style="width:200px;background-color:lightblue" ng-disabled="true"/>-->
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--<div class="form-group">
+                                <label class="col-sm-3 control-label">Periodic Repay Amt</label>
+                                <div class="col-sm-9 controls">
+                                    <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.PeriodicRepaymentAmount" style="width:150px;background-color:lightblue" ng-disabled="true"/>
+                                </div>
+                            </div>-->
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Rate (%)</label>
+                                            <div class="col-sm-9 controls">
+                                                <input type="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.loanpry.Rate" style="width:150px;background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="loancashflow" ng-show="vm.loan">
+
+                    <br />
+
+
+                    <table id="loancashflowTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>RefNo</th>
+                                <th>Date PMT</th>
+                                <!--<th>ProductCode</th>-->
+                                <th>Principal Amount</th>
+                                <th>Interest Amount</th>
+                                <th>Fee Amount</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="cashFlows in vm.loandetailedinfo.loancashflow">
+                                <td>
+                                    {{ cashFlows.RefNo}}
+                                </td>
+                                <td>
+                                    {{ cashFlows.datepmt | date }}
+                                </td>
+
+                                <td>
+                                    {{ cashFlows.amt_prin_pay | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ cashFlows.amt_int_pay | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ cashFlows.amt_fee_pay | currency :"":0}}
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="loanschedule" ng-show="vm.loan">
+
+                    <br />
+
+                    <table id="loanscheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <!--<th>Sequence</th>
+                    <th>RefNo</th>
+                    <th>Date</th>
+                    <th>PaymentDate</th>
+                    <th>AmountPrincInit</th>
+                    <th>DailyInt</th>
+                    <th>AccruedInterest</th>
+                    <th>AmortizedCost</th>
+                    <th>AmountPrinEnd</th>
+                    <th>NorminalRate</th>-->
+                                <th>AMSequence</th>
+                                <th>AMRefNo</th>
+                                <th>AMDate</th>
+                                <th>AMPaymentDate</th>
+                                <th>AMAmountPrincInit</th>
+                                <th>AMDailyInt</th>
+                                <th>AMAccruedInterest</th>
+                                <th>AMAmortizedCost</th>
+                                <th>AMAmountPrinEnd</th>
+                                <th>UnearnedFee</th>
+                                <th>EarnedFee</th>
+                                <th>EffectiveRate</th>
+                                <th>NoOfPeriod</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="loanSchedule in vm.loandetailedinfo.loanschedule">
+                                <!--<td>
+                        {{loanSchedule.Sequence}}
+                    </td>
+                    <td>
+                        {{loanSchedule.RefNo}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.Date | date}}
+                    </td>
+                    <td>
+                        {{loanSchedule.PaymentDate | date}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.AmountPrincInit | currency :"":0}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.DailyInt | currency :"":0}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.AccruedInterest | currency :"":0}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.AmortizedCost | currency :"":0}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.AmountPrincEnd | currency :"":0}}
+                    </td>
+                    <td>
+                        {{ loanSchedule.NorminalRate }}
+                    </td>-->
+                                <td>
+                                    {{loanSchedule.AMSequence}}
+                                </td>
+                                <td>
+                                    {{loanSchedule.RefNo}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMDate | date}}
+                                </td>
+                                <td>
+                                    {{loanSchedule.AMPaymentDate | date}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMAmountPrincInit | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMDailyInt | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMAccruedInterest | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMAmortizedCost | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.AMAmountPrincEnd | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.UnearnedFee | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.EarnedFee | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.EffectiveRate }}
+                                </td>
+                                <td>
+                                    {{ loanSchedule.NoOfPeriods }}
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="tab-pane fade" id="loanmonthlyead" ng-show="vm.loan">
+
+                    <br />
+
+                    <table id="loanmonthlyeadTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Account No</th>
+                                <th>Ref No</th>
+                                <th>Date PMT</th>
+                                <th>Amortized Cost</th>
+                                <th>EAD</th>
+                                <th>Product Type</th>
+                                <th>Sub Type</th>
+                                <th>Currency</th>
+                                <th>OriginYear</th>
+                                <th>Interest Accrued</th>
+                                <th>EIR</th>
+                                <th>Tenor In Days</th>
+                                <th>Stage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="IfrsMonthlyead in  vm.loandetailedinfo.loanmonthlyead">
+                                <td>
+                                    {{ IfrsMonthlyead.AccountNo }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.RefNo }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.date_pmt |date }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.AmortizedCost | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.EAD | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.Producttype }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.SubType }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.currency }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.OriginYear }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.InterestAccrued | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.EIR }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.TenorInDays }}
+                                </td>
+                                <td>
+                                    {{ IfrsMonthlyead.Stage }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="loaneclcomputationresult" ng-show="vm.loan">
+
+                    <br />
+
+                    <table id="loaneclcomputationresultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>CustID</th>
+                                <th>AccountNo</th>
+                                <th>CustomerName</th>
+                                <th>Date</th>
+                                <th>HC1</th>
+                                <th>HC2</th>
+                                <th>Stage</th>
+                                <th>Cur</th>
+                                <th>Rate</th>
+                                <th>EAD</th>
+                                <th>EAD_Trans</th>
+                                <th>EIR</th>
+                                <th>PrincipalOutBal</th>
+                                <th>TotalRecAmt</th>
+                                <th>LGD</th>
+                                <th>DisFactor</th>
+                                <th>PDBest</th>
+                                <th>PDOptimistic</th>
+                                <th>PDDownTurn</th>
+                                <th>ECLBest</th>
+                                <th>ECLOptimistic</th>
+                                <th>ECLDownTurn</th>
+                                <th>ECLWeightAvg</th>
+                                <th>Rundate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="loansecLComputationresults in vm.loandetailedinfo.loaneclcomputationresult">
+
+                                <td> {{ loansecLComputationresults.AccountNo }} </td>
+                                <td> {{ loansecLComputationresults.Refno }} </td>
+                                <td> {{ loansecLComputationresults.CustomerName }} </td>
+                                <td> {{ loansecLComputationresults.date_pmt | date  }} </td>
+                                <td> {{ loansecLComputationresults.Producttype }} </td>
+                                <td> {{ loansecLComputationresults.SubType }} </td>
+                                <td> {{ loansecLComputationresults.Stage }} </td>
+                                <td> {{ loansecLComputationresults.Currency }} </td>
+                                <td> {{ loansecLComputationresults.ExchangeRate }} </td>
+                                <td> {{ loansecLComputationresults.AmortizedCost | currency :"":0 }} </td>
+                                <td> {{ loansecLComputationresults.AmortizedCost_Trans | currency :"":0 }} </td>
+                                <td> {{ loansecLComputationresults.EIR | currency :"":0}} </td>
+                                <td> {{ loansecLComputationresults.PrincipalOutBal | currency :"":0}} </td>
+                                <td> {{ loansecLComputationresults.TotalRecoverableAmt | currency :"":0 }} </td>
+                                <td> {{ loansecLComputationresults.LGD }} </td>
+                                <td> {{ loansecLComputationresults.DiscountFactor }} </td>
+                                <td> {{ loansecLComputationresults.PDBest }} </td>
+                                <td> {{ loansecLComputationresults.PDOptimistic | number}} </td>
+                                <td> {{ loansecLComputationresults.PDDownTurn | number}} </td>
+                                <td> {{ loansecLComputationresults.FinalECLBest | number}} </td>
+                                <td> {{ loansecLComputationresults.FinalECLOptimistic | number}} </td>
+                                <td> {{ loansecLComputationresults.FinalECLDownTurn | number}} </td>
+                                <td> {{ loansecLComputationresults.FinalECLWeightAvg  | number}} </td>
+                                <td> {{ loansecLComputationresults.Rundate | date }} </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+
+
+                <div class="tab-pane fade" id="collateraldetails">
+
+                    <br />
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="tab-content">
+                                <form action="#" class="form-horizontal col-md-5">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Type 1</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColType1" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Location 1</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Col_Qualifier1" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Perfection Status 1</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Perfection_Status1" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Amount 1</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" format="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColAmt1" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Type 3</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColType3" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Location 3</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Col_Qualifier3" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Perfection Status 3</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Perfection_Status3" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Amount 3</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" format="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColAmt3" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Date Loaded</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="date" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.DateLoaded" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+
+                                <form action="#" class="form-horizontal col-md-5">
+                                    <div class="form-body">
+
+                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Type 2</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColType2" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Location 2</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Col_Qualifier2" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Perfection Status 2</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Perfection_Status2" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Amount 2</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" format="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColAmt2" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Type 4</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColType4" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Location 4</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Col_Qualifier4" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Perfection Status 4</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="text" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.Perfection_Status4" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label">Collateral Amount 4</label>
+                                            <div class="col-sm-3 controls">
+                                                <input type="number" format="number" class="form-control input-sm" data-ng-model="vm.loandetailedinfo.collateraldetails.ColAmt4" style="width:200px; background-color:lightblue" ng-disabled="true" />
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

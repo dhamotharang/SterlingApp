@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2634C228-C7FE-44E3-A39D-C93AC85FBC82}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fintrak.Client.Basic.Contracts</RootNamespace>
+    <AssemblyName>Fintrak.Client.Basic.Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreTechs.Common">
+      <HintPath>..\..\Business\Fintrak.Business.Basic.Managers\bin\Debug\CoreTechs.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data Contracts\Financial_Instruments\FairValueBasisExemptionData.cs" />
+    <Compile Include="Data Contracts\Financial_Instruments\FairValueBasisMapData.cs" />
+    <Compile Include="Data Contracts\Finstat\AutoPostingTemplateData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLMappingData.cs" />
+    <Compile Include="Data Contracts\Finstat\TransactionDetailData.cs" />
+    <Compile Include="Data Contracts\Finstat\IFRSReportData.cs" />
+    <Compile Include="Data Contracts\Finstat\PostingDetailData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLAdjustmentData.cs" />
+    <Compile Include="Data Contracts\Finstat\TrialBalanceData.cs" />
+    <Compile Include="Data Contracts\Finstat\TrialBalanceGapData.cs" />
+    <Compile Include="Data Contracts\Finstat\GLTypeData.cs" />
+    <Compile Include="Data Contracts\Finstat\InstrumentTypeGLMapData.cs" />
+    <Compile Include="Data Contracts\Finstat\InstrumentTypeData.cs" />
+    <Compile Include="Data Contracts\IFRS Core\IFRSRegistryData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IndividualScheduleData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IndividualImpairmentData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralInformationData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\ImpairmentOverrideData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralRealizationPeriodData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\CollateralTypeData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\IFRSProductData.cs" />
+    <Compile Include="Data Contracts\IFRS LOANS\LoanSetupData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data Contracts\IndividualKeyData.cs" />
+    <Compile Include="Data Contracts\KeyValueData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service Contracts\IFinstatService.cs" />
+    <Compile Include="Service Contracts\IFinancialInstrumentService.cs" />
+    <Compile Include="Service Contracts\IIFRSDataViewService.cs" />
+    <Compile Include="Service Contracts\IIFRSLoanService.cs" />
+    <Compile Include="Service Contracts\IIFRSCoreService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Fintrak.Business.Basic.Contracts\Fintrak.Business.Basic.Contracts.csproj">
+      <Project>{a2519bc8-8a74-47cf-8bd2-8a7d8545b1ec}</Project>
+      <Name>Fintrak.Business.Basic.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.Basic.Framework\Fintrak.Shared.Basic.Framework.csproj">
+      <Project>{AB5B536A-8D6D-4531-98BA-7A6171D7B096}</Project>
+      <Name>Fintrak.Shared.Basic.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.Common\Fintrak.Shared.Common.csproj">
+      <Project>{D188C9CA-C170-4496-8CAD-C6EEE1F3D7D8}</Project>
+      <Name>Fintrak.Shared.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Shared\Fintrak.Shared.Core.Framework\Fintrak.Shared.Core.Framework.csproj">
+      <Project>{36C91371-851E-4720-9EB4-53481A50D8C2}</Project>
+      <Name>Fintrak.Shared.Core.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fintrak.Client.Basic.Entities\Fintrak.Client.Basic.Entities.csproj">
+      <Project>{9B854568-5327-4C27-AF24-8364CBD84BF7}</Project>
+      <Name>Fintrak.Client.Basic.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

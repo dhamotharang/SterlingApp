@@ -1,0 +1,78 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div>
+                    <a class="btn btn-info" data-ui-sref="mpr-managementtree-edit({managementtreeId:0})"> Create New</a>
+                </div>
+                <div class="btn-group" style="float:right">
+                    <button class="btn btn-default" ng-click="vm.toggleView('list')" ><i class="fa fa-align-justify"></i></button>
+                    <button class="btn btn-default" ng-click="vm.toggleView('tree')"><i class="fa fa-align-center"></i></button>
+                </div>
+            </div> 
+          
+            <br />
+            
+            <table id="managementTreeTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" ng-show="vm.viewType === 'list'">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>TeamDefinition</th>
+                        <th>Team</th>
+                        <th>AccountOfficerDefinition</th>
+                        <th>AccountOfficer</th>
+                        <th>Rate</th>
+                        <th>Year</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat='managementTree in vm.managementTrees'>
+                        <td>
+                            {{ managementTree.AccountNo}}
+                        </td>
+                        <td>
+                            {{ managementTree.TeamDefinitionName}}
+                        </td>
+                        <td>
+                            {{ managementTree.TeamCode}}
+                        </td>
+                        <td>
+                            {{ managementTree.AccountOfficerDefinitionCode}}
+                        </td>
+                        <td>
+                            {{ managementTree.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{ managementTree.Rate}}
+                        </td>
+                        <td>
+                            {{ managementTree.Year}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-managementtree-edit({managementtreeId: managementTree.ManagementTreeId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div ng-show="vm.viewType === 'tree'">
+                <tree-grid tree-data="vm.tree_data" col-defs="vm.col_defs"></tree-grid>
+            </div>
+
+        </div>
+    </div>
+</div>

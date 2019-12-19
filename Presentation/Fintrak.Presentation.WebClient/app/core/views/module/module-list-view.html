@@ -1,0 +1,67 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+      <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+          <!--<div>
+              <label for="" class="control-label">Report Name/ReportDate : </label>
+              <select class="input-sm" ng-model="vm.selectedSolutionId" ng-options="solution.SolutionId as solution.Alias for solution in vm.solutions" style="width:150px;" ng-change="vm.onSolutionChanged(vm.selectedSolutionId)"></select>
+
+              <select class="input-sm" ng-model="vm.csv.uploadId" ng-options="upload.UploadId as upload.Title for upload in vm.uploads" style="width:250px;" ng-change="vm.onUploadChanged(vm.csv.uploadId)"></select>
+                            <button id="btnDisplayReport" onclick="displayReport()">Display Report</button>
+              <br />
+          </div>
+          <iframe id="ReportDisplayFrame" src="http://fintrak15/ReportServer_FINTRAKIFRSSERV/Pages/ReportViewer.aspx?%2fFinTrak_PI360_IFRS_Reports%2fStartup&rs:Command=Render" onload="this.width=screen.width;this.height=screen.height;"></iframe>
+
+
+
+          <script type="text/javascript">
+              function displayReport() {
+                  var src = 'http://fintrak15/ReportServer_FINTRAKIFRSSERV/Pages/ReportViewer.aspx?%2fFinTrak_PI360_IFRS_Reports%2fFinstatBS&rs:Command=Render&CompanyCode=CMP&BranchCode=All&ReportDate=02/29/2016&rc:Parameters=false'
+                  var iframe = document.getElementById('ReportDisplayFrame')
+                  iframe.src = src
+                  iframe.contentWindow.location.reload()
+              }
+          </script>-->
+
+            <table id="moduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Module Name</th>
+                        <th>Alias</th>
+                        <th>Solution Name</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="module in vm.modules">
+
+                        <td>
+                            {{ module.Name}}
+                        </td>
+                        <td>
+                            {{ module.Alias}}
+                        </td>
+                        <td>
+                            {{ module.SolutionName}}
+                        </td>
+                       <td>
+                           <btn class="btn btn-danger btn-xs" ng-click="vm.processUpdate(module)" ng-hide="module.CanUpdate">Update on Start</btn>
+                           <btn class="btn btn-info btn-xs" ng-click="vm.processUpdate(module)" ng-show="module.CanUpdate">Prevent Update</btn>
+                       </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

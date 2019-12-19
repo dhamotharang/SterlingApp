@@ -1,0 +1,119 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Search Type :</label>
+                    <select class="input-sm" ng-model="vm.selectedsearchType" ng-options="searchType.Name as searchType.Name for searchType in vm.searchTypes" style="width:150px;"></select>
+                    <input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:350px" />
+                    <label for="" class="control-label">From Date :</label>
+                    <select class="input-sm" ng-model="vm.RunDate" ng-options="rundates.RunDate as rundates.RunDate for rundates in vm.distinctRunDate" style="width:150px;" | date></select> 
+                </div>
+
+                <div class="col-md-5">
+                    <label for="" class="control-label">To Date :</label>
+                    <select class="input-sm" ng-model="vm.ToDate" ng-options="todates.ToDate as todates.ToDate for todates in vm.distinctToDate" style="width:150px;" | date></select>
+                    <label for="" class="control-label">Count:</label>
+                    <input type="number" class="input-sm" data-ng-model="vm.number" style="width:150px;" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadPLReports()">Load</button>
+                    <a href="Home/LoadExcelrevenue" target="_blank">Export</a>
+                    <!--<button ng-click="vm.exportToExcel('#revenueTable')">Export</button>-->
+                </div>
+
+            </div>
+            <br />
+
+            <table id="revenueTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Trans Id </th>
+                        <th>Trans Date</th>
+                        <th>Narrative</th>
+                        <th>Team</th>
+                        <th>AccountOfficer</th>
+                        <th>Branch Code</th>
+                        <th>Indicator</th>
+                        <th>GLCode</th>
+                        <th>GL Account</th>
+                        <th>GL Description</th>
+                        <th>Caption</th>
+                        <th>Related Account</th>
+                        <th>Account Title</th>
+                        <th>Amount LCY</th>
+                        <th>RunDate</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-scroll-repeat="revenue in vm.revenue" page-size="20" tolerance="200">
+                        <td>
+                            {{revenue.TransId}}
+                        </td>
+                        <td>
+                            {{revenue.TransDate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{revenue.Narrative}}
+                        </td>
+                        <td>
+                            {{revenue.TeamCode}}
+                        </td>
+                        <td>
+                            {{revenue.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{revenue.BranchCode}}
+                        </td>
+                        <td>
+                            {{revenue.Indicator}}
+                        </td>
+
+                        <td>
+                            {{revenue.GLCode}}
+                        </td>
+                        <td>
+                            {{revenue.GLAccount}}
+                        </td>
+                        <td>
+                            {{revenue.GLDescription}}
+                        </td>
+                        <td>
+                            {{revenue.Caption}}
+                        </td>
+                        <td>
+                            {{revenue.RelatedAccount}}
+                        </td>
+                        <td>
+                            {{revenue.AccountTitle}}
+                        </td>
+                        <td>
+                            {{revenue.Amount_LCY}}
+                        </td>
+                        <td>
+                            {{revenue.RunDate | date:'dd-MM-yyyy'}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-revenue-edit({revenueId: revenue.RevenueId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" ng-click="vm.deleteallrecord()">Delete All Record</a>
+            </div>
+            <br />
+
+            <table id="errorTrackerTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th hidden="hidden">Error Tracker Id</th>
+                        <th>Error Message</th>
+                        <th>Stored Procedure Name</th>
+                        <th>User</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="errorTracker in vm.errorTrackers">
+                        <td hidden="hidden">
+                            {{errorTracker.ErrorTrackerId}}
+
+                        </td>
+                        <td>
+                            {{errorTracker.ErrMessage}}
+                        </td>
+                        <td>
+                            {{errorTracker.StoredProcedureName}}
+                        </td>
+                        <td>
+                            {{errorTracker.UserId}}
+                        </td>
+
+                        <td>
+                            <button class="btn btn-danger btn-xs" ng-click="vm.delete($index)">
+                                Remove Record
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

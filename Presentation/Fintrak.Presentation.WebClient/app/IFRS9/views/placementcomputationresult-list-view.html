@@ -1,0 +1,95 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-placementcomputationresult-edit({placementcomputationresultId:0})"> Create New</a>
+            </div>-->
+            <br />
+
+            <table id="placementComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>RefNo</th>
+                        <th>Rating</th>
+                        <th>BookingDate</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <th>TransactionAmount</th>
+                        <th>InterestRate</th>
+                        <th>ExchangeRate</th>
+                        <th>LCY_Amount</th>
+                        <th>Days_in_Holding</th>
+                        <th>Interest</th>
+                        <th>AmortisedCost</th>
+                        <th>Rundate</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="placementComputationResult in vm.placementComputationResults">
+                        <td>
+                            {{ placementComputationResult.CustomerName}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.RefNo }}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.Rating}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.BookingDate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.ValueDate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.MaturityDate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.TransactionAmount | number}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.InterestRate }}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.LCY_Amount | number}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.Days_in_Holding | number}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.Interest | number}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.AmortisedCost | number}}
+                        </td>
+                        <td>
+                            {{ placementComputationResult.Rundate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-placementcomputationresult-edit({placementcomputationresultId: placementComputationResult.Id})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

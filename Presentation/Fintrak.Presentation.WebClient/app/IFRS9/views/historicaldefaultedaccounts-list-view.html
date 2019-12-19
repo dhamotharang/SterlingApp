@@ -1,0 +1,81 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-historicaldefaultedaccounts-edit({defaultedAccountId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="historicalDefaultedAccountsTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Sector</th>
+                        <th>ODLimit</th>
+                        <th>PrincipalOutstandingBal</th>
+                        <th>BalanceOnRefDate</th>
+                        <th>BalanceOnDefaultDate</th>
+                        <th>Currency</th>
+                        <th>ExchangeRate</th>
+                        <th>RunDate</th>
+                        <th>Classification</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="historicalDefaultedAccount in vm.historicalDefaultedAccounts">
+                        <td>
+                            {{ historicalDefaultedAccount.RefNo}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.Sector}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.ODLimit | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.PrincipalOutstandingBal | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.BalanceOnRefDate | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.BalanceOnDefaultDate | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.Currency}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.RunDate}}
+                        </td>
+                        <td>
+                            {{ historicalDefaultedAccount.Classification}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-historicaldefaultedaccounts-edit({defaultedAccountId: historicalDefaultedAccount.DefaultedAccountId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

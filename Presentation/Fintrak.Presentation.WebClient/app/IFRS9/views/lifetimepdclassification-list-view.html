@@ -1,0 +1,74 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+           
+            <br />
+            
+            <table id="lifetimepdclassificationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>CustomerName</th>
+                        <!--<th>Base LifetimePD</th>-->
+                        <th>Base Rating</th>
+                        <!--<th>Current LifetimePD</th>-->
+                        <th>Current Rating</th>
+                        <th>Notch Movement</th>
+                        <th>Probational Period</th>
+                        <th>Bucket</th>
+                        <th>Remark</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lifetimepdclassification in vm.lifetimepdclassifications">
+                        <td>
+                            {{ lifetimepdclassification.RefNo}}
+                        </td>
+                        <td>
+                            {{ lifetimepdclassification.CustomerName}}
+                        </td>
+
+                        <!--<td>
+                            {{ lifetimepdclassification.BaseLifetimePD}}
+                        </td>-->
+                        <td>
+                            {{ lifetimepdclassification.BaseRating}}
+                        </td>
+                        <!--<td>
+                            {{ lifetimepdclassification.CurrentLifetimePD}}
+                        </td>-->
+
+                        <td>
+                            {{ lifetimepdclassification.CurrentRating}}
+                        </td>
+                        <td>
+                            {{ lifetimepdclassification.NotchDiff}}
+                        </td>
+                        <td>
+                            {{ lifetimepdclassification.Probational_Period}}
+                        </td>
+                        <td>
+                            {{ lifetimepdclassification.Classification }}
+                        </td>
+                        <td>
+                            {{ lifetimepdclassification.Notes }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

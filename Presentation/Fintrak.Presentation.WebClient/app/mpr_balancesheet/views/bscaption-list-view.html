@@ -1,0 +1,71 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-bscaption-edit({bscaptionId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="bsCaptionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Module</th>
+                        <th>Currency Type</th>
+                        <th>Interest Caption</th>
+                        <th>Type</th>
+                        <th>Position</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bsCaption in vm.bsCaptions">
+                        <td>
+                            {{ bsCaption.CaptionCode}}
+                        </td>
+                        <td>
+                            {{ bsCaption.CaptionName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.CategoryName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.ModuleName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.CurrencyTypeName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.PLCaptionName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.BalanceSheetTypeName}}
+                        </td>
+                        <td>
+                            {{ bsCaption.Position}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-bscaption-edit({bscaptionId: bsCaption.CaptionId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

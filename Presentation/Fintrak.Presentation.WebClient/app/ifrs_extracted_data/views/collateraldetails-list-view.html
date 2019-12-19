@@ -1,0 +1,103 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCollateralDetailsBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                    </form>
+                </div>
+            </div>
+            <!--<div>
+                <button type="button" ng-csv="vm.collateralDetailsTable" filename="LoanPryExport.csv">Full Export</button>
+            </div>
+            <br />-->
+
+            <table id="collateralDetailsTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Action</th>
+                        <th>Account Number</th>
+                        <th>Customer Name</th>
+                        <th>YOO</th>
+                        <th>Maturity Date</th>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>Collateral Type 1</th>
+                        <th>Collateral Location 1</th>
+                        <th>Perfection Status 1</th>
+                        <th>Collateral Amount 1</th>
+                        <th>Collateral Type 2</th>
+                        <th>Collateral Location 2</th>
+                        <th>Perfection Status 2</th>
+                        <th>Collateral Amount 2</th>
+                        <th>Collateral Type 3</th>
+                        <th>Collateral Location 3</th>
+                        <th>Perfection Status 3</th>
+                        <th>Collateral Amount 3</th>
+                        <th>Collateral Type 4</th>
+                        <th>Collateral Location 4</th>
+                        <th>Perfection Status 4</th>
+                        <th>Collateral Amount 4</th>
+                        <th>Date Loaded</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="collateralDetails in vm.collateralDetails">
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-collateraldetails-edit({Id:collateralDetails.ID})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>{{ collateralDetails.AccountNo}}</td>
+                        <td>{{ collateralDetails.CustomerName}}</td>
+                        <td>{{ collateralDetails.YOO}}</td>
+                        <td>{{ collateralDetails.MaturityDate}}</td>
+                        <td>{{ collateralDetails.HC1}}</td>
+                        <td>{{ collateralDetails.HC2}}</td>
+                        <td>{{ collateralDetails.ColType1}}</td>
+                        <td>{{ collateralDetails.Col_Qualifier1}}</td>
+                        <td>{{ collateralDetails.Perfection_Status1}}</td>
+                        <td>{{ collateralDetails.ColAmt1}}</td>
+                        <td>{{ collateralDetails.ColType2}}</td>
+                        <td>{{ collateralDetails.Col_Qualifier2}}</td>
+                        <td>{{ collateralDetails.Perfection_Status2}}</td>
+                        <td>{{ collateralDetails.ColAmt2}}</td>
+                        <td>{{ collateralDetails.ColType3}}</td>
+                        <td>{{ collateralDetails.Col_Qualifier3}}</td>
+                        <td>{{ collateralDetails.Perfection_Status3}}</td>
+                        <td>{{ collateralDetails.ColAmt3}}</td>
+                        <td>{{ collateralDetails.ColType4}}</td>
+                        <td>{{ collateralDetails.Col_Qualifier4}}</td>
+                        <td>{{ collateralDetails.Perfection_Status4}}</td>
+                        <td>{{ collateralDetails.ColAmt4}}</td>
+                        <td>{{ collateralDetails.DateLoaded}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

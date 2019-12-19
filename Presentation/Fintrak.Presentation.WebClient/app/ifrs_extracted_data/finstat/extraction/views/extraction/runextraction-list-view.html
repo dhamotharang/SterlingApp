@@ -1,0 +1,231 @@
+
+
+<div class="main-content">
+    <div data-ng-include="'app/common/views/validation-view.html'"></div>
+    <div class="row">
+        <div class="col-md-9">
+            <label for="" class="control-label">Extraction Service Info:</label>
+            <a class="btn btn-warning btn-sm" data-ng-click="vm.serviceStatus()"> {{vm.servicestatus}}</a>
+            <a class="btn btn-info btn-sm" data-ng-click="vm.restartService()">Re-Start Service</a>
+        </div>
+    </div>
+    &nbsp;&nbsp;
+    <div class="row">
+        <div class="col-md-9">
+            <label for="" class="control-label">Start Date:</label>
+            <input type="date" ng-model="vm.startDate" class="input-sm" style="width:200px" />
+            <!--<input type="text" ng-model="vm.startDate" class="input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedStartDate" style="width:100px;" />
+            <button type="button" class="btn btn-default btn-sm" ng-click="vm.openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+
+            <label for="" class="control-label">End Date:</label>
+            <input type="date" ng-model="vm.endDate" class="input-sm" style="width:200px" />
+            <input type="text" ng-model="vm.endDate" class="input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedEndDate" style="width:100px;" />
+            <button type="button" class="btn btn-default btn-sm" ng-click="vm.openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+         
+            <label for="" class="control-label">Time:</label>
+            <input type="text" ng-model="vm.runTime" class="input-sm" data-datepicker-popup="HH:mm" data-is-open="vm.openedRunTime" style="width:80px;" />
+            <!--<input type="time" class="input-sm" id="exampleInput" name="input"  placeholder="HH:mm:ss" min="08:00:00" max="17:00:00"  />-->
+            <!--<button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunTime($event)"><i class="glyphicon glyphicon-calendar"></i></button>-->
+
+            <!--<div moment-picker="myDate"> {{ vm.myDate }} </div>-->
+
+            <a class="btn btn-info btn-sm" data-ng-click="vm.runExtractions()"> Run Extraction</a>
+            <a class="btn btn-danger btn-sm" data-ng-click="vm.cancelExtractions()"> Cancel Extraction</a>
+          
+            
+        </div>
+        <div class="col-md-3">
+            <h4><label style="font:bold">{{vm.code}}</label></h4>
+        </div>
+           
+        </div>
+
+    <br/>
+
+    <div class="row">
+
+        <div class="col-md-9">
+            <!--<label class="control-label">Solution</label>-->
+
+            <label for="" class="control-label">Solution : </label>
+            <select class="input-sm" ng-model="vm.solution" ng-options="solution.SolutionId as solution.Alias for solution in vm.solutions" ng-change="vm.loadExtraction()" style=" width:220px;background-color:lightblue"></select>
+            <!--&nbsp;&nbsp;
+            <a class="btn btn-danger btn-sm col-sm-1" data-ng-click="vm.loadExtraction()"> Load</a>-->
+        </div>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="widget" >
+                <div class="widget-header">
+                    <h3><i class="fa fa-calendar"></i>Extractions</h3>
+                    <div class="btn-group widget-header-toolbar">
+                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <ul class="list-unstyled simple-todo-list">
+                        <li ng-repeat="template in vm.templates">
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" ng-model="template.CanRun">
+                                <span class="todo-text">{{template.ExtrationTitle}}</span>
+                            </label>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+            <div class="checkbox-list">
+                <label class="checkbox-inline">
+                    <input type="checkbox" data-ng-click="vm.checkAll()" id="checkall" />
+                    Check All
+                </label>
+            </div>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3>Extraction Jobs</h3>
+                    <div class="widget-header-toolbar">
+                        <a class="btn btn-info btn-sm" data-ng-click="vm.loadJobs()"> Load</a>
+                        <a class="btn btn-success btn-sm" data-ng-click="vm.clearExtractionHistory()"> Clear History</a>
+                        <a class="btn btn-warning btn-sm" data-ng-click="vm.loadActiveJobs()"> Active</a>
+                        <a class="btn btn-success btn-sm" data-ng-click="vm.setAutoRefresh()">{{vm.autoRefresh}}</a>
+                    </div>
+                    <div class="widget-header-toolbar process-status">
+                        <!--<span class="loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</span>
+                <span class="saved green-font"><i class="fa fa-check"></i> Saved</span>
+                <span class="failed red-font"><i class="fa fa-remove"></i> Failed</span>-->
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <table id="jobTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Status</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Time</th>
+                                <th>User</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="extractionJob in vm.extractionJobs" ng-click="vm.onJobRowChanged(extractionJob)">
+                                <td>
+                                    {{ extractionJob.Code}}
+                                </td>
+                                <td>
+                                    {{ extractionJob.StatusName}}
+                                </td>
+                                <td>
+                                    {{ extractionJob.StartDate | date}}
+                                </td>
+                                <td>
+                                    {{ extractionJob.EndDate | date}}
+                                </td>
+                                <td>
+                                    {{ extractionJob.RunTime  | date:'HH:mm:ss' }}
+                                </td>
+                                <td>
+                                    {{ extractionJob.UserName }}
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3>Extractions</h3>
+                    <div class="widget-header-toolbar">
+                        <a class="btn btn-warning btn-sm" data-ng-click="vm.loadExtractionTriggers()"> Refresh</a>
+                    </div>
+                    <div class="widget-header-toolbar process-status">
+                        <!--<span class="loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</span>
+                        <span class="saved green-font"><i class="fa fa-check"></i> Saved</span>
+                        <span class="failed red-font"><i class="fa fa-remove"></i> Failed</span>-->
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <table id="extractionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Extraction</th>
+                                <th>Status</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Time</th>
+                                <th>Archive</th>
+                                <th>User</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="extractionTrigger in vm.extractionTriggers" ng-click="vm.onTriggerRowChanged(extractionTrigger)">
+                                <td>
+                                    {{ extractionTrigger.ExtractionTitle}}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.StatusName}}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.StartDate | date}}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.EndDate | date}}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.RunTime  | date:'HH:mm:ss' }}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.NeedToArchive }}
+                                </td>
+                                <td>
+                                    {{ extractionTrigger.UserName }}
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-table"></i> Remark</h3>
+                </div>
+                <div class="widget-content">
+                    <div>
+                        <textarea type="text" ng-model="vm.remark" class="col-md-12 input-sm" rows="4"></textarea>
+                    </div>
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            
+        </div>

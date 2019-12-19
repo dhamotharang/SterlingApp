@@ -1,0 +1,151 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+           
+            <br />
+            
+            <table id="loansImpairmentResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>RefNo</th>
+                        <th>ProductCode</th>
+                        <th>Classification</th>
+                        <th>Sub-Classification</th>
+                        <th>Amount</th>
+                        <th>PrincipalOutstandingBal</th>
+                        <th>Sector</th>
+                        <th>AmortizedBalance</th>
+                        <th>TotalAmortizedCost</th>                        
+                        <th>InitialSelection</th>
+                        <th>FinalSelection</th>
+                        <th>SpecificImpairment</th>
+                        <th>CollectiveImpairment</th>
+                        <th>CollateralValue</th>
+                        <th>CollateralRecoverableAmt</th>
+                        <th>RecoverableAmt</th>
+                         <th>FairValueGain</th>
+                        <th>StaffFairValueAmount</th>
+                        <th>StaffFairValueGain</th>
+                        <th>WatchListed</th>
+                        <th>EP</th>
+                        <th>LGD</th>
+                        <th>PD</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loansImpairmentResult in vm.loansImpairmentResults">
+                        <td>
+                            {{ loansImpairmentResult.AccountNo}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.RefNo}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.ProductCode}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.Performing}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.Classification}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.Amount | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.PrincipalOutstandingBal | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.CollateralCategory 
+}}
+                        </td>
+                        
+                        <td>
+                            {{ loansImpairmentResult.AmortizedBalance | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.TotalAmortizedCost | currency :"":0
+}}
+                        </td>
+                        <!--<td>
+                            {{ loansImpairmentResult.PMT | currency :"":0
+}}
+                        </td>-->
+                        <td>
+                            {{ loansImpairmentResult.InitialSelection
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.FinalSelection}}
+                        </td>
+                        
+                        <td>
+                            {{ loansImpairmentResult.SpecificImpairment | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.CollectiveImpairment | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.CollateralValue | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.CollateralRecoverableAmt | currency :"":0
+}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.RecoverableAmount | currency :"":0
+                            }}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.FairValueGain | currency :"":0
+}}
+                        </td> 
+                        <td>
+                            {{ loansImpairmentResult.StaffFairValueGain | currency :"":0
+}}
+                        </td>   
+                        <td>
+                            {{ loansImpairmentResult.StaffFairValueGain | currency :"":0
+}}
+                        </td>                      
+                        <td>
+                            {{ loansImpairmentResult.WatchListed}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.EP}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.LGD}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.PD}}
+                        </td>
+                        <td>
+                            {{ loansImpairmentResult.Rating}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

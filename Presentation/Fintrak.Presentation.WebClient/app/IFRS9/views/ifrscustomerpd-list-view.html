@@ -1,0 +1,66 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-10">
+                    <select class="form-control" ng-model="vm.rating" ng-change="vm.getIfrsCustomerPD(vm.rating)" ng-options="rating as rating for rating in vm.ratings" style="width: 250px;background-color: lightblue">
+                        <option value="" ng-disabled="vm.disabled" selected>-- Select a rating --</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-ifrscustomerpd-edit({customerPDId:0})"> Create New</a>
+                </div>
+            </div>
+            <br />
+
+            <table id="ifrsCustomerPDTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>CustomerId</th>
+                        <th>PD (%)</th>
+                        <th>Rating</th>
+                        <th>SP</th>
+                        <th>Rundate</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsCustomerPD in vm.ifrsCustomerPDs">
+                        <td>
+                            {{ ifrsCustomerPD.CustomerId}}
+                        </td>
+                        <td>
+                            {{ ifrsCustomerPD.PD * 100}}
+                        </td>
+
+                        <td>
+                            {{ ifrsCustomerPD.Rating}}
+                        </td>
+                        <td>
+                            {{ ifrsCustomerPD.SP}}
+                        </td>
+                        <td>
+                            {{ ifrsCustomerPD.Rundate}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrscustomerpd-edit({customerPDId: ifrsCustomerPD.CustomerPDId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,120 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                               
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">KPI</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.dataentry.KPICode" ng-options="kpi.Code as kpi.Name for kpi in vm.kpis" style="width:250px;background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Mis Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.dataentry.MISCode" ng-options="team.MISCode as team.MISName for team in vm.teams" style="width:250px;background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Staff</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.dataentry.StaffCode" ng-options="staff.StaffCode as staff.Name for staff in vm.staffs" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Actual</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.dataentry.Actual" style="width: 150px; background-color: lightblue" />
+                                                    </div>
+                                                </div> 
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Target</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.dataentry.Target" style="width: 150px; background-color: lightblue" />
+                                                    </div>
+                                                </div> 
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Score</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.dataentry.Score" style="width: 150px; background-color: lightblue" />
+                                                    </div>
+                                                </div> 
+
+                                                <div class="form-group">
+                                                    <label for="" class="col-sm-3 control-label">Date</label>
+                                                    <div class="col-sm-5">
+                                                        <input type="text" ng-model="vm.dataentry.Date" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedDate" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Period</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.dataentry.Period" style="width: 50px; background-color: lightblue" />
+                                                    </div>
+                                                </div> 
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Year</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.dataentry.Year" style="width: 150px; background-color: lightblue" />
+                                                    </div>
+                                                </div> 
+                                                                                         
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

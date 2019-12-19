@@ -1,0 +1,122 @@
+
+
+<div class="main-content">
+    <div data-ng-include="'app/common/views/validation-view.html'"></div>
+    <div class="row">
+        
+        <label for="" class="control-label">Time:</label>
+        <input type="text" ng-model="vm.runTime" class="input-sm" data-datepicker-popup="HH:mm" data-is-open="vm.openedRunTime" style="width:80px;" />
+        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunTime($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+       
+        <a class="btn btn-info btn-sm" data-ng-click="vm.runProcesss()"> Run Process</a>
+        <a class="btn btn-danger btn-sm" data-ng-click="vm.cancelProcesss()"> Cancel Process</a>
+       <h3><label>{{vm.code}}</label></h3>
+    </div>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-4">
+
+            <div class="widget" >
+                <div class="widget-header">
+                    <h3><i class="fa fa-calendar"></i>Processes</h3>
+                    <div class="btn-group widget-header-toolbar">
+                        <a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <ul class="list-unstyled simple-todo-list">
+                        <li ng-repeat="template in vm.templates">
+                            <label class="fancy-checkbox">
+                                <input type="checkbox" ng-model="template.CanRun">
+                                <span class="todo-text">{{template.ProcessTitle}}</span>
+                            </label>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            
+
+       
+        </div>
+
+        <div class="col-md-8">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3>Process State</h3>
+                    <div class="widget-header-toolbar">
+                        <a class="btn btn-warning btn-sm" data-ng-click="vm.loadJobs()"> Refresh</a>
+                    </div>
+                    <div class="widget-header-toolbar process-status">
+                        <!--<span class="loading"><i class="fa fa-spinner fa-spin"></i> Loading ...</span>
+                        <span class="saved green-font"><i class="fa fa-check"></i> Saved</span>
+                        <span class="failed red-font"><i class="fa fa-remove"></i> Failed</span>-->
+                    </div>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <table id="processTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Process</th>
+                                <th>Status</th>
+                                <!--<th>Start Date</th>-->
+                                <th>End Date</th>
+                                <th>Time</th>
+                                <th>User</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="processTrigger in vm.processTriggers" ng-click="vm.onRowChanged(processTrigger)">
+                                <td>
+                                    {{ processTrigger.ProcessTitle}}
+                                </td>
+                                <td>
+                                    {{ processTrigger.StatusName}}
+                                </td>
+                                <!--<td>
+                                    {{ processTrigger.StartDate | date}}
+                                </td>-->
+                                <td>
+                                    {{ processTrigger.EndDate | date}}
+                                </td>
+                                <td>
+                                    {{ processTrigger.RunTime  | date:'HH:mm:ss' }}
+                                </td>
+                                <td>
+                                    {{ processTrigger.UserName }}
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-table"></i> Remark</h3>
+                </div>
+                <div class="widget-content">
+                    <div>
+                        <textarea type="text" ng-model="vm.remark" class="col-md-12 input-sm" rows="4"></textarea>
+                    </div>
+                    &nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            
+        </div>

@@ -1,0 +1,86 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <br />           
+            <table id="eclComparismTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>  RefNo  </th>
+                        <th>Bucket</th>
+                        <th>Stressed Bucket</th>
+                        <!--<th>LifeTimePD</th>
+                        <th>Stressed LifeTimePD</th>-->
+                        <!--<th>AnnualPD</th>
+                        <th>EAD</th>
+                        <th>UndrawnAmount</th>-->
+                        <th>Impairment Charge</th>
+                        <th>Stressed ImpairmentCharge</th>
+                        <th>ExpectedLoss</th>
+                        <th>Stressed ExpectedLoss</th>
+                        <th>DiscountedValue</th>
+                        <th>Stressed DiscountedValue</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="eclComparism in vm.eclComparisms">
+                        <td>
+                            {{ eclComparism.RefNo}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Bucket}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Stressed_Bucket}}
+                        </td>
+                        <!--<td>
+                            {{ eclComparism.LifeTimePD}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Stressed_LifeTimePD}}
+                        </td>-->
+                        <!--<td>
+                            {{ eclComparism.AnnualPD}}
+                        </td>
+                        <td>
+                            {{ eclComparism.EAD}}
+                        </td>
+                        <td>
+                            {{ eclComparism.UndrawnAmount}}
+                        </td>-->
+                        <td>
+                            {{ eclComparism.ImpairmentCharge | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Stressed_ImpairmentCharge | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclComparism.ExpectedLoss | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Stressed_ExpectedLoss | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclComparism.DiscountedValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclComparism.Stressed_DiscountedValue | currency :"":0}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

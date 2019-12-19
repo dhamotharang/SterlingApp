@@ -1,0 +1,65 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-chartofaccount-edit({chartofaccountId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="chartOfAccountTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Account Type</th>
+                        <th>Financial Type</th>
+                        <th>Parent</th>
+                        <th>Position</th>
+                    
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="chartOfAccount in vm.chartOfAccounts">
+                        <td>
+                            {{ chartOfAccount.AccountCode}}
+                        </td>
+                        <td>
+                            {{ chartOfAccount.AccountName}}
+                        </td>
+                        <td>
+                            {{ chartOfAccount.AccountTypeName}}
+                        </td>
+                        <td>
+                            {{ chartOfAccount.FinancialTypeName}}
+                        </td>
+                        <td>
+                            {{ chartOfAccount.ParentName}}
+                        </td>
+                        <td>
+                            {{ chartOfAccount.Position}}
+                        </td>
+                       
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-chartofaccount-edit({chartofaccountId: chartOfAccount.ChartOfAccountId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

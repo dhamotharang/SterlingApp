@@ -1,0 +1,122 @@
+﻿@{
+    ViewBag.Title = "Control Centre";
+}
+
+@section scripts
+{
+    <script src="~/Binding/ViewModels/ControlCentreController.js"></script>
+}
+
+@section footerScripts
+{
+   
+}
+
+<div id="registration" data-ng-controller="ControlCentreController">
+    <!-- page content wrapper -->
+    <div class="page-content-wrap bg-light">
+        <!-- page content holder -->
+        <div class="page-content-holder no-padding">
+            <!-- page title -->
+            <div class="page-title">
+                <h1>Control Centre</h1>
+                <!-- breadcrumbs -->
+                <ul class="breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+
+                    <li class="active">Control Centre</li>
+                </ul>
+                <!-- ./breadcrumbs -->
+            </div>
+            <!-- ./page title -->
+        </div>
+        <!-- ./page content holder -->
+    </div>
+    <!-- ./page content wrapper -->
+    <!-- page content wrapper -->
+    <div class="page-content-wrap">
+
+        <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>
+
+        <!-- page content holder -->
+        <div class="page-content-holder">
+
+            <div class="row">
+                <div class="col-md-12 this-animate" data-animate="fadeInLeft">
+
+                    <div class="text-column">
+                        <h4>Performance Insight (PI360) Control Centre</h4>
+                        <div class="text-column-info">
+                            This page allow you to manage company accessibility to PI 360.
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 gallery-filter">
+                            <div class="button-panel">
+                                <button data-filter="all" class="btn btn-primary filter">All</button>
+                                <button data-filter=".cat_music" class="btn btn-primary filter">On Demo</button>
+                                <button data-filter=".cat_nature" class="btn btn-primary filter">Activated</button>
+                                <button data-filter=".cat_space" class="btn btn-primary filter">Deactivated</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <table id="clientTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display table-condensed datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width:20px;">Code</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Demo</th>
+                                <th>Activated</th>
+                                <th>Status</th>
+
+                                <th style="width:200px;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="company in companies" class="{{company.CountDownMode}}">
+                                <td>
+                                    {{company.Code}}
+                                </td>
+                                <td>
+                                    {{company.Name}}
+                                </td>
+                                <td>
+                                    {{company.ContactName}}
+                                </td>
+                                <td>
+                                    {{company.ContactPhone}}
+                                </td>
+                                <td>
+                                    {{company.ContactEmail}}
+                                </td>
+                                <td>
+                                    {{company.IsDemo}}
+                                </td>
+                                <td>
+                                    {{company.IsActivated}}
+                                </td>
+                                <td>
+                                    {{company.CountDown}}
+                                </td>
+                                <td>
+                                    <button class="btn btn-warning btn-sm" ng-click="demo(company)">{{company.DemoMode}}</button>
+                                    <button class="btn btn-danger btn-sm" ng-click="activation(company)">{{company.ActivationMode}}</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+        </div>
+        <!-- ./page content holder -->
+    </div>
+    <!-- ./page content wrapper -->
+</div>

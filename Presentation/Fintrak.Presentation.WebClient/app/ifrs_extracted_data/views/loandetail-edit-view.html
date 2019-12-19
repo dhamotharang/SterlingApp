@@ -1,0 +1,236 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">RefNo</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.RefNo"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">AccountNo</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.AccountNo"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">ProductCode</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.ProductCode"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Product Name</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.ProductName"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="" class="col-sm-3 control-label">Value Date</label>
+                                                    <div class="col-sm-3">
+                                                        <input type="date" ng-model="vm.loanDetail.ValueDate" class="form-control input-sm" style="width:200px;background-color:lightblue" />
+                                                        <!--<input type="text" ng-model="vm.loanDetail.ValueDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate" style="width:200px;background-color:lightblue" />-->
+                                                    </div>
+                                                    <!--<div class="col-sm-1">
+                                                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                    </div>-->
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="" class="col-sm-3 control-label">Maturity Date</label>
+                                                    <div class="col-sm-3">
+                                                        <input type="date" ng-model="vm.loanDetail.MaturityDate" class="form-control input-sm" style="width:200px;background-color:lightblue" />
+                                                        <!--<input type="text" ng-model="vm.loanDetail.MaturityDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate2" style="width:200px;background-color:lightblue" />-->
+                                                    </div>
+                                                    <!--<div class="col-sm-1">
+                                                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate2($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                    </div>-->
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Prin. Out Bal.</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.PrincipalOutstandingBal" style="width:150px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Interest Receivable</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.Interest_Receiv_Pay_UnEarn" style="width:150px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Past Due Amount</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.PastDueAmount" style="width:150px;background-color:lightblue" />
+                                                    </div>
+                                                </div>-->
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Int.First RepayDate</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="date" class="form-control input-sm" data-ng-model="vm.loanDetail.FirstRepaymentdate"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Principal First RepayDate</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="date" class="form-control input-sm" data-ng-model="vm.loanDetail.PrincipalFirstRepaymentDate"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Int. Repay Freq</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.loanDetail.InterestRepayFreq"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Prin Repay Freq</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.loanDetail.PrincipalRepayFreq"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Rate</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.loanDetail.Rate" style="width:150px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Rating</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.loanDetail.Sector" ng-options="rating.Code as rating.Code for rating in vm.ratings" style="width: 250px;background-color: lightblue"></select>
+                                                        <!--<input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.Sector"
+                                                               style="width:250px;background-color:lightblue" />-->
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Collateral Value</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input add-commas type="number" ng-change="vm.showPrompt = true" id="collatVal" class="form-control input-sm" data-ng-model="vm.loanDetail.CollateralValue"
+                                                               style="width:250px;background-color:lightblue" />
+                                                        <p ng-show="vm.showPrompt" style="font-size:10px; color:red; padding-top:1em; padding-bottom:0;">**Press ENTER to recompute collateral recoverable amount</p>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Collateral Haircut</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" ng-disabled="true" data-ng-model="vm.loanDetail.CollateralHaircut"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Collateral Recoverable Amount</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input add-commas type="number" class="form-control input-sm" ng-disabled="true" data-ng-model="vm.loanDetail.CollateralRecoverableAmt"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Collateral Type</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-change="vm.getCollateralRecovAmt()" ng-model="vm.loanDetail.CollateralType" ng-options="collateralType.Name as collateralType.Name for collateralType in vm.collateralType" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Segment</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.Segment"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">ODLimit</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.loanDetail.ODLimit"
+                                                               style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Classification</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" data-ng-model="vm.loanDetail.Classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Classification</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" data-ng-model="vm.loanDetail.SubClassification" ng-options="subClassification.Name as subClassification.Name for subClassification in vm.subClassifications" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">IFRS9 Stage</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-change="vm.takeNote = true" data-ng-model="vm.loanDetail.Stage" ng-options="stages.id as stages.Name for stages in vm.stages" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group" ng-if="vm.takeNote === true && vm.oldStage !== vm.loanDetail.Stage">
+                                                    <label class="col-sm-3 control-label">Remark</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <textarea class="form-control" data-ng-model="vm.notes" rows="5" cols="30" style="width:250px;background-color:lightblue"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sector</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.loanDetail.Sector" ng-options="sector as sector.Description for sector in vm.sectors" style="width: 250px;background-color: lightblue"></select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Update
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,93 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3>
+                <i class="fa fa-table"></i> {{vm.viewName}}
+            </h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+
+                <label for="" class="control-label">Solution/Template : </label>
+                <select class="input-sm" ng-model="vm.selectedSolutionId" ng-options="solution.SolutionId as solution.Alias for solution in vm.solutions" style="width:150px;" ng-change="vm.onSolutionChanged(vm.selectedSolutionId)">
+                </select>
+                <select class="input-sm" ng-model="vm.csv.uploadId" ng-options="upload.UploadId as upload.Title for upload in vm.uploads" style="width:250px;" ng-change="vm.onUploadChanged(vm.csv.uploadId)">
+
+                </select>
+                <button class="btn btn-info btn-sm" data-ng-click="vm.runPreview()" ng-disabled="vm.alowUpload()"> Preview</button>
+                <button class="btn btn-danger btn-sm" data-ng-click="vm.runUpload()" ng-disabled="vm.alowUpload()"> Upload</button>
+                <button class="btn btn-info btn-sm" data-ng-click="vm.verify()" ng-show="vm.status"> Verify</button>
+
+                <!--<div class="checkbox-list">
+                    <label class="checkbox-inline">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" ng-model="vm.csv.Truncate" />
+                        Pre-Upload Action
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" ng-model="vm.csv.PostUploadAction" />
+                        Post-Upload Action
+                    </label>
+                </div>-->
+                <!--<div class="checkbox-list">
+                    <label class="checkbox-inline">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="checkbox" ng-model="vm.csv.PostUploadAction" />&nbsp;
+                        Post-Upload Action
+                    </label>
+                </div>-->
+            </div>
+
+            <br />
+            <div class="row">
+
+                <br />
+
+                <div class="block center">
+                    <ng-csv-import class="import"
+                                   content="vm.csv.content"
+                                   header="vm.csv.header"
+                                   header-visible="vm.csv.headerVisible"
+                                   separator="vm.csv.separator"
+                                   separator-visible="vm.csv.separatorVisible"
+                                   result="vm.csv.result"
+                                   encoding="vm.csv.encoding"
+                                   encoding-visible="vm.csv.encodingVisible" ng-click="vm.uploadClicked()">
+
+                    </ng-csv-import>
+                </div>
+
+                <div ng-if="vm.csv.content" class="block left">
+                    <h2>CSV</h2>
+                    <div class="content">
+                     <pre>{{ vm.csv.content }}</pre>
+                    </div>
+                </div>
+                <!--<div class="block right" ng-if="vm.csv.result">
+                    <h2>JSON</h2>
+                    <div class="content" hljs source="vm.toPrettyJSON(vm.csv.result, 2)"></div>
+                </div>-->
+
+                <div class="activity">
+                    <h3><i class="fa fa-square"></i> Upload Results</h3>
+                    <ul class="list-unstyled activity-list">
+                        <li ng-repeat="result in  vm.uploadResults">
+                            <i ng-hide="result.Pass" class="fa fa-close red-font activity-icon pull-left"></i>
+                            <i ng-show="result.Pass" class="fa fa-check-circle activity-icon pull-left"></i>
+                            <p>
+                                Status: <a href="#">{{result.Message}}</a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

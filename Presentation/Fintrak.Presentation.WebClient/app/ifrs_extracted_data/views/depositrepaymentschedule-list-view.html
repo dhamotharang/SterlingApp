@@ -1,0 +1,70 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-default btn-sm" ng-click="vm.LoadAll()" > Load All</a>
+                <button class="btn btn-info btn-sm" ng-click="vm.verify()"> Get Varaiance Data</button>
+               
+            </div>
+            <br />
+            
+            <table id="DepositRepaymentScheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Principal Amout Due</th>
+                        <th>Principal Paid</th>
+                        <th>Interest Amout Due</th>
+                        <th>Interest Paid</th>
+                        <th>Due Date</th>
+                        <th>RunDate</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="depositrepaymentschedule in vm.depositrepaymentschedule">
+                        <td>
+                            {{ depositrepaymentschedule.REFNO }}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.PRINCIPAL_AMOUNT_DUE | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.PRINCIPAL_PAID | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.INT_DUE | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.INT_PAID | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.DUEDT | date }}
+                        </td>
+                        <td>
+                            {{ depositrepaymentschedule.RUNDATE | date}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-depositrepaymentschedule-edit({depositRepayId:depositrepaymentschedule.DepositRepayId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

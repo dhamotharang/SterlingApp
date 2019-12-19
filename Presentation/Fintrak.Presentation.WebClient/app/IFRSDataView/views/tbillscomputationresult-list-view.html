@@ -1,0 +1,102 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <label for="" class="control-label">Classification:</label>
+                <select class="input-sm" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:250px;"></select>
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification()">Load</button>
+                <!--<button type="button" ng-csv="vm.tBillsComputationResults" filename="TBillComputationExport.csv">Full Export</button>-->
+                <button ng-click="vm.exportToExcel('#tBillsComputationResultTable')">Export</button>
+            </div> 
+            <br />
+            
+            <table id="tBillsComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Description</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <th>TotalTenor</th>
+                        <th>FaceValue</th>
+                        <th>Classification</th>
+                        <th>CleanPrice</th>
+                        <th>Rate</th>
+                        <th>Price</th>
+                        <th>AmortizedCost</th>
+                        <th>FairValueGain</th>
+                        <th>CurrentMarketYield</th>
+                        <th>ComputedMarketPrice</th>
+                        <th>Int.Receivable</th>
+                        <th>FairValueBasis</th>                                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tBillsComputationResult in vm.tBillsComputationResults">
+                        <td>
+                            {{ tBillsComputationResult.RefNo}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.Description}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.ValueDate | date}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.TotalTenor}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.FaceValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.Classification}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.CleanPrice | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.Rate}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.Price}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.AmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.FairValueGain | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.CurrentMarketYield}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.ComputedMarketPrice}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.IntrestReceivable | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ tBillsComputationResult.FairValueBasis}}
+                        </td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-bar-chart-o"></i> {{vm.viewName}}</h3>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <!--<div class="row">
+                        <div class="col-xs-10">
+                            <label for="" class="control-label">Reference No:</label>
+                            <input type="text" class="input-sm" data-ng-model="vm.refNo" placeholder="Enter facility Refno..." style="width:150px;" />
+                            <button type="button" class="btn btn-primary btn-sm" ng-click="vm.insertbyrefno()">Load</button>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-success btn-block btn-sm" ng-click="vm.computeECL()">Compute ECL</button>
+                        </div>
+                    </div>
+                    <br />-->
+
+                    <table id="nseIndexTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>NSE Index</th>
+                                <th style="width: 3%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="nseIndex in vm.nseIndex">
+                                <td>
+                                    {{ nseIndex.Date | date}}
+                                </td>
+                                <td>
+                                    {{ nseIndex.NSEIndex | currency :"":0}}
+                                </td>
+
+                                <td>
+                                    <span>
+                                        <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-nseindex-edit({nseIndexId:nseIndex.NseIndexId})">
+                                            Edit
+                                        </a>
+                                    </span>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-legal"></i> {{vm.viewName2}}</h3>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <br />
+
+                    <table class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" ng-repeat="probabilityWeight in vm.probabilityWeight">
+                        <tr>
+                            <td><b>Mean</b></td>
+                            <td>{{probabilityWeight.Mean | currency :"":0}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Standard Deviation</b></td>
+                            <td>{{probabilityWeight.StandardDeviation | currency :"":0}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Lower Limit</b></td>
+                            <td>{{probabilityWeight.LowerLimit | currency :"":0}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Upper Limit</b></td>
+                            <td>{{probabilityWeight.UpperLimit | currency :"":0}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Downturn</b></td>
+                            <td>{{probabilityWeight.DownTurn * 100 | currency :"":0}}%</td>
+                        </tr>
+                        <tr>
+                            <td><b>Upturn</b></td>
+                            <td>{{probabilityWeight.Upturn * 100 | currency :"":0}}%</td>
+                        </tr>
+                        <tr>
+                            <td><b>Base</b></td>
+                            <td>{{probabilityWeight.Base * 100 | currency :"":0}}%</td>
+                        </tr>
+                        <tr>
+                            <td><b>Confidence Level</b></td>
+                            <td>{{probabilityWeight.Loc * 100}}</td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+            <div class="row">
+                <form ng-submit="vm.ComputeProbabilityWeight(vm.lOC)">
+                    <div class="col-sm-4 controls">
+                        <input type="number" class="form-control" data-ng-model="vm.lOC" background-color:lightblue" />
+                    </div>
+                    <div>
+                        <label class="control-label">Confidence Level</label><br />
+                        <label class="control-label text-danger">50 to 100</label>
+                    </div>
+                </form>
+             </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <!--<button type="button" class="btn btn-primary"><i class="fa fa-refresh"></i> Primary</button>-->
+                        <button type="button" class="btn btn-success btn-block btn-sm" ng-click="vm.ComputeProbabilityWeight(vm.lOC)"><i class="fa fa-bolt"></i> Compute Weights</button>
+                    </div>
+                    <div>
+                        <button type="button" class="btn btn-danger btn-sm" ng-csv="vm.probabilityWeight" csv-header="['Id','Mean','StandardDeviation','LowerLimit','UpperLimit','DownTurn','Upturn','Base','ConfidenceLevel']" flename="ProbabilityWeight.csv">Export Weights</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+    </div>

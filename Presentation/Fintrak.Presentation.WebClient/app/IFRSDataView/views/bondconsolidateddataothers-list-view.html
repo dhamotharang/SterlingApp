@@ -1,0 +1,120 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <!--<button type="button" ng-csv="vm.bondConsolidatedDataOthers" filename="BondConsolidatedDataOthersExport.csv">Full Export</button>-->
+                <button ng-click="vm.exportToExcel('#BondConsolidatedDataOthersTable')">Export</button>
+            </div> 
+            <br />
+            
+            <table id="BondConsolidatedDataOthersTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>PortfolioID</th>
+                        <th>Narration</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <th>FaceValue</th>
+                        <th>CleanPrice</th>
+                        <th>PremiumDiscount</th>
+                        <th>MarketYield</th>
+                        <th>CouponRate</th>
+                        <th>AccruedInterest</th>
+                        <th>AmortizedCost</th>
+                        <th>EIR</th>
+                        <th>Price</th>
+                        <th>FairValue</th>  
+                        <th>FairValueGain</th>    
+                        <th>FairValueBasis</th>                         
+                        <th>Classification</th>
+                        <th>RunDate</th>
+                        <th>LastCouponDate</th>
+                        <th>NextCouponDate</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bondConsolidatedDataOthers in vm.bondConsolidatedDataOthers">
+                        <td>
+                            {{ bondConsolidatedDataOthers.RefNo}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.PortfolioID}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.Narration}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.EffectiveDate | date}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.MaturityDate | date}}
+                        </td>
+                       <td>
+                            {{ bondConsolidatedDataOthers.FaceValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.CleanPrice | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.PremiumDiscount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.CurrentMarketYield | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.CouponRate}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.AccruedInterest | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.AmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.EIR | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.Price | currency :"":0000}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.FairValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.FairValueGain | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.FairValueBasis }}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.Classification}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.RunDate | date}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.LastCouponDate | date}}
+                        </td>
+                        <td>
+                            {{ bondConsolidatedDataOthers.NextCouponDate | date}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

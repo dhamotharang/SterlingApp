@@ -1,0 +1,62 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <a class="btn btn-info btn-sm" data-ui-sref="ifrs-hcclassification-edit({Id:0})"> Add New </a>&nbsp;&nbsp;&nbsp;
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter HC1, HC2 or both" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadHCClassificationBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>-->
+                    </form>
+                </div>
+            </div>
+            <!--<div>
+                <button type="button" ng-csv="vm.hcClassificationTable" filename="LoanPryExport.csv">Full Export</button>
+            </div>
+            <br />-->
+
+            <table id="hcClassificationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 10%;">Action</th>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="hcClassification in vm.hcClassification">
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-hcclassification-edit({Id:hcClassification.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+                        <td>{{ hcClassification.HC1}}</td>
+                        <td>{{ hcClassification.HC2}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

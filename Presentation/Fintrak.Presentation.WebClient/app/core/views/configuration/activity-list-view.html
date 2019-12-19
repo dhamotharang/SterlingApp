@@ -1,0 +1,66 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <!--<a class="btn btn-info btn-xs" data-ui-sref="core-activity-edit({activityId:0})"> Create New</a>-->
+            </div> 
+            <br />
+            
+            <table id="activityTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Log Date</th>
+                        <th>Provider</th>
+                        <th>Source</th>
+                        <th>Machine</th>
+                        <th>Type</th>
+                        <th>Message</th>
+                      
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="activity in vm.activities">
+
+                        <td>
+                            {{ activity.LogDate | date:'MM/dd/yyyy @ h:mma'}}
+                        </td>
+                        <td>
+                            {{ activity.LoggerProviderName}}
+                        </td>
+                        <td>
+                            {{ activity.Source}}
+                        </td>
+                        <td>
+                            {{ activity.MachineName}}
+                        </td>
+                        <td>
+                            {{ activity.Type}}
+                        </td>
+                        <td>
+                            {{ activity.Message}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-activity-edit({activityId: activity.Id})">
+                                View
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

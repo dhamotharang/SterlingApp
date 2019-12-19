@@ -1,0 +1,86 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <!--<button class="btn btn-info btn-sm" data-ng-click="vm.pddistribution()"> PD Distribution</button>
+            <button class="btn btn-info btn-sm" data-ng-click="vm.pastduedistribution()"> Past Due Distribution</button>-->
+            <table id="unquotedEquityFairvalueResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" >
+
+                <thead>
+                    <tr>
+                        <th>Sector</th>
+                        <th>Stock</th>
+                        <th>P/E</th>                        
+                        <th>P/CF</th>
+                        <th>P/BV</th>
+                        <th>P/S</th>
+                        <th>Est. StkValue P/E</th>
+                        <th>Est. StkValue P/CF</th>
+                        <th>Est. StkValue P/BV</th>
+                        <th>Est. StkValue P/S</th>
+                        <th>Est. Mean</th>
+                        <th>Deviation</th>
+                        <th>Discount loss</th>
+                        <th>Fair Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="unquotedEquityFairvalueResults in vm.unquotedEquityFairvalueResult">
+                        <td>
+                            {{ unquotedEquityFairvalueResults.sector}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.stock}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.P_E | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.P_CF | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.P_BV | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.P_S | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Estimated_Stock_value_PE | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Estimated_Stock_value_PCF | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Estimated_Stock_value_PBV | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Estimated_Stock_value_PS | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Estimated_Mean_Stock_value | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Standard_deviation | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.Discount_loss | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ unquotedEquityFairvalueResults.fairvalue | currency :"":0}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

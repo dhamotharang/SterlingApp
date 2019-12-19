@@ -1,0 +1,53 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="scd-actualmapping-edit({actualmappingId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="actualMappingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>KPI</th>
+                        <th>KPI Name</th>
+                        <th>Formula</th>
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="actualMapping in vm.actualMappings">
+                        <td>
+                            {{actualMapping.KPICode}}
+                        </td>
+                        <td>
+                            {{actualMapping.KPIName}}
+                        </td>
+                        <td>
+                            {{actualMapping.Formula}}
+                        </td>
+                       
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="scd-actualmapping-edit({actualmappingId:actualMapping.MapId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

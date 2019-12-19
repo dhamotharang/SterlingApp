@@ -1,0 +1,182 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.kpi.Code" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Name</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.kpi.Name" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>   
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Description</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.kpi.Description" style="width: 350px; " />
+                                                    </div>
+                                                </div>   
+                                                
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Period Type</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.kpi.PeriodType" ng-options="periodType.Id as periodType.Name for periodType in vm.periodTypes" style="width:250px; background-color: lightblue"></select>
+                                                    </div>
+                                                </div> 
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Direction</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.kpi.Direction" ng-options="direction.Id as direction.Name for direction in vm.directions" style="width:250px; background-color: lightblue"></select>
+                                                    </div>
+                                                </div> 
+                                                
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Perspective</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.kpi.CategoryCode" ng-options="category.Code as category.Name for category in vm.categories" style="width:250px; background-color: lightblue"></select>
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.kpi.IsKPICalculated" />&nbsp;
+                                                            Is a calculated KPI
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.kpi.IsTargetCalculated" />&nbsp;
+                                                            Is KPI target calculated
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.kpi.Active" />&nbsp;
+                                                            Active
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="widget">
+                                                    <div class="widget-header">
+                                                        <h3><i class="fa fa-windows"></i> Advanced Options</h3> <em> - section for calculated KPI</em>
+                                                        <!--<button type="button" class="btn btn-link btn-help"><i class="fa fa-question-circle"></i></button>-->
+                                                        <div class="btn-group widget-header-toolbar">
+                                                            <!--<a href="#" title="Expand/Collapse" class="btn-borderless btn-toggle-expand"><i class="fa fa-chevron-up"></i></a>-->
+                                                        </div>
+                                                    </div>
+                                                    <div class="widget-content">
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Aggr. Method</label>
+                                                            <div class="col-sm-9 controls">
+                                                                <select class="form-control" ng-model="vm.kpi.AggregateMethod" ng-options="aggregateMethod.Id as aggregateMethod.Name for aggregateMethod in vm.aggregateMethods" style="width:250px; background-color: lightblue"></select>
+                                                            </div>
+                                                        </div> 
+                                                       
+                                                        <div ng-show="vm.kpi.IsKPICalculated">
+
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3">KPI Calculator</label>
+                                                                <div class="col-sm-9 controls">
+                                                                    <select class="input input-sm col-sm-9 control-label" ng-model="vm.selectedKPI" ng-options="kpi.Code as kpi.Name for kpi in vm.kpis" style="width:250px;" ng-change="vm.kpiFormularChanged('[' + vm.selectedKPI + ']')"></select>
+                                                                    &nbsp;
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged('+')"><span style="font-weight:700">+</span></button>
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged('-')"><span style="font-weight:700">-</span></button>
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged('/')"><span style="font-weight:700">/</span></button>
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged('*')"><span style="font-weight:700">*</span></button>
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged('(')"><span style="font-weight:700">(</span></button>
+                                                                    <button type="button" class="btn btn-warning btn-sm" ng-click="vm.kpiFormularChanged(')')"><span style="font-weight:700">)</span></button>
+                                                                </div>
+                                                            </div>
+
+                                                            <br/>
+                                                            <div class="form-group">
+                                                                <label class="col-sm-3 control-label">KPI Formula</label>
+                                                                <div class="col-sm-9 controls">
+                                                                    <textarea rows="3" class="form-control input-sm" kpi-formular="" data-ng-model="vm.kpi.Formula" style="width: 400px;"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3">Score Calculator</label>
+                                                            <div class="col-sm-9 controls">
+                                                                <select class="input input-sm col-sm-9 control-label" ng-model="vm.selectedAttribute" ng-options="kpi.Id as kpi.Name for kpi in vm.scoreAttributes" style="width:250px;" ng-change="vm.scoreFormularChanged(vm.selectedAttribute)"></select>
+                                                                <!--<select class="input input-sm col-sm-9 control-label" ng-model="vm.selectedAttribute" ng-options="kpi.Id as kpi.Name for kpi in vm.scoreAttributes" style="width:250px;" ng-change="vm.scoreFormularChanged('[' + vm.selectedAttribute  + ']')"></select>-->
+                                                                &nbsp;
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged('+')"><span style="font-weight:700">+</span></button>
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged('-')"><span style="font-weight:700">-</span></button>
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged('/')"><span style="font-weight:700">/</span></button>
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged('*')"><span style="font-weight:700">*</span></button>
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged('(')"><span style="font-weight:700">(</span></button>
+                                                                <button type="button" class="btn btn-warning btn-sm" ng-click="vm.scoreFormularChanged(')')"><span style="font-weight:700">)</span></button>
+                                                            </div>
+                                                        </div>
+
+                                                        <br />
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label">Score Formula</label>
+                                                            <div class="col-sm-9 controls">
+                                                                <textarea rows="3" class="form-control input-sm" score-formular="" data-ng-model="vm.kpi.ScoreFormula" style="width: 400px; background-color: lightblue"></textarea>
+                                                            </div>
+                                                        </div> 
+                                                    </div>
+                                                </div>
+                                   
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

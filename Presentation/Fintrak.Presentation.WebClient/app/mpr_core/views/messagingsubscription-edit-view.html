@@ -1,0 +1,235 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Recipents</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.messagingSubscription.Recipents" style="width:250px;" />
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Recipents</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.messagingSubscription.Recipents" ng-options="recipientType.Name as recipientType.Name for recipientType in vm.recipientTypes" style="width:250px;background-color:lightblue" ng-change="vm.onRecipientTypeChanged(vm.messagingSubscriptions.Recipents)"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Subjects</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.messagingSubscription.Subjects" style="width:250px;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">eMessage</label>
+                                                    <div class="col-sm-9 controls">                                            
+                                                        <textarea type="text" class="form-control input-sm" data-ng-model="vm.messagingSubscription.eMessage" style="width:350px;" rows="6" placeholder="Add @Name for the system to replace with the exact name of the recipient
+                                                                                                                                                                                                        Add @Branch for the system to replace with the exact name of the MIS">
+                                                            <
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>      
+                                
+                                <div class="col-md-6">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Attachment Type</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.messagingSubscription.FileType" ng-options="attachmentType.Name as attachmentType.Name for attachmentType in vm.attachmentTypes" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Report</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.messagingSubscription.Report" ng-options="reportType.Description as reportType.Description for reportType in vm.reportTypes" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="" class="col-sm-3 control-label">Date</label>
+                                                    <div class="col-sm-4">
+                                                        <!--<input type="text" ng-model="vm.messagingSubscription.Rundate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openDate" style="width:240px;background-color:lightblue" />-->
+                                                        <select class="input-sm" ng-model="vm.messagingSubscription.Rundate" ng-options="rundate.Rundate as rundate.Rundate|date:'yyyy-MMM-dd' for rundate in vm.rundates" style="width:150px;" | date></select>
+                                                    </div>
+                                                    <!--<div class="col-sm-2">
+                                                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.date($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                                    </div>-->
+                                                </div>
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Send
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>                   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+
+    <!--<div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <br />
+
+            <table id="messagingSubscriptionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Select</th>
+                        <th>Recipents</th>
+                        <th>Subjects</th>
+                        <th>eMessage</th>
+                        <th>FileType</th>
+
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="messagingSubscription in vm.messagingSubscriptions">
+
+                        <td>
+                            <input type="checkbox"
+                                   value="{{messagingSubscription.Select}}"
+                                   ng-checked="selection.indexOf(messagingSubscription.Select) > -1"
+                                   ng-click="toggleSelection(messagingSubscription.Select)" />  {{ messagingSubscription.Select}}
+                           
+                        </td>
+                        <td>
+                            {{ messagingSubscription.Recipents}}
+                        </td>
+                        <td>
+                            {{ messagingSubscription.Subjects}}
+                        </td>
+                        <td>
+                            {{ messagingSubscription.eMessage}}
+                        </td>
+                        <td>
+                            {{ messagingSubscription.FileType}}
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>-->
+
+
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <br />
+
+            <table id="messagingSubscriptionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Select</th>
+                        <th>Recipents</th>
+                        <th>Subjects</th>
+                        <th>eMessage</th>
+                        <th>FileType</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="recipient in vm.recipients">
+
+                        <td>
+                            <input type="checkbox"
+                                   value="{{recipient.RevenueId}}"
+                                   ng-checked="selection.indexOf(recipient.RevenueId) > -1"
+                                   ng-click="toggleSelection(recipient.RevenueId)" /> {{ recipient.RevenueId}}
+
+
+                        </td>
+                        <td>
+                            {{ recipient.TeamCode}}
+                        </td>
+                        <td>
+                            {{ recipient.Narrative}}
+                        </td>
+                        <td>
+                            {{ recipient.GLCode}}
+                        </td>
+                        <td>
+                            {{ recipient.BranchCode}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+
+   

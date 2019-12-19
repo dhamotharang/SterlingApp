@@ -1,0 +1,75 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam" style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadIfrspdprojectionComputationBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.exportAllData()">Export</button>
+                    </form>
+                </div>
+            </div>
+        
+          
+
+            <table id="IfrspdprojectionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                       
+                        <th>AccountNo</th>
+                        <th>RefNo</th>
+                        <th>Name</th>
+                        <th>Product Type</th>
+                        <th>Sector </th>
+                        <th>Scenerio</th>
+                        <th>EAD</th>
+                        <th>EIR</th>
+                        <th>DATE PMT</th>
+                        <th>STAGE</th>
+                        <th>PD</th>
+                  
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrspd in   vm.Ifrspdprojection">
+                       
+                        <td>{{ ifrspd.AccountNo}}</td>
+                        <td>{{ ifrspd.Refno}}</td>
+                        <td>{{ ifrspd.ProductName	}}</td>
+                        <td>{{ ifrspd.ProductType	}}</td>
+                        <td>{{ ifrspd.Sector }}</td>
+                        <td>{{ ifrspd.Scenerio }}</td>
+                        <td>{{ ifrspd.EAD | number }}</td>
+                        <td>{{ ifrspd.EIR  }}</td>
+                        <td>{{ ifrspd.date_pmt | date}}</td>
+                        <td>{{ ifrspd.Stage }}</td>
+                        <td>{{ ifrspd.PD }}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

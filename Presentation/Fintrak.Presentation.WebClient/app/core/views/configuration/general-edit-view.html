@@ -1,0 +1,211 @@
+﻿<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-desktop"></i> {{vm.viewName}}</h3>
+                </div>
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+                                    <br />
+                    <span class="fa fa-chart-line fa-fw"></span>
+                    <i class="fas fa-clipboard-list"></i>
+                    <i class="fas fa-chart-line"></i>
+
+                                    <form action="#" class="form-horizontal">
+                                        <div class="form-body">
+
+                                            <div data-ng-include="'app/common/views/validation-view.html'"></div>
+                                            <div class="col-md-5">
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Host</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.general.Host" style="width:250px;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Email</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="email" class="form-control input-sm" data-ng-model="vm.general.Email" style="width:250px;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Password</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="password" class="form-control input-sm" data-ng-model="vm.general.Password" style="width:250px;" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-7">
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Default Company</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.general.DefaultCompanyCode" style="width:150px;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.general.EnableCompanyDefaultLogin" />&nbsp;
+                                                            Enable default company login
+                                                        </label>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </form>
+                                </div>
+                        </div>
+               </div>
+  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="widget widget-table">
+                <div class="widget-header">
+                    <h3><i class="fa fa-key"></i> {{vm.viewName2}}</h3>
+                </div>
+                <div class="widget-content">
+
+
+                    <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                        <li class="active" ng-click="vm.loadCompanies()"><a href="#Company" role="tab" data-toggle="tab"><i class="fa fa-home"></i>  Company</a></li>
+                        <li ng-click="vm.loadDb()"><a href="#Database" role="tab" data-toggle="tab"><i class="fa fa-hdd-o"></i>  Database</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="Company">
+                            <!--<br />-->
+                            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                                <button class="close" data-dismiss="alert">&times;</button>
+                                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                            </div>
+
+                            <div>
+                                <a class="btn btn-info btn-xs" data-ui-sref="core-company-edit({companyId:0})"> Create New</a>
+                            </div>
+                            <br />
+
+                            <table id="companyTable1" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                <thead>
+                                    <tr>
+
+                                        <th>Code</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+
+                                        <th style="width: 3%;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="company in vm.companies">
+
+                                        <td>
+                                            {{ company.Code}}
+                                        </td>
+                                        <td>
+                                            {{ company.Name}}
+                                        </td>
+                                        <td>
+                                            {{ company.Email}}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-orange btn-xs" data-ui-sref="core-company-edit({companyId: company.CompanyId})">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="tab-pane fade" id="Database">
+                            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                                <button class="close" data-dismiss="alert">&times;</button>
+                                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                            </div>
+
+                            <div>
+                                <a class="btn btn-info btn-xs" data-ui-sref="core-database-edit({databaseId:0})"> Create New</a>
+                            </div>
+                            <br />
+
+                            <table id="databaseTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                <thead>
+                                    <tr>
+                                        <th>Title</th>
+                                        <th>Database Name</th>
+                                        <th>Server Name</th>
+                                        <!--<th>UserName</th>
+                                        <th>Password</th>-->
+                                        <th>Integrated Security</th>
+                                        <th>Company</th>
+                                        <th>Solution</th>
+                                        <th style="width: 3%;">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="database in vm.database">
+                                        <td>
+                                            {{database.Title}}
+                                        </td>
+                                        <td>
+                                            {{database.DatabaseName}}
+                                        </td>
+                                        <td>
+                                            {{database.ServerName}}
+                                        </td>
+                                        <!--<td>
+                                        {{database.UserName}}
+                                        </td>
+                                        <td>
+                                            {{database.Password}}
+                                        </td>-->
+                                        <td>
+                                            {{database.IntegratedSecurity}}
+                                        </td>
+                                        <td>
+                                            {{database.CompanyCode}}
+                                        </td>
+                                        <td>
+                                            {{database.SolutionName}}
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-orange btn-xs" data-ui-sref="core-database-edit({databaseId:database.DatabaseId})">
+                                                Edit
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+

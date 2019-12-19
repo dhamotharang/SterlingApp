@@ -1,0 +1,75 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-individualschedule-edit({individualscheduleId:0})"> Create New </a>
+            </div> 
+          
+              <table id="individualScheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Rate</th>
+                        <th>Amount</th>
+                        <!--<th>Fee Amount</th>-->
+                        <th>Past Due Amount</th>
+                        <th>Value Date</th>
+                        <th>First Repaymentdate</th> 
+                        <th>Maturity Date</th>                      
+                        <th>Processed</th>
+                     
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="individualSchedule in vm.individualSchedules">
+                        <td>
+                            {{ individualSchedule.RefNo}}
+                        </td>
+                        <td>
+                            {{ individualSchedule.IRR}}
+                        </td>
+                        <td>
+                            {{ individualSchedule.Amount}}
+                        </td>
+                        <td>
+                            {{ individualSchedule.PastDueAmount}}
+                        </td>
+                        <td>
+                            {{ individualSchedule.ValueDate | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ individualSchedule.FirstRepaymentdate | date:'dd-MM-yyyy'}}
+                        </td>
+
+                        <td>
+                            {{ individualSchedule.MaturityDate | date:'dd-MM-yyyy'}}
+                        </td>
+                       
+                        <td>
+                            {{ individualSchedule.Processed}}
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-individualschedule-edit({individualscheduleId: individualSchedule.Id})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

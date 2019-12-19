@@ -1,0 +1,124 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+             <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadConsolidatedLoansBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        </form>
+                </div>
+            </div>
+
+            <table id="consoliDATEDLoansTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">Action</th>
+
+                        <th>AcctNo</th>
+                        <th>Classification</th>
+                        <th>Customer Name</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <!--<th>Sector</th>
+                        <th>SubSector</th>-->
+                        <th>ProductType</th>
+                        <!--<th>Amount</th>
+                        <th>CurrentBalance</th>-->
+                        <th>OutstandingBal</th>
+                        <!--<th>LoanType</th>-->
+                        <th>Rate</th>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>ClassificationYr1</th>
+                        <th>BalYr1</th>
+                        <th>Rating</th>
+                        <th>ClassificationYr2</th>
+                        <th>BalYr2</th>
+                        <th>Rating</th>
+                        <th>ClassificationYr3</th>
+                        <th>BalYr3</th>
+                        <th>Rating</th>
+                        <th>ClassificationYr4</th>
+                        <th>BalYr4</th>
+                        <th>Rating</th>
+                        <th>ClassificationYr5</th>
+                        <th>BalYr5</th>
+                        <th>Rating</th>
+                        <th>ClassificationYr6</th>
+                        <th>BalYr6</th>
+                        <th>Rating</th>
+                        <th>RunDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="consoliDATEDLoanss in vm.consoliDATEDLoans">
+
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-consolidatedloans-edit({ID:consoliDATEDLoanss.ID})">
+                                Edit
+                            </a>
+                        </td>
+
+
+                        <td>{{ consoliDATEDLoanss.AcctNo }}</td>
+                        <td>{{ consoliDATEDLoanss.Classification }}</td>
+                        <td>{{ consoliDATEDLoanss.ProductName }}</td>
+                        <td>{{ consoliDATEDLoanss.ValueDate | date }}</td>
+                        <td>{{ consoliDATEDLoanss.MaturityDate | date }}</td>
+                        <!--<td>{{ consoliDATEDLoanss.Sector }}</td>
+                        <td>{{ consoliDATEDLoanss.SubSector }}</td>-->
+                        <td>{{ consoliDATEDLoanss.ProductType }}</td>
+                        <!--<td>{{ consoliDATEDLoanss.Amount | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.CurrentBalance | number: 0}}</td>-->
+                        <td>{{ consoliDATEDLoanss.AdjustedBalances | number: 0}}</td>
+                        <!--<td>{{ consoliDATEDLoanss.LoanType }}</td>-->
+                        <td>{{ consoliDATEDLoanss.Rate | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.HC1 }}</td>
+                        <td>{{ consoliDATEDLoanss.HC2 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY1 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB1 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR1 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY2 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB2 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR2 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY3 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB3 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR3 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY4 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB4 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR4 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY5 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB5 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR5 }}</td>
+                        <td>{{ consoliDATEDLoanss.PAY6 }}</td>
+                        <td>{{ consoliDATEDLoanss.OB6 | number: 0}}</td>
+                        <td>{{ consoliDATEDLoanss.RR6 }}</td>
+                        <td>{{ consoliDATEDLoanss.RunDate | date }}</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

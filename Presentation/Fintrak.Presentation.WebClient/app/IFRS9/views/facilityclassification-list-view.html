@@ -1,0 +1,207 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active" ng-click="vm.loadLoans()" ><a href="#ld" role="tab" data-toggle="tab">Loans & Advances</a></li>
+                <li ng-click="vm.loadOBE()"><a href="#ob" role="tab" data-toggle="tab">Off Balance Sheet</a></li>
+                <li ng-click="vm.loadInv()" ><a href="#in" role="tab" data-toggle="tab">Investments</a></li>
+            
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade" id="ld">
+              
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({obeId:0})"> Add New Loan</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Numbers" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBySearch('LD', 'ldTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="ldTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">Action</th>
+                                <th>RefNo</th>
+                                <th>AccountNo</th>
+                                <th>ProductType</th>
+                                <th>SubType</th>
+                                <th>Sector</th>
+                                <th>FacilityType</th>
+                              
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="facilityclassification in vm.facilityclassification">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-facilityclassification-edit({classId: facilityclassification.Id})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Refno}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.AccountNo}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.ProductType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.SubType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Sector}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.FacilityType}}
+                                </td>    
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="tab-pane fade in active" id="ob">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({ObeId:0})"> Add New LC</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBySearch('OB', 'obTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="obTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">Action</th>
+                                <th>RefNo</th>
+                                <th>AccountNo</th>
+                                <th>ProductType</th>
+                                <th>SubType</th>
+                                <th>Sector</th>
+                                <th>FacilityType</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="facilityclassification in vm.facilityclassification">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-facilityclassification-edit({classId: facilityclassification.Id})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Refno}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.AccountNo}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.ProductType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.SubType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Sector}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.FacilityType}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+                
+                <div class="tab-pane fade" id="in">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({ObeId:0})"> Add New OD</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBySearch('IN', 'inTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="inTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                        <thead>
+                            <tr>
+                                <th style="width: 5%;">Action</th>
+                                <th>RefNo</th>
+                                <th>AccountNo</th>
+                                <th>ProductType</th>
+                                <th>SubType</th>
+                                <th>Sector</th>
+                                <th>FacilityType</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="facilityclassification in vm.facilityclassification">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-facilityclassification-edit({classId: facilityclassification.Id})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Refno}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.AccountNo}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.ProductType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.SubType}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.Sector}}
+                                </td>
+                                <td>
+                                    {{ facilityclassification.FacilityType}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

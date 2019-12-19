@@ -1,0 +1,71 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-expensemapping-edit({expensemappingId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="expenseMappingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Basis</th>
+                        <th>Value Type</th>       
+                        <th>Item Type</th> 
+                        <th>Item Code</th>   
+                        <th>Definition</th> 
+                        <th>Parent MisCode</th>               
+                        <th>Mis Code</th>  
+                        <th>Weight</th>       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="expenseMapping in vm.expenseMappings">
+                        <td>
+                            {{ expenseMapping.BasisName}}
+                        </td>
+                        <td>
+                            {{ expenseMapping.ValueTypeName}}
+                        </td> 
+                        <td>
+                            {{ expenseMapping.ItemTypeName}}
+                        </td> 
+                        <td>
+                            {{ expenseMapping.ItemCode}}
+                        </td>  
+                        <td>
+                            {{ expenseMapping.TeamDefinitionCode}}
+                        </td> 
+                        <td>
+                            {{ expenseMapping.ParentMisCode}}
+                        </td> 
+                        <td>
+                            {{ expenseMapping.MisCode}}
+                        </td> 
+                        <td>
+                            {{ expenseMapping.Weight}}
+                        </td>                                   
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-expensemapping-edit({expensemappingId: expenseMapping.ExpenseMappingId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,150 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Select Reference Number then Date :</label>
+                    <div isteven-multi-select
+                         input-model="vm.distinctRefNos"
+                         output-model="vm.selectedRefNos"
+                         button-label="icon name"
+                         item-label="icon name maker"
+                         tick-property="ticked"
+                         max-labels="5">
+                    </div>
+                    <br />
+                    <input type="date" class="input-sm" placeholder="Provide Tentative Date" data-ng-model="vm.Date " style="width:150px" |date />
+                    &nbsp;&nbsp;&nbsp;
+                    <!--<a class="btn btn-info btn-sm" data-ui-sref="ifrs-bondcomputation-edit({bondComputationId:0})"> Add New Loan</a>&nbsp;&nbsp;&nbsp;-->
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                    <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                    <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData('split ')">Split then Export</div>
+                </div>
+
+            </div>
+            <br />
+
+            <table id="BorrowingScheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Seq</th>
+                        <th>RefNo</th>
+                        <th>DailyDate</th>
+                        <!--<th>PaymentDate</th>-->
+                        <th>AmtPrincInit</th>
+                        <th>DailyPayment</th>
+                        <th>DailyIntExpense</th>
+                        <th>AccruedIntExp</th>
+                        <th>AmortizedCost</th>
+                        <th>AmtPrinEnd</th>
+                        <th>NorminalRate</th>
+                        <th>AMSeq</th>
+                        <th>AMRefNo</th>
+                        <th>AMDailyDate</th>
+                        <th>AMPaymentDate</th>
+                        <th>AMAmtPrincInit</th>
+                        <th>AMDailyPayment</th>
+                        <th>AMDailyIntExpense</th>
+                        <th>AMAccruedIntExp</th>
+                        <th>AMAmortizedCost</th>
+                        <th>AMAmtPrinEnd</th>
+                        <th>UnearnedFee</th>
+                        <th>EarnedFee</th>
+                        <th>EIR</th>
+                        <!--<th>NoOfPeriod</th>-->
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="borrowingSchedule in vm.borrowingSchedules">
+                        <td>
+                            {{borrowingSchedule.Sequence}}
+                        </td>
+                        <td>
+                            {{borrowingSchedule.RefNo}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.Date | date}}
+                        </td>
+                        <!--<td>
+                            {{borrowingSchedule.PaymentDate | date}}
+                        </td>-->
+                        <td>
+                            {{ borrowingSchedule.AmountPrincInit | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.DailyPayment | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.DailyIntExpense | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AccruedInterestExpense | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AmountPrincEnd | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.NorminalRate }}
+                        </td>
+                        <td>
+                            {{borrowingSchedule.AMSequence}}
+                        </td>
+                        <td>
+                            {{borrowingSchedule.RefNo}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMDate | date}}
+                        </td>
+                        <td>
+                            {{borrowingSchedule.AMPaymentDate | date}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMAmountPrincInit | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMDailyPayment | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMDailyIntExpense | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMAccruedInterestExpense | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMAmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.AMAmountPrincEnd | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.UnearnedFee | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.EarnedFee | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingSchedule.EffectiveRate }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

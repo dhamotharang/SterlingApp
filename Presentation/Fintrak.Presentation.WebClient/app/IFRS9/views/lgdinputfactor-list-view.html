@@ -1,0 +1,63 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-lgdinputfactor-edit({LgdInputFactorId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="lgdInputFactorsTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Business</th>
+                        <th>Value</th>
+                        <th>Beststimate</th>
+                        <th>Optimistic</th>
+                        <th>Downturn</th>
+                        <th>Rundate</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="lgdInputFactor in vm.lgdInputFactors">
+                        <td>
+                            {{ lgdInputFactor.Business }}
+                        </td>
+                        <td>
+                            {{ lgdInputFactor.Value }}
+                        </td>
+                        <td>
+                            {{ lgdInputFactor.Beststimate }}
+                        </td>
+                        <td>
+                            {{ lgdInputFactor.Optimistic }}
+                        </td>
+                        <td>
+                            {{ lgdInputFactor.Downturn }}
+                        </td>
+                        <td>
+                            {{ lgdInputFactor.Rundate }}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-lgdinputfactor-edit({LgdInputFactorId: lgdInputFactor.LgdInputFactorId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-opexrawexpense-edit({opexrawexpenseId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="opexRawExpenseTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GL Code</th>
+                        <th>GL Name</th>
+                        <th>Post Date</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                        <th>Check MIS Code</th>
+                        <th>MIS Code</th>
+                        <th>Branch Code</th>
+                        <th>Tran ID</th>
+                        <th>Sub GL Code</th>
+                        <th>DR</th>
+                        <th>CR</th>
+                        <th>Narrative</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="opexRawExpense in vm.opexRawExpenses">
+                        <td>
+                            {{ opexRawExpense.GLCode}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.GLName}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.PostDate}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.Amount}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.Description}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.CheckMISCode}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.MISCode}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.BranchCode}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.TranID}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.SubGLCode}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.CR}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.DR}}
+                        </td>
+                        <td>
+                            {{ opexRawExpense.Narrative}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-opexrawexpense-edit({opexrawexpenseId: opexRawExpense.CostCentreId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

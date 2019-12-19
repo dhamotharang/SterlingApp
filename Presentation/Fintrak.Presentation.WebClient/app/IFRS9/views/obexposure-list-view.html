@@ -1,0 +1,302 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active" ng-click="vm.loadBG()" ><a href="#bg" role="tab" data-toggle="tab">Bonds & Guarantees</a></li>
+                <li ng-click="vm.loadLC()" ><a href="#lc" role="tab" data-toggle="tab">Letter of Credit</a></li>
+                <li ng-click="vm.loadOD()" ><a href="#od" role="tab" data-toggle="tab">Overdraft</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="bg">
+              
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({obeId:0})"> Add New BG</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Numbers" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadOBEBySearch(1, 'bgTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="bgTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">Action</th>
+                                <th style="width: 10%">RefNo</th>
+                                <th>OBE Type</th>
+                                <th>Mapped To</th>
+                                <th>ValueDate</th>
+                                <th>MaturityDate</th>
+                                <th>Currency</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Default Flag</th>
+                                <th>Devolement Date</th>
+                                <th>Def. Amt Crystalz.</th>
+                                <th>Product Type</th>
+                                <th>Sub Type</th>
+                                <th>User</th>
+                                                       
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obexpsores in vm.obexpsores">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-obexposure-edit({obeId: obexpsores.obe_Id,flag:1})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ obexpsores.RefNo}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.OBE_Type}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Mapped_OBE_Type}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.ValueDate | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.MaturityDate | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Currency}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Rate | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Amount | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Default_Flag}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Date_Of_Devolement | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Default_Amount_Crystallize | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.ProductType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.SubType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.UpdatedBy }}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="tab-pane fade" id="lc">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({ObeId:0})"> Add New LC</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadOBEBySearch(2, 'lcTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="lcTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">Action</th>
+                                <th style="width: 10%">RefNo</th>
+                                <th>OBE Type</th>
+                                <th>Mapped To</th>
+                                <th>ValueDate</th>
+                                <th>MaturityDate</th>
+                                <th>Currency</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Invocation Flag</th>
+                                <th>Devolement Date</th>
+                                <th>Def. Amt Crystalz.</th>
+                                <th>Product Type</th>
+                                <th>Sub Type</th>
+                                <th>User</th>
+                               
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obexpsores in vm.obexpsores">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-obexposure-edit({obeId: obexpsores.obe_Id,flag:2})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ obexpsores.RefNo}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.OBE_Type}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Mapped_OBE_Type}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.ValueDate | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.MaturityDate | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Currency}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Rate}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Amount | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Default_Flag}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Date_Of_Devolement | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Default_Amount_Crystallize | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.ProductType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.SubType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.UpdatedBy }}
+                                </td>
+                            </tr>
+                        </tbody>
+                  
+                    </table>
+
+                </div>
+                
+                <div class="tab-pane fade" id="od">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form>
+                                <a class="btn btn-info btn-sm" data-ui-sref="ifrs-obexposure-edit({ObeId:0})"> Add New OD</a>&nbsp;&nbsp;&nbsp;
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam" style="width:300px" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadOBEBySearch(3, 'odTable')">Search</button>
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                                <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                            </form>
+                        </div>
+                    </div>
+                    <br />
+
+                    <table id="odTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">Action</th>
+                                <th style="width: 10%">RefNo</th>
+                                <!--<th>OBE Type</th>-->
+                                <th>Customer Name</th>
+                                <th>EffectiveDate</th>
+                                <th>MaturityDate</th>                           
+                                <th>OD Amount</th>
+                                <th>1 Yr Prior Bal</th>
+                                <th>Default Bal</th>
+                                <th>1 Yr Prior Undrawn</th>
+                                <th>Additional Drawn Within Yr</th>
+                                <th>Default Date</th>                               
+                                <th>Product Type</th>
+                                <th>Sub Type</th>
+                                <th>User</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="obexpsores in vm.obexpsores">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-obexposure-edit({obeId: obexpsores.obe_Id,flag:3})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ obexpsores.RefNo}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.CustomerName}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.ValueDate | date}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.MaturityDate | date}}
+                                </td>
+                               <td>
+                                    {{ obexpsores.Amount | currency :"":0}}
+                                </td>  
+                                <td>
+                                    {{ obexpsores.OneYearPriorBal | currency :"":0}}
+                                </td> 
+                                <td>
+                                    {{ obexpsores.DefaultBal | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.OneYearPriorUndrawn | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.AdditionalDrawnWithinYr | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.Date_Of_Devolement | date}}
+                                </td>                         
+                                <td>
+                                    {{ obexpsores.ProductType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.SubType}}
+                                </td>
+                                <td>
+                                    {{ obexpsores.UpdatedBy }}
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

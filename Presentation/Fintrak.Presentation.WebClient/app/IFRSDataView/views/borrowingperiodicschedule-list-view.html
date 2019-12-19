@@ -1,0 +1,125 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Select Reference Number:</label>
+                    <div isteven-multi-select
+                         input-model="vm.distinctRefNos"
+                         output-model="vm.selectedRefNos"
+                         button-label="icon name"
+                         item-label="icon name maker"
+                         tick-property="ticked"
+                         max-labels="5">
+                    </div>
+                    <!--<input type="date" class="input-sm" placeholder="Provide Tentative Date" data-ng-model="vm.Date " style="width:150px" |date />-->
+                    <br />
+                    <!--<a class="btn btn-info btn-sm" data-ui-sref="ifrs-loanperiodicschedule-edit({loanPeriodicId:0})"> Add New Loan</a>&nbsp;&nbsp;&nbsp;-->
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                    <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                    <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData('split ')">Split then Export</div>
+
+                </div>
+
+            </div>
+            <br />
+
+            <table id="borrowingPeriodicScheduleTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>num_pmt</th>
+                        <th>date_pmt</th>
+                        <th>amt_prin_init</th>
+                        <th>amt_pmt</th>
+                        <th>amt_intexp_pay</th>
+                        <th>amt_prin_pay</th>
+                        <th>amt_prin_end</th>
+                        <th>Rate</th>
+                        <th>AMRefNo</th>
+                        <th>AMnum_pmt</th>
+                        <th>AMdate_pmt</th>
+                        <th>AMamt_prin_init</th>
+                        <th>AMamt_pmt</th>
+                        <th>AMamt_intexp_pay</th>
+                        <th>AMamt_prin_pay</th>
+                        <th>AMamt_prin_end</th>
+                        <th>IRR</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="borrowingPeriodicSchedule in vm.borrowingPeriodicSchedules">
+                        <td>
+                            {{ borrowingPeriodicSchedule.RefNo}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Num_Pmt }}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Date_Pmt | date}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Amt_Prin_Init | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Amt_Pmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Amt_Intexp_Pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Amt_Prin_Pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Amt_Prin_End | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.Rate}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMRefNo}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMnum_Pmt }}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMDate_Pmt | date}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMamt_Prin_Init | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMAmt_Pmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMAmt_Intexp_Pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMAmt_Prin_Pay | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.AMAmt_Prin_End | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ borrowingPeriodicSchedule.IRR  }}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

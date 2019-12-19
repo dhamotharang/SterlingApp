@@ -1,0 +1,73 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-opexreport-edit({opexreportId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="opexReportTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GLCode</th>
+                        <th>GL Name</th>
+                        <th>BranchCode</th>
+                        <th>BranchName</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>CompanyCode</th>
+                        <th>Rundate</th>
+                     
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="opexReport in vm.opexReports">
+                        <td>
+                            {{ opexReport.GLCode}}
+                        </td>
+                        <td>
+                            {{ opexReport.GLDescription}}
+                        </td>
+                        <td>
+                            {{ opexReport.BranchCode}}
+                        </td>
+                        <td>
+                            {{ opexReport.BranchName}}
+                        </td>
+                        <td>
+                            {{ opexReport.Amount}}
+                        </td>
+                        <td>
+                            {{ opexReport.Currency}}
+                        </td>
+                        <td>
+                            {{ opexReport.CompanyCode}}
+                        </td>
+                        <td>
+                            {{ opexReport.RunDate|date}}
+                        </td>
+                        
+                        <td>
+                            <!--<a class="btn btn-orange btn-xs" data-ui-sref="mpr-opexreport-edit({opexreportId: opexReport.OpexReportId})">
+                                Edit
+                            </a>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,193 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Main Search: </label>
+                    <input type="text" class="input-sm" placeholder="Enter Glcode or Customer name or Related account" data-ng-model="vm.searchValue" style="width:350px" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadMPRCommFees()">Load</button>
+                    <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshMPRCommFees()">Refresh</button>
+                    <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                </div>
+
+                <!--<div class="col-md-5">
+                    <label for="" class="control-label">To Date :</label>
+                    <select class="input-sm" ng-model="vm.ToDate" ng-options="todates.ToDate as todates.ToDate for todates in vm.distinctToDate" style="width:150px;" | date></select>
+                    <label for="" class="control-label">Count:</label>
+                    <input type="number" class="input-sm" data-ng-model="vm.number" style="width:150px;" />
+                    <button ng-click="vm.exportToExcel('#revenueTable')">Export</button>
+                </div>-->
+
+            </div>
+            <br />
+
+            <table id="mprcommfeeTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>MIS Code</th>
+                        <th>Account Officer Code</th>
+                        <th>Customer Name</th>
+                        <th>Branch Code</th>
+                        <th>Income or Expense</th>
+                        <th>Amount</th>
+                        <th>Currency Type</th>
+                        <th>GL Code</th>
+                        <th>Related Account</th>
+                        <th>Narrative</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>Customer Code</th>
+                        <th>P Date</th>
+                        <th>Caption</th>
+                        <th>Group Caption</th>
+                        <th>Transaction ID</th>
+                        <th>Transaction Date</th>
+                        <th>GL Name</th>
+                        <th>Entry Status</th>
+                        <th>Rate</th>
+                        <th>Raw Amount</th>
+                        <th>Sub Head GLCode</th>
+                        <th>Product Code</th>
+                        <th>Trans Code</th>
+                        <th>Ref Num</th>
+                        <th>Rcre UserId</th>
+                        <th>Entry UserId</th>
+                        <th>Broker Code</th>
+                        <th>Remap Caption</th>
+                        <th>Remap GroupName</th>
+                        <th>IsMT</th>
+                        <th>Main Caption</th>
+                        <th>ID</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr ng-scroll-repeat="mprcommfee in vm.mprcommfee" page-size="20" tolerance="200">
+                        <td>
+                            {{mprcommfee.Miscode}}
+                        </td>
+                        <td>
+                            {{mprcommfee.AccountOfficer_Code}}
+                        </td>
+                        <td>
+                            {{mprcommfee.CustomerName}}
+                        </td>
+                        <td>
+                            {{mprcommfee.BranchCode}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Inc_Exp}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Amount | currency:''}}
+                        </td>
+
+                        <td>
+                            {{mprcommfee.CurrencyType}}
+                        </td>
+                        <td>
+                            {{mprcommfee.GL_Code}}
+                        </td>
+                        <td>
+                            {{mprcommfee.RelatedAccount}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Narrative}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Period}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Year}}
+                        </td>
+                        <td>
+                            {{mprcommfee.CustomerCode}}
+                        </td>
+                        <td>
+                            {{mprcommfee.P_Date | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Caption}}
+                        </td>
+                        <td>
+                            {{mprcommfee.GroupCaption}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Tran_ID}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Tran_Date | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{mprcommfee.GLName}}
+                        </td>
+                        <td>
+                            {{mprcommfee.EntryStatus}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Rate}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Raw_Amt | currency:''}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Sub_Head_GL_Code}}
+                        </td>
+                        <td>
+                            {{mprcommfee.ProductCode}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Trans_Code}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Ref_Num}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Rcre_User_Id}}
+                        </td>
+                        <td>
+                            {{mprcommfee.Entry_User_Id}}
+                        </td>
+                        <td>
+                            {{mprcommfee.BrokerCode}}
+                        </td>
+                        <td>
+                            {{mprcommfee.RemapCaption}}
+                        </td>
+                        <td>
+                            {{mprcommfee.RemapGroupName}}
+                        </td>
+                        <td>
+                            {{mprcommfee.IsMT}}
+                        </td>
+                        <td>
+                            {{mprcommfee.MainCaption}}
+                        </td>
+                        <td>
+                            {{mprcommfee.ID}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-mprcommfee-edit({CommFee_Id: mprcommfee.CommFee_Id})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

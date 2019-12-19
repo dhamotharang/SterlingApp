@@ -1,0 +1,86 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Asset Description or Account No" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBondsECLComputationResultBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData('split ')">Split then Export</div>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="bondsEclComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>AccountNo</th>
+                        <th>Asset Description</th>
+                        <th>Date</th>
+                        <th>Asset type</th>
+                        <th>Stage</th>
+                        <th>Cur</th>
+                        <th>Rate</th>
+                        <th>AmortizedCost</th>
+                        <th>AmortizedCost_Trans</th>
+                        <th>EIR</th>
+                        <th>PrincipalOutBal</th>
+                        <th>LGD</th>
+                        <th>DisFactor</th>
+                        <th>PD</th>
+                        <th>FinalECLBest</th>
+                        <th>FinalECLOptimistic</th>
+                        <th>FinalECLDownTurn</th>
+                        <th>FinalECLWeightAvg</th>
+                        <th>RunDateTime</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bondsEclComputationResults in vm.bondsEclComputationResult">
+
+                        <td>{{ bondsEclComputationResults.Refno }}</td>
+                        <td>{{ bondsEclComputationResults.CustomerName }}</td>
+                        <td>{{ bondsEclComputationResults.date_pmt | date }}</td>
+                        <td>{{ bondsEclComputationResults.Producttype }}</td>
+                        <td>{{ bondsEclComputationResults.Stage }}</td>
+                        <td>{{ bondsEclComputationResults.Currency }}</td>
+                        <td>{{ bondsEclComputationResults.ExchangeRate }}</td>
+                        <td>{{ bondsEclComputationResults.AmortizedCost | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.AmortizedCost_Trans | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.EIR | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.PrincipalOutBal | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.LGD }}</td>
+                        <td>{{ bondsEclComputationResults.DiscountFactor }}</td>
+                        <td>{{ bondsEclComputationResults.PDBest }}</td>
+                        <td>{{ bondsEclComputationResults.FinalECLBest | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.FinalECLOptimistic | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.FinalECLDownTurn | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.FinalECLWeightAvg | currency :"":0}}</td>
+                        <td>{{ bondsEclComputationResults.Rundate | date }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

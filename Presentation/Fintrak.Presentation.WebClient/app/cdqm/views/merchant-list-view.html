@@ -1,0 +1,93 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="cdqm-merchant-edit({merchantId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="merchantTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>S/N</th>
+                        <th>Branch Name</th>
+                        <th>AccountOfficer Code</th>
+                        <th>Team Code</th>
+                        <th>SBU</th>
+                        <th>Merchant Code</th>
+                        <th>Merchant Name</th>
+                        <th>Mobile Phone</th>
+                        <th>Email</th>
+                        <th>Bank Code</th>
+                        <th>Bank AccNo</th>
+                        <th>Bank AccType</th>
+                        
+
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="merchant in vm.merchants">
+                        <td>
+                            {{ merchant.SN}}
+                        </td>
+
+                        <td>
+                            {{ merchant.BranchName}}
+                        </td>
+                        <td>
+                            {{ merchant.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{ merchant.TeamCode}}
+                        </td>
+                        <td>
+                            {{ merchant.SBU}}
+                        </td>
+                        <td>
+                            {{ merchant.MerchantCode}}
+                        </td>
+                        <td>
+                            {{ merchant.MerchantName}}
+                        </td>
+
+                        <td>
+                            {{ merchant.MobilePhone}}
+                        </td>
+                        <td>
+                            {{ merchant.Email}}
+                        </td>
+                        <td>
+                            {{ merchant.BankCode}}
+                        </td>
+                        <td>
+                            {{ merchant.BankAccNo}}
+                        </td>
+                        <td>
+                            {{ merchant.BankAccType}}
+                        </td>
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="cdqm-merchant-edit({merchantId: merchant.MerchantId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

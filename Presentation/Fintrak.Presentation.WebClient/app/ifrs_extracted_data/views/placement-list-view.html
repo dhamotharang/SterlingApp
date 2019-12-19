@@ -1,0 +1,155 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Main Search: </label>
+                    <input type="text" class="input-sm" placeholder="Enter Reference Number" data-ng-model="vm.refNo" style="width:350px" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadMonthlyDiscountFactor()">Load</button>
+                    <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshMonthlyDiscountFactor()">Refresh</button>
+                    <a href="Home/LoadExcelrevenue" target="_blank">Export</a>
+                </div>
+            </div>-->
+
+            <br />
+            
+            <table id="placementTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Reference Number</th>
+                        <th>Customer Name</th>
+                        <th>Rating</th>
+                        <th>Booking Date</th>
+                        <th>Value Date</th>
+                        <th>Maturity Date</th>
+                        <th>Amount</th>
+                        <th>Rate</th>
+                        <th>Currency</th>
+                        <th>Exchange Rate</th>
+                        <th>Local Currency Amount</th>
+                        <th>Collateral Type</th>
+                        <th>Collateral Value</th>
+                        <th>Collateral Haircut</th>
+                        <th>RunDate</th>
+                        <th>Stage</th>  
+
+                        <!--Access-->
+                        <th>asset_classification</th>
+                        <th>repayment_term</th>
+                        <th>previous_rating</th>
+                        <th>asset_type</th>
+                        <th>asset_desc</th>
+                        <th>rating_agency</th>
+                        <th>days_pass_due</th>
+                        <th>prudential_classification</th>
+                        <th>forebearance_flag</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="placement in vm.placement">
+                        <td>
+                            {{ placement.RefNo}}
+                        </td>
+                        <td>
+                            {{ placement.CustomerName}}
+                        </td>
+                        <td>
+                            {{ placement.Rating}}
+                        </td>
+                        <td>
+                            {{ placement.BookingDate}}
+                        </td>
+                        <td>
+                            {{ placement.ValueDate | date }}
+                        </td>
+                        <td>
+                            {{ placement.MaturityDate | date }}
+                        </td>
+                        <td>
+                            {{ placement.Amount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ placement.Rate}}
+                        </td>
+                        <td>
+                            {{ placement.Currency}}
+                        </td>
+                        <td>
+                            {{ placement.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ placement.LCY_Amount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ placement.CollateralType}}
+                        </td>
+                        <td>
+                            {{ placement.CollateralValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ placement.CollateralHaircut}}
+                        </td>
+                        <td>
+                            {{ placement.RunDate | date}}
+                        </td>
+                        <td>
+                            {{ placement.Stage}}
+                        </td>
+
+                        <!--Access-->
+                        <td>
+                            {{ placement.asset_classification}}
+                        </td>
+                        <td>
+                            {{ placement.repayment_term}}
+                        </td>
+                        <td>
+                            {{ placement.previous_rating}}
+                        </td>
+                        <td>
+                            {{ placement.asset_type}}
+                        </td>
+                        <td>
+                            {{ placement.asset_desc}}
+                        </td>
+                        <td>
+                            {{ placement.rating_agency}}
+                        </td>
+                        <td>
+                            {{ placement.days_pass_due}}
+                        </td>
+                        <td>
+                            {{ placement.prudential_classification}}
+                        </td>
+                        <td>
+                            {{ placement.forebearance_flag}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-placement-edit({Placement_Id: placement.Placement_Id})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

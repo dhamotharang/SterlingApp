@@ -1,0 +1,392 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="inbox">
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <!-- search box -->
+                        <form class="searchbox">
+                            <div class="input-group input-group-sm">
+                                <select class="form-control" ng-model="vm.selectedGroupId" ng-options="groupId.Value as groupId.Value for groupId in vm.groupIds"></select>
+
+                                <span class="input-group-btn">
+                                    <button type="button" class="btn btn-primary" ng-click="vm.loadCustomers(false)"><i class="fa fa-search"></i>Load Customers</button>
+                                    <!--<button class="btn btn-primary" type="button"><i class="fa fa-search"></i> Search</button>-->
+                                </span>
+                            </div>
+                        </form>
+                        <!-- end search box -->
+                    </div>
+                </div>
+                <div class="top">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <button class="btn btn-primary btn-block btn-compose" ng-disabled="true"><i class="fa fa-pencil"></i> INFORMATION GROUP</button>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="top-menu">
+                                <button class="btn btn-success btn-block btn-compose" ng-disabled="true">GROUP DETAIL</button>
+                                
+                                <div class="navigation">
+                                    <button type="button" class="btn btn-link hidden-sm hidden-md hidden-lg inbox-nav-toggle"><i class="fa fa-bars"></i></button>
+                                    <div class="pager-wrapper">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /top-menu -->
+                        </div>
+                    </div>
+                    <!-- /row -->
+                </div>
+                <!-- /top -->
+                <div class="bottom">
+                    <div class="row">
+                        <!-- inbox left menu -->
+                        <div class="col-xs-12 col-sm-3 col-lg-2 inbox-left-menu">
+                            <h3 class="sr-only">Inbox Menu</h3>
+                            <ul class="list-unstyled left-menu">
+                                <li><button ng-class="(vm.group==1) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('1')"><i class="fa fa-inbox"></i> Bio Data </button></li>
+                                <li><button ng-class="(vm.group==2) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('2')"><i class="fa fa-star"></i>Channel Data</button></li>
+                                <li><button ng-class="(vm.group==3) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('3')"><i class="fa fa-edit"></i> Customer Type</button></li>
+                                <li><button ng-class="(vm.group==4) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('4')"><i class="fa fa-external-link"></i> Contact Detail</button></li>
+                                <li><button ng-class="(vm.group==5) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('5')"><i class="fa fa-warning"></i> Customer Segment </button></li>
+                                <li><button ng-class="(vm.group==6) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('6')"><i class="fa fa-trash-o"></i> Customer Sector</button></li>
+                                <li><button ng-class="(vm.group==7) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('7')"><i class="fa fa-trash-o"></i> Spouse Detail</button></li>
+                                <li><button ng-class="(vm.group==8) ? 'btn btn-success' : 'btn'" data-ng-click="vm.onGroupSelected('8')"><i class="fa fa-trash-o"></i> Others</button></li>
+                            </ul>
+
+                        </div>
+                        <!-- end inbox left menu -->
+                        <!-- right main content, the messages -->
+                        <div class="col-xs-12 col-sm-9 col-lg-10">
+                            <div class="">
+                                <div ng-show="vm.group == 1">
+                                    <table id="group1Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Cust Id</th>
+                                                <th>Shrt Name</th>
+                                                <th>Full Name</th>
+                                                <th>Last Name</th>
+                                                <th>Mid Name</th>
+                                                <th>First Name</th>
+                                                <th>DOB</th>
+                                                <th>Sex</th>
+                                                <th>Mar Stat</th>
+                                                <th>Spouse</th>
+                                                <th>BVN</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.COD_CUST_ID}}</td>
+                                                <td>{{ customer.NAM_CUST_SHRT}} </td>
+                                                <td>{{ customer.NAM_CUST_FULL}} </td>
+                                                <td>{{ customer.NAM_CUST_LAST}} </td>
+                                                <td>{{ customer.NAM_CUST_MID}} </td>
+                                                <td>{{ customer.NAM_CUST_FIRST}} </td>
+                                                <td>{{ customer.DAT_BIRTH_CUST}} </td>
+                                                <td>{{ customer.TXT_CUST_SEX}} </td>
+                                                <td>{{ customer.COD_CUST_MARSTAT}} </td>
+                                                <td>{{ customer.NAM_CUST_SPOUSE}} </td>
+                                                <td>{{ customer.BVN}} </td>
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 2">
+                                    <table id="group2Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                              
+                                                <th>Card Holder</th>
+                                                <th>Cardable</th>
+                                                <th>Internet Bank</th>
+                                                <th>Mobile Bank</th>
+                                                <th>Amount</th>
+                                                <th>Acct Count</th>
+                                                <th>Group ID</th>
+                                                <th>Merchantable</th>
+                                                <th>Merchant</th>
+                                              
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                  
+                                                <td>{{ customer.IS_CARDHOLDER}} </td>
+                                                <td>{{ customer.IS_CARDABLE}} </td>
+                                                <td>{{ customer.HAS_INTERNETBANKING}} </td>
+                                                <td>{{ customer.HAS_MOBILEBANKING}} </td>
+                                                <td>{{ customer.AMOUNT}} </td>
+                                                <td>{{ customer.ACCOUNTCOUNT}} </td>
+                                                <td>{{ customer.COD_GROUP_ID}} </td>
+                                                <td>{{ customer.IS_MERCHANTABLE}} </td>
+                                                <td>{{ customer.IS_MERCHANT}} </td>
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 3">
+                                    <table id="group3Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Customer Type</th>
+                                                <th>Open</th>
+                                                <th>Staff</th>
+                                                <th>Process Cat</th>
+                                                <th>Incorporated</th>
+                                                <th>Business RegNo</th>
+                                                <th>Last Mnt</th>
+                                                <th>Trans Count</th>
+    
+                                                <th>Max Age</th>
+                                                <th>Min Age</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.CUSTOMER_TYPE}}</td>
+                                                <td>{{ customer.DAT_CUST_OPEN}}</td>
+                                                <td>{{ customer.FLG_STAFF}} </td>
+                                                <td>{{ customer.TXT_PROFESS_CAT}} </td>
+                                                <td>{{ customer.DAT_INCORPORATED}} </td>
+                                                <td>{{ customer.COD_BUSINESS_REGNO}} </td>
+                                                <td>{{ customer.DAT_LAST_MNT}} </td>
+                                                <td>{{ customer.TRANS_COUNT}} </td>
+                                               
+                                                <td>{{ customer.MAXIMUM_AGE}} </td>
+                                                <td>{{ customer.MINIMUM_AGE}} </td>
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 4">
+                                    <table id="group4Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Loc Glob</th>
+                                                <th>Home Brn</th>
+                                                <th>Address 1</th>
+                                                <th>Address 2</th>
+                                                <th>Address 3</th>
+                                                <th>City</th>
+                                                <th>State</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Residence</th>
+                                                <th>Nationality</th>
+                                                <th>Addr Country</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.FLG_LOC_GLOB}}</td>
+                                                <td>{{ customer.COD_CC_HOMEBRN}} </td>
+                                                <td>{{ customer.TXT_CUSTADR_ADD1}} </td>
+                                                <td>{{ customer.TXT_CUSTADR_ADD2}} </td>
+                                                <td>{{ customer.TXT_CUSTADR_ADD3}} </td>
+                                                <td>{{ customer.NAM_CUSTADR_CITY}} </td>
+                                                <td>{{ customer.NAM_CUSTADR_STATE}} </td>
+                                                <td>{{ customer.REF_CUST_PHONE}} </td>
+                                                <td>{{ customer.REF_CUST_EMAIL}} </td>
+                                                <td>{{ customer.TXT_CUST_RESIDENCE}} </td>
+                                                <td>{{ customer.TXT_CUST_NATNLTY}} </td>
+                                                <td>{{ customer.NAM_CUSTADR_CNTRY}} </td>
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 5">
+                                    <table id="group5Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Mis Code</th>
+                                                <th>RM Code</th>
+                                                <th>RN Name</th>
+                                                <th>Product Code</th>
+                                                <th>Product Name</th>
+                                                <th>Division</th>
+                                                <th>Segment</th>
+                                                <th>Sub Segment</th>
+                                                <th>Product Segment</th>
+                                                <th>Product Status</th>
+                                                <th>Cust MisCode</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.MIS_CODE}}</td>
+                                                <td>{{ customer.RM_CODE}} </td>
+                                                <td>{{ customer.RM_NAME}} </td>
+                                                <td>{{ customer.PRODUCT_CODE}} </td>
+                                                <td>{{ customer.PRODUCT_NAME}} </td>
+                                                <td>{{ customer.BUSINESS_DIVISION}} </td>
+                                                <td>{{ customer.CUSTOMER_SEGMENT}} </td>
+                                                <td>{{ customer.CUSTOMER_SUB_SEGMENT}} </td>
+                                                <td>{{ customer.PRODUCT_SEGMENT}} </td>
+                                                <td>{{ customer.PRODUCTSTATUS}} </td>
+                                                <td>{{ customer.CustomerMisCode}} </td>
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 6">
+                                    <table id="group6Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Credit Rating</th>
+                                                <th>CBN Sector</th>
+                                                <th>CBN Sub Sector</th>
+                                              
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.CREDIT_RATING}}</td>
+                                                <td>{{ customer.CBN_SECTOR}} </td>
+                                                <td>{{ customer.CBN_SUB_SECTOR}} </td>
+                                               
+
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 7">
+                                    <table id="group7Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                                <th>Spouse Occup</th>
+                                                <th>Children</th>
+                                                <th>Full Name</th>
+                                                <th>Prefix</th>
+
+                                                <th>Derived Gender</th>
+                                                <th>Full Name Clean</th>
+                                                <th>DOB Clean</th>
+                                                <th>Sex Clean</th>
+                                                <th>Sim Full Name</th>
+                                                <th>Derived State</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                <td>{{ customer.TXT_SPOUSE_OCCPN}}</td>
+                                                <td>{{ customer.CTR_DPNDT_CHLDRN}} </td>
+                                                <td>{{ customer.CUST_FULL_NAME_TITLE}} </td>
+                                                <td>{{ customer.TXT_CUST_PREFIX}} </td>
+                                                
+                                                <td>{{ customer.DERIVED_GENDER}} </td>
+                                                <td>{{ customer.NAM_CUST_FULL_clean}} </td>
+                                                <td>{{ customer.DAT_BIRTH_CUST_clean}} </td>
+                                                <td>{{ customer.TXT_CUST_SEX_clean}} </td>
+                                                <td>{{ customer._Similarity_NAM_CUST_FULL}} </td>
+                                                <td>{{ customer.DERIVED_STATE}} </td>
+
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div ng-show="vm.group == 8">
+                                    <table id="group8Table" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+                                        <thead>
+                                            <tr>
+                                                <!--<th>Id</th>-->
+                                              
+                                                <th>Age</th>
+                                                <th>DOB Status</th>
+                                                <th>Full Address</th>
+                                                <th>Postal Code</th>
+                                                <th>LGA</th>
+                                               
+                                                <th>Country Status</th>
+                                                <th>Email Status</th>
+                                                <th>Gender Status</th>
+                                                <th>Prefix Status</th>
+                                                <th>Default AccNo</th>
+                                                <th>Score</th>
+
+                                                <th style="width: 3%;">Golden</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="customer in vm.customers">
+                                                <!--<td>{{ customer.CUSTOMER_PERSISTENT_ID}} </td>-->
+                                                
+                                                <td>{{ customer.AGE}} </td>
+                                                <td>{{ customer.cust_birthdate_status}} </td>
+                                                <td>{{ customer.CUST_FULL_ADDRESS}} </td>
+                                                <td>{{ customer.PostalCode}} </td>
+                                                <td>{{ customer.LGA}} </td>
+                 
+                                                <td>{{ customer.country_status}} </td>
+                                                <td>{{ customer.email_status}} </td>
+                                                <td>{{ customer.gender_status}} </td>
+                                                <td>{{ customer.prefix_status}}</td>
+                                                <td>{{ customer.COD_ACCT_NO_DEFAULT}}</td>
+                                                <td>{{ customer._score}}</td>
+
+                                                <td><button class="btn btn-orange btn-xs" ng-click="vm.updateCustomer(customer)" ng-disabled="customer.IsGolden">{{vm.goldStatus(customer.IsGolden)}}</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end right main content, the messages -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+   
+</div>

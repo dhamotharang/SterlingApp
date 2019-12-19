@@ -1,0 +1,70 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Main Search: </label>
+                    <input type="text" class="input-sm" placeholder="Enter Reference Number" data-ng-model="vm.refNo" style="width:350px" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadMonthlyDiscountFactorPlacement()">Load</button>
+                    <button type="button" class="btn btn-info btn-xs" ng-click="vm.refreshMonthlyDiscountFactorPlacement()">Refresh</button>
+                    <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                </div>
+            </div>
+
+            <br />
+            
+            <table id="monthlydiscountfactorplacementTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Reference Number</th>
+                        <th>Sequence</th>
+                        <th>Effective Interest Rate</th>
+                        <th>Discount Factor</th>
+                        <th>Facility Type</th>
+                        <th>RunDate</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="monthlydiscountfactorplacement in vm.monthlydiscountfactorplacement">
+                        <td>
+                            {{ monthlydiscountfactorplacement.RefNo}}
+                        </td>
+                        <td>
+                            {{ monthlydiscountfactorplacement.Seq}}
+                        </td>
+                        <td>
+                            {{ monthlydiscountfactorplacement.EIR}}
+                        </td>
+                        <td>
+                            {{ monthlydiscountfactorplacement.DF}}
+                        </td>
+                        <td>
+                            {{ monthlydiscountfactorplacement.FacilityType}}
+                        </td>
+                        <td>
+                            {{ monthlydiscountfactorplacement.RunDate}}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-macroeconomicsnpl-edit({Id: macroeconomicsnpl.Id})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

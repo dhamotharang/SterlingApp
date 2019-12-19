@@ -1,0 +1,98 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <label for="" class="control-label">Select Filter Code :</label>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="dropdown dropdown-scroll">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                        Select Filter Code <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" style="max-height: 400px; width: 200px; overflow: auto;" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation">
+                                            <div class="input-group input-group-sm search-control" style="padding: 5px 10px;">
+                                                <input type="text" class="form-control" placeholder="Search Referencce No." ng-model="vm.selectedFilters[0].name">
+                                                <button class="input-group-addon" ng-click="vm.onClearSelected()">
+                                                    <span class="glyphicon glyphicon-erase">Reset</span>
+                                                </button>
+                                            </div>
+                                        </li>
+                                        <li role="presentation" ng-repeat='item in vm.distinctFilters | filter: vm.selectedFilters[0].name'>
+                                            <button class="input-group-addon" ng-click="vm.onSelectList(item.name)"> {{item.name}} </button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control input-sm" data-ng-model="vm.selectedFilters[0].name"
+                                       style="width:250px;background-color:lightblue" /> <!--ng-disabled="true" />-->
+                                &nbsp;&nbsp;&nbsp;
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Search</button>
+                                <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+                </div>
+            </div>
+            <br />
+
+            
+            <table id="PostingDetailContractTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNumber</th>
+                        <th>GAAP Carrying Amount</th>
+                        <th>IFRS Carrying Amount</th>
+                        <th>IFRS Adjustment</th>
+                        <th>Filter</th>
+                        <th>RunDate</th>
+                        
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="PostingDetailContract in vm.PostingDetailContracts">
+                        <td>
+                            {{ PostingDetailContract.Refno}}
+                        </td>
+                        <td>
+                            {{ PostingDetailContract.PrincipalOustandingBal | currency:''}}
+                        </td>
+                        <td>
+                            {{ PostingDetailContract.AmortizedCost | currency:''}}
+                        </td>
+                        <td>
+                            {{ PostingDetailContract.PrincipalOustandingBal - PostingDetailContract.AmortizedCost | currency:''}}
+                        </td>
+                        <td>
+                            {{ PostingDetailContract.Category}}
+                        </td>
+                        <td>
+                            {{ PostingDetailContract.date_pmt | date}}
+                        </td>
+                       
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

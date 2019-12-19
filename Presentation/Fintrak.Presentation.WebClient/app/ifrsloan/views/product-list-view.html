@@ -1,0 +1,91 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-product-edit({productId:0})"> Create New</a>
+                    </div>
+                    <!--<div class="col-md-2">
+           Choose file to import data
+        </div>-->
+                    <div class="col-md-2">
+                        <ng-csv-import class="import"
+                                       content="vm.csv.content"
+                                       header="vm.csv.header"
+                                       header-visible="vm.csv.headerVisible"
+                                       separator="vm.csv.separator"
+                                       separator-visible="vm.csv.separatorVisible"
+                                       result="vm.csv.result"
+                                       encoding="vm.csv.encoding"
+                                       encoding-visible="vm.csv.encodingVisible"></ng-csv-import>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-info btn-sm" ng-click="vm.importData()" ng-disabled="vm.csv.content === null"> Upload</button>
+                    </div>
+                </div>
+            </div> 
+            <br />
+            
+            <table id="ifrsProductTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <!--<th>Schedule Type Code</th>-->
+                        <th>Schedule Name</th>
+                        <th>Market Rate</th>
+                        <!--<th>Past Due Rate</th>-->
+                        <!--<th>Company Code</th>-->
+                        <!--<th>Year</th>-->
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsProduct in vm.ifrsProducts">
+                        <td>
+                            {{ ifrsProduct.ProductCode}}
+                        </td>
+                        <td>
+                            {{ ifrsProduct.ProductName}}
+                        </td>
+                        <!--<td>
+                            {{ ifrsProduct.ScheduleTypeCode}}
+                        </td>-->
+                        <td>
+                            {{ ifrsProduct.ScheduleTypeName}}
+                        </td>
+                        <td>
+                            {{ ifrsProduct.MarketRate}}
+                        </td>
+                        <!--<td>
+                            {{ ifrsProduct.PastDueRate}}
+                        </td>-->
+                        <!--<td>
+                            {{ ifrsProduct.CompanyCode}}
+                        </td>-->
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-product-edit({productId: ifrsProduct.ProductId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

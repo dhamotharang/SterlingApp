@@ -1,0 +1,51 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-eclcalculationmodel-edit({eclcalculationmodelId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="eclcalculationmodelTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Description</th>
+                        <th>Active</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="eclcalculationmodel in vm.eclcalculationmodels">
+                        <td>
+                            {{ eclcalculationmodel.Code}}
+                        </td>
+                        <td>
+                            {{ eclcalculationmodel.Description}}
+                        </td>
+                        <td>
+                            {{ eclcalculationmodel.Active }}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-eclcalculationmodel-edit({eclcalculationmodelId: eclcalculationmodel.EclModelId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

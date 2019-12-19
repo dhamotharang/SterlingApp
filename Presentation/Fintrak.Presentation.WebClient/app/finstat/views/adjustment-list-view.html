@@ -1,0 +1,149 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="" class="control-label">Adjustment Type:</label>
+                    <select class="input-sm" ng-model="vm.adjustmentType" ng-options="adjustmentType.Id as adjustmentType.Name for adjustmentType in vm.adjustmentTypes" ng-change="vm.load()" style="width:150px;"></select>
+                    <!--<label for="" class="control-label">Report Type:</label>
+                    <select class="input-sm" ng-model="vm.reportType" ng-options="reportType.Id as reportType.Name for reportType in vm.reportTypes" style="width:150px;"></select>-->
+                    <!-- <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>              -->
+                    <a class="btn btn-info  btn-sm" data-ui-sref="finstat-adjustment-edit({gladjustmentId:0,adjustmentType:vm.adjustmentType,reportType:vm.reportType})"> Pass/Edit Adjustment</a>
+                    <button type="button" class="btn btn-warning  btn-sm" ng-click="vm.callUpPreviousAdjustment()">Call-Up Previous Adjustment</button>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="" class="control-label">ADJ Code:</label>
+                    <input type="text" class="input-sm" data-ng-model="vm.adjustmentCode" style="width:90px;" />
+                    <button type="button" class="btn btn-orange btn-sm" ng-click="vm.reverseAdjustment()">Reverse Posted Adj.</button>
+                    <button type="button" class="btn btn-danger btn-sm" ng-click="vm.purgeAdjustment()">Purge Posted Adj.</button>
+                    <button type="button" class="btn btn-info  btn-sm" ng-click="vm.purgeUnpostedAdjustment()">Purge Unposted Adj.</button>
+                  
+                </div>
+
+            </div>
+            <br />
+            <!--<div class="row">
+                <div class="col-md-6">
+
+                    <div class="checkbox-list">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" ng-model="vm.solutionRunDate.Restore" />&nbsp;
+                            Call - Up Previous Adjustment
+                        </label>
+                    </div>
+                </div>
+            </div>-->
+            <!--<div class="row" ng-show="vm.solutionRunDate.Restore" >              
+                    <label for=""> RunDate</label>
+                    <input type="text" ng-model="vm.qualitativeNotes.RunDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate" style="width:120px;background-color:lightblue" />
+                   <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+             </div>-->
+            <br />
+
+            <div class="col-md-6" ng-show="vm.solutionRunDate.Restore">
+                <label for="" class="control-label">ADJ Date</label>
+                <div class="col-sm-6">
+                    <input type="text" ng-model="vm.qualitativeNotes.RunDate" class="form-control input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedRunDate" style="width:120px;background-color:lightblue" />
+                </div>
+                <div class="col-sm-6">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.openRunDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                </div>
+               
+
+            </div>
+
+
+            <table id="glAdjustmentTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GL Code</th>
+                        <th style="width: 17%;">Description</th>
+                        <th>Flag</th>
+                        <th>Cur</th>
+                        <th>CCY Amount</th>
+                        <th>Rate</th>
+                        <th>LCY Amount</th>
+                        <th style="width: 10%;">Date</th>
+                        <th>GrpCode</th>
+                        <th>Posted</th>
+                        <th>ADJCode</th>
+                        <th>Adjustment Flag</th> 
+                        <th>Created By</th>
+                        <th>Updated By</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="glAdjustment in vm.glAdjustments">
+
+                        <td>
+                            {{ glAdjustment.GLCode}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.GLName}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.IndicatorName}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.CurrencyName}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.CCY_Amount | currency:""}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.Amount | currency:""}}
+                        </td>
+
+                        <td>
+                            {{ glAdjustment.RunDate | date}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.GroupCode}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.Posted}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.AdjustmentCode}}
+                        </td>
+                         <td>
+                            {{ glAdjustment.AdjustmentFlagName}}
+                        </td> 
+                        <td>
+                            {{ glAdjustment.CreatedBy}}
+                        </td>
+                        <td>
+                            {{ glAdjustment.UpdatedBy}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-adjustment-edit({gladjustmentId: glAdjustment.GLAdjustmentId,adjustmentType:vm.adjustmentType,reportType:vm.reportType})">
+                                Edit
+                            </a>
+                            <!--<a class="btn btn-orange btn-xs" data-ui-sref="finstat-adjustment-edit({gladjustmentId: glAdjustment.GLAdjustmentId})">
+                                Edit
+                            </a>-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

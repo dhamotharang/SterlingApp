@@ -1,0 +1,189 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active" ng-click="vm.loadCorporate()"><a href="#Corporate" role="tab" data-toggle="tab">Corporate Impairment</a></li>
+                <li ng-click="vm.loadRetail()"><a href="#Retail" role="tab" data-toggle="tab">Retail Impairment</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="Corporate">
+                    <!--<div>
+                        <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-externalrating-edit({externalratingId:0})"> Create New</a>
+                    </div>-->
+                    <br />
+
+                    <table id="impairmentCorporateTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <!--<th>Customer ID</th>-->
+                                <th>RefNo</th>
+                                <th>Credit Rating</th>
+                                <th>Stage Allocation</th>
+                                <th>Best ECL</th>
+                                <th>Optimistic ECL</th>
+                                <th>Downturn ECL</th>
+                                <th>Impairment</th>
+
+                                <!--<th style="width: 3%;">Action</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="impairmentCorporate in vm.impairmentCorporates">
+                                <!--<td>
+                    {{ impairmentCorporate.cust_id}}
+                </td>-->
+                                <td>
+                                    {{ impairmentCorporate.refno}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.credit_rating}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.stage_allocation}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.best_ecl}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.Optimistic_ecl}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.downturn_ecl}}
+                                </td>
+                                <td>
+                                    {{ impairmentCorporate.Impairment}}
+                                </td>
+
+                                <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-externalrating-edit({externalratingId: impairmentCorporate.ExternalRatingId})">
+                        Edit
+                    </a>
+                </td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="tab-pane fade" id="Retail">
+                    <br />
+                    <div class="row">
+                        <div class="col-md-7">
+                            <form ng-submit="vm.getImpairmentResultRetail(vm.SearchParam)">
+                                <label for="" class="control-label">Main Search: </label>
+                                <input type="text" class="input-sm" placeholder="Search by Customer Name..." data-ng-model="vm.SearchParam" style="width:350px" />
+                                <button type="button" class="btn btn-info btn-sm" ng-click="vm.getImpairmentResultRetail(vm.SearchParam)">Load</button>
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.reloadPage()">Refresh</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!--<div>
+                        <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-impairmentresultretail-edit({Impairment_Id:0})"> Create New</a>
+                    </div>-->
+                    <br />
+
+                    <table id="impairmentResultRetailTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Account_No</th>
+                                <th>CustomerName</th>
+                                <th>InternalRating</th>
+                                <th>Stage</th>
+                                <th>MonthToMaturity</th>
+                                <th>FacilityType</th>
+                                <th>OutstandingBalance</th>
+                                <th>LGD_Best</th>
+                                <th>LGD_Optimistic</th>
+                                <th>LGD_Downturn</th>
+                                <th>ECL_Best</th>
+                                <th>ECL_Optimistic</th>
+                                <th>ECL_Downturn</th>
+                                <th>Macroeconomic_Best</th>
+                                <th>Macroeconomic_Optimistic</th>
+                                <th>Macroeconomic_Downturn</th>
+                                <th>Impairment</th>
+
+                                <!--<th style="width: 3%;">Action</th>-->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="impairmentResultRetail in vm.impairmentResultRetails">
+                                <td>
+                                    {{ impairmentResultRetail.Account_No}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.CustomerName}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.InternalRating}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.Stage}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.MonthToMaturity}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.FacilityType}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.OutstandingBalance}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.LGD_Best}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.LGD_Optimistic}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.LGD_Downturn}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.ECL_Best}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.ECL_Optimistic}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.ECL_Downturn}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.Macroeconomic_Best}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.Macroeconomic_Optimistic}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.Macroeconomic_Downturn}}
+                                </td>
+                                <td>
+                                    {{ impairmentResultRetail.Impairment}}
+                                </td>
+
+                                <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-impairmentresultretail-edit({impairment_Id: impairmentResultRetail.Impairment_Id})">
+                        Edit
+                    </a>
+                </td>-->
+                            </tr>
+                        </tbody>
+                        </table>
+</div>
+            </div>
+
+        </div>
+    </div>
+</div>

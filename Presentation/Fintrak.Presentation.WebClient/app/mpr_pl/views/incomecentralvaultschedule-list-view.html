@@ -1,0 +1,63 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-incomecentralvaultschedule-edit({incomeCentralVaultScheduleId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="plCaptionTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Branch</th>
+                        <th>Volume</th>
+                        <th>Currency</th>
+                        <th>Period</th>
+                        <th>Year</th>  
+                        <th>DatePost</th>                         
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="incomeCentralVaultSchedule in vm.incomeCentralVaultSchedule">
+                        <td>
+                            {{ incomeCentralVaultSchedule.BranchName}}
+                        </td>
+                        <td>
+                            {{ incomeCentralVaultSchedule.Volume | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ incomeCentralVaultSchedule.Currency}}
+                        </td>
+                        <td>
+                            {{ incomeCentralVaultSchedule.Period}}
+                        </td>
+                        <td>
+                            {{ incomeCentralVaultSchedule.Year}}
+                        </td>
+                        <td>
+                            {{ incomeCentralVaultSchedule.DatePosted | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-incomecentralvaultschedule-edit({incomeCentralVaultScheduleId: incomeCentralVaultSchedule.IncomeCentralVaultScheduleId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

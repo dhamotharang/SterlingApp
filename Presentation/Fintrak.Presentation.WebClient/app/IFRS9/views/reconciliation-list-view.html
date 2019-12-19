@@ -1,0 +1,77 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-reconciliation-edit({reconciliationId:0})"> Create New</a>
+            </div>--> 
+            <br />
+            
+            <table id="reconciliationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>...........Description...............</th>
+                        <th>NCIGrossAmt</th>
+                        <th>NCIAllowanceECL</th>
+                        <th>LTimeGrossAmt</th>
+                        <th>LTimeAllowanceECL</th>
+                        <th>CILTimeGrossAmount</th>
+                        <th>CILTimeAllowanceECL</th>
+                        <th>TLTimeGrossAmount</th>
+                        <th>TLTimeAllowanceECL</th>
+                       
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="reconciliation in vm.reconciliations">
+                        <td>
+                            {{ reconciliation.Description}}
+                        </td>
+                        <td>
+                            {{ reconciliation.NCIAnnualGrossAmount | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.NCIAnnualAllowanceECL| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.NCILifetimeGrossAmount| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.NCILifetimeAllowanceECL| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.CILifetimeGrossAmount| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.CILifetimeAllowanceECL| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.TotalLifetimeGrossAmount| currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ reconciliation.TotalLifetimeAllowanceECL| currency :"":0 }}
+                        </td>
+                      
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-reconciliation-edit({reconciliationId: reconciliation.ReconciliationId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <!--<button class="btn btn-info btn-sm" data-ng-click="vm.pddistribution()"> PD Distribution</button>
+            <button class="btn btn-info btn-sm" data-ng-click="vm.pastduedistribution()"> Past Due Distribution</button>-->
+            <table id="loanSpreadSensitivityTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" >
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>Sector</th>                        
+                        <th>Tenor</th>
+                        <th>LifeTimePD</th>
+                        <th>12MonthPD</th>
+                        <th>Rating</th>
+                        <th>Bucket</th>
+                        <th>LGD</th>
+                        <th>EAD</th>
+                        <th>Impairment Charge</th>
+                        <th>Using</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanSpreadSensitivities in vm.loanSpreadSensitivity">
+                        <td>
+                            {{ loanSpreadSensitivities.RefNo}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.AccountNo}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.Sector}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.Tenor}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.LifeTimePD}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.AnnualPD}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.Rating}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.Bucket}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.Lgd}}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.EAD | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.ImpairmentCharge | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ loanSpreadSensitivities.SpreadBy}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

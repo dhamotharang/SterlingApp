@@ -1,0 +1,105 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<head>
+    <title>Landing | Fintrak Enterprise</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Fintrak Enterprise">
+    <meta name="author" content="The Develovers">
+    <!-- CSS -->
+    <link href="~/app/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/revamp.css" rel="stylesheet" />
+    <!--[if lte IE 9]>
+        <link href="assets/css/main-ie.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/main-ie-part2.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/app/assets/ico/Fintrak-Favicon_144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/app/assets/ico/Fintrak-Favicon_114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/app/assets/ico/Fintrak-Favicon_72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/app/assets/ico/Fintrak-Favicon_57x57.png">
+    <link rel="shortcut icon" href="~/app/assets/ico/favicon.png">
+</head>
+<body data-ng-app="fintrak.extra">
+    <div class="rv_loginbg">
+        <div class="wrapper full-page-wrapper page-auth page-login text-center">
+            <div class="inner-page">
+                <div class="logo">
+                    <a href="#"><img src="~/app/assets/img/LOGO_ent.png" alt="" /></a>
+                </div>
+                @*<button type="button" class="btn btn-auth-facebook"><span>Login via Facebook</span></button>
+                <div class="separator"><span>OR</span></div>*@
+                <div class="login-box center-block" style="width:500px">
+                    
+                    <!-- secondary stat -->
+                    <div class="secondary-stat">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="@Url.Action("Index", "Home")" @*style="color:whitesmoke"*@>
+                                    <div id="secondary-stat-item1" class="secondary-stat-item big-number-stat clearfix" style="height:130px">
+                                        <p class="data">
+                                            <span class="col-left big-number">Apps</span>
+                                            <em>Launch app portal</em>
+                                        </p>
+                                        <div id="spark-stat3" class="inlinesparkline"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <a href="@Url.Action("ReportPage", "Home")">
+                                    <div id="secondary-stat-item3" class="secondary-stat-item big-number-stat clearfix" style="height:130px">
+                                        <p class="data">
+                                            <span class="col-left big-number">Reports</span>
+                                            <em>Launch report portal</em>
+                                        </p>
+                                        <div id="spark-stat3" class="inlinesparkline"></div>
+                                    </div>
+                                </a>
+                            </div>
+                            <br/><br />
+                         
+                        </div>
+                    </div>
+                    <!-- end secondary stat -->
+
+                    <div class="links">
+                        <p><a class="btn btn-custom-primary btn-lg btn-block btn-auth" href="@Url.Action("logout", "Account")">Logout</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">&copy; 2014-@DateTime.Now.Year Powered by FinTrak Software</footer>
+    <!-- Javascript -->
+
+    <script type="text/javascript">
+    window.Fintrak = {};
+    (function (se) {
+        var rootPath;
+        se.rootPath = rootPath;
+    }(window.Fintrak));
+    Fintrak.rootPath = '@Url.Content("~")';
+    </script>
+
+    <script src="~/app/assets/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="~/app/libs/angular.js"></script>
+    <script src="~/app/libs/angular-resource.js"></script>
+    <script src="~/app/libs/angular-route.js"></script>
+    <script src="~/app/assets/js/bootstrap/bootstrap.js"></script>
+    <script src="~/app/assets/js/plugins/modernizr/modernizr.js"></script>
+
+    <script src="~/app/common/fintrak-extra.js"></script>
+ 
+</body>
+</html>

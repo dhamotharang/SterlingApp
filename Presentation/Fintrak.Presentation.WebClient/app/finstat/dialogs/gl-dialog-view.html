@@ -1,0 +1,50 @@
+﻿<div class="modal-header">
+    <h4 class="model-title">Select GL Code</h4>
+</div>
+<div class="model-body">
+    <!--<div class="row">
+        <div class="col-md-9">
+          
+            <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+        </div>
+        <div class="col-md-3">
+
+        </div>
+
+    </div>
+    <br />-->
+    <table id="glDialogTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+        <thead>
+            <tr>
+                <th>GL Code</th>
+                <th>Description</th>
+
+                <th style="width: 3%;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="gl in gls">
+
+                <td>
+                    {{ gl.GLCode}}
+                </td>
+                <td>
+                    {{ gl.GLDescription}}
+                </td>
+
+                <td>
+                    <a class="btn btn-orange btn-xs" ng-click="select(gl)">
+                        Select
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary" ng-click="accept()">Ok</button>
+    <button type="button" class="btn btn-default" ng-click="$dismiss()">Cancel</button>
+</div>
+   

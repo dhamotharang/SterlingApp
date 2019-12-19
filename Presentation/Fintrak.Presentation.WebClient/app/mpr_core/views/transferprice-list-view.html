@@ -1,0 +1,80 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-transferprice-edit({transferpriceId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="transferPriceTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Caption</th>
+                        <th>Definition</th>
+                        <th>MisCode</th>
+                        <th>Rate</th>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>Solution</th>
+                        
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="transferPrice in vm.transferPrices">
+                        <td>
+                            {{ transferPrice.ProductName}}
+                        </td>
+
+                        <td>
+                            {{ transferPrice.CaptionName}}
+                        </td>
+                       
+                        <td>
+                            {{ transferPrice.DefinitionCode}}
+                        </td>
+                        <td>
+                            {{ transferPrice.MisCode}}
+                        </td>
+
+                        <td>
+                            {{ transferPrice.Rate}}
+                        </td>
+
+                        <td>
+                            {{ transferPrice.Year}}
+                        </td>
+
+                        <td>
+                            {{ transferPrice.Period}}
+                        </td>
+                        <td>
+                            {{ transferPrice.SolutionName}}
+                        </td>
+                  
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-transferprice-edit({transferpriceId: transferPrice.TransferPriceId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

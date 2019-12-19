@@ -1,0 +1,104 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <!--<button type="button" ng-csv="vm.tbillConsolidatedData" filename="TbillConsolidatedDataExport.csv">Full Export</button>-->
+                <button ng-click="vm.exportToExcel('#TbillConsolidatedDataTable')">Export</button>
+            </div>
+            <br />
+
+            <table id="TbillConsolidatedDataTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Description</th>
+                        <th>ValueDate</th>
+                        <th>MaturityDate</th>
+                        <th>CleanPrice</th>
+                        <th>FaceValue</th>
+                        <th>InterestRate</th>
+                        <th>TotalTenor</th>
+                        <th>UsedDays</th>
+                        <th>Days To Maturity</th>
+                        <th>Computed Market Price</th>
+                        <th>EIR</th>
+                        <th>AmortizedCost</th>
+                        <th>InterestReceivable</th>
+                        <th>FairValueGain</th>
+                        <th>Classification</th>
+                        <th>RunDate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="tbillConsolidatedData in vm.tbillConsolidatedData">
+                        <td>
+                            {{ tbillConsolidatedData.RefNo}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.Description}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.ValueDate | date}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.CleanPrice | currency:'' }}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.FaceValue | currency:''}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.Rate}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.TotalTenor}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.UsedDays}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.DaysToMaturity}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.ComputedMarketPrice | currency:''}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.EIR}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.AmortizedCost | currency:''}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.IntrestReceivable | currency:''}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.FairValueGain | currency:''}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.Classification}}
+                        </td>
+                        <td>
+                            {{ tbillConsolidatedData.RunDate | date}}
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

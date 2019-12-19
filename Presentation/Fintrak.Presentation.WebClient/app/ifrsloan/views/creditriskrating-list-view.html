@@ -1,0 +1,65 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-creditriskrating-edit({creditriskratingId:0})"> Create New</a>
+            </div> 
+
+            <br />
+            <br />
+            <div class="ColVis"><button class="btn btn-default"><span>Show / Hide Columns</span></button></div>
+
+
+            <!--datatable-column-interactive-->
+            <table id="creditRiskRatingTable" class="table table-sorting table-hover table-bordered datatable">
+                <!-- table table-hover table-striped table-bordered table-advanced tablesorter display datatable ----->
+
+                <thead>
+                    <tr>
+                        <th>Rating</th>
+                        <th>EP</th>
+                        <th>LGD</th>
+                        <th>PD</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="creditRiskRating in vm.creditRiskRating">
+                        <td>
+                            {{ creditRiskRating.Code}}
+                        </td>
+                        <td>
+                            {{ creditRiskRating.EP}}
+                        </td>
+                        <td>
+                            {{ creditRiskRating.LGD}}
+                        </td>
+                        <td>
+                            {{ creditRiskRating.PD}}
+                        </td>
+                        <td>
+                            {{ creditRiskRating.Description}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-creditriskrating-edit({creditriskratingId: creditRiskRating.CreditRiskRatingId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+          
+        </div>
+    </div>
+</div>

@@ -1,0 +1,98 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <!-- --->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadInvestmentMarginalPdBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="InvestmentMARGINALPdTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Refno</th>
+                        <th>Portfolio_Desc</th>
+                        <th>RatingAgency</th>
+                        <th>InitRating</th>
+                        <th>SandRating</th>
+
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="InvestmentMARGINALPds in vm.InvestmentMARGINALPd">
+
+                        <td>{{ InvestmentMARGINALPds.Refno	 }}</td>
+                        <td>{{ InvestmentMARGINALPds.Portfolio_Desc	 }}</td>
+                        <td>{{ InvestmentMARGINALPds.RatingAgency	 }}</td>
+                        <td>{{ InvestmentMARGINALPds.InitRating	 }}</td>
+                        <td>{{ InvestmentMARGINALPds.SandRating	 }}</td> 
+
+                        <td>{{ InvestmentMARGINALPds._1	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._2	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._3	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._4	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._5	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._6	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._7	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._8	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._9	 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._10 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._11 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._12 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._13 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._14 | number : 0  }}</td>
+                        <td>{{ InvestmentMARGINALPds._15 | number : 0  }}</td>
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

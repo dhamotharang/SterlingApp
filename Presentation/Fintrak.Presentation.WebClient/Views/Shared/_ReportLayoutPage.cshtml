@@ -1,0 +1,337 @@
+﻿<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <title>@ViewBag.Title | FinTrak</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
+    <meta name="author" content="The Develovers">
+    <!-- CSS -->
+    <link href="~/app/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/colorpicker.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/excel/prism.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/csv/default.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/plugins/datatable/TableTools.css" rel="stylesheet" />
+    <link href="~/app/assets/js/treegrid/treeGrid.css" rel="stylesheet" />
+    <link href="~/app/assets/js/angular-moment-picker/angular-moment-picker.css" rel="stylesheet" />
+
+
+    @*<link href="~/app/css/angular-datepicker.css" rel="stylesheet" type="text/css" />*@
+    <!-- added code to apply skin -->
+    <link href="~/app/assets/css/skins/red.css" rel="stylesheet" type="text/css">
+
+
+    @*<link href="~/app/assets/css/jqueryui.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/app/assets/css/jqueryui.min.css" rel="stylesheet" type="text/css">*@
+
+    <!-- end added code to apply skin -->
+    <!--[if lte IE 9]>
+        <link href="~/app/assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+        <link href="~/app/assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <!-- CSS for demo style switcher. you can remove this -->
+    <link href="demo-style-switcher/assets/css/style-switcher.css" rel="stylesheet" type="text/css">
+
+
+    <link href="Content/toastr.css" rel="stylesheet" />
+    <link href="~/app/assets/css/revamp.css" rel="stylesheet" />
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/app/assets/ico/kingadmin-favicon144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/app/assets/ico/kingadmin-favicon114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/app/assets/ico/kingadmin-favicon72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/app/assets/ico/kingadmin-favicon57x57.png">
+    <link rel="shortcut icon" href="~/app/assets/ico/favicon.png">
+
+
+
+    <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+    @*<style type="text/css">
+            table.gradienttable {
+                font-family: verdana,arial,sans-serif;
+                font-size: 11px;
+                color: #333333;
+                border-width: 1px;
+                border-color: #999999;
+                border-collapse: collapse;
+            }
+
+                table.gradienttable th {
+                    padding: 0px;
+                    background: #d5e3e4;
+                    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q1ZTNlNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2NjZGVlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiM2M4Y2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+                    background: -moz-linear-gradient(top, #d5e3e4 0%, #ccdee0 40%, #b3c8cc 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d5e3e4), color-stop(40%,#ccdee0), color-stop(100%,#b3c8cc));
+                    background: -webkit-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: -o-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: -ms-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: linear-gradient(to bottom, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    border: 1px solid #999999;
+                }
+
+                table.gradienttable td {
+                    padding: 0px;
+                    background: #ebecda;
+                    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZWNkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2UwZTBjNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZWNlYjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+                    background: -moz-linear-gradient(top, #ebecda 0%, #e0e0c6 40%, #ceceb7 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebecda), color-stop(40%,#e0e0c6), color-stop(100%,#ceceb7));
+                    background: -webkit-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: -o-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: -ms-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: linear-gradient(to bottom, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    border: 1px solid #999999;
+                }
+
+                table.gradienttable th p {
+                    margin: 0px;
+                    padding: 8px;
+                    border-top: 1px solid #eefafc;
+                    border-bottom: 0px;
+                    border-left: 1px solid #eefafc;
+                    border-right: 0px;
+                }
+
+                table.gradienttable td p {
+                    margin: 0px;
+                    padding: 8px;
+                    border-top: 1px solid #fcfdec;
+                    border-bottom: 0px;
+                    border-left: 1px solid #fcfdec;
+                    border-right: 0px;
+                }
+        </style>*@
+
+</head>
+
+<body>
+    @*<script src="~/app/js/angular-datepicker.js"></script>*@
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <!-- logo -->
+                    <div class="col-md-2 logo">
+                        <a href="#"><img src="~/app/assets/img/logo_ent_small_white.png" alt="FinTrak Enterprise Solutions" /></a>
+                        <h1 class="sr-only">FinTrak Enterprise</h1>
+                    </div>
+                    <!-- end logo -->
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-3">
+
+                            </div>
+                            <div class="col-md-9">
+                                <div class="top-bar-right">
+                                    <!-- responsive menu bar icon -->
+                                    <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
+                                    <!-- end responsive menu bar icon -->
+                                    <!-- logged user and the menu -->
+                                    <div class="logged-user">
+                                        <div class="btn-group">
+                                            <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                                @*<img src="~/app/assets/img/user-avatar.png" alt="User Avatar" />*@
+                                                @*<img ng-src="data:image/JPEG;base64,{{userProfile.Photo}}" id="photo-id"  style="width:50px;height:50px">*@
+                                                @*<img src="" alt="User Avatar" />*@
+                                                <span class="name">@User.Identity.Name</span> <span class="caret"></span>
+                                            </a>
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-user"></i>
+                                                        <span class="text">Profile</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-cog"></i>
+                                                        <span class="text">About FinTrak</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="@Url.Action("logout", "Account")">
+                                                        <i class="fa fa-power-off"></i>
+                                                        <span class="text">Logout</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- end logged user and the menu -->
+                                </div>
+                                <!-- /top-bar-right -->
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top -->
+        <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <!-- left sidebar -->
+                    <div class="col-md-2 left-sidebar">
+
+
+                        <!-- main-nav -->
+                        <nav class="main-nav">
+
+                            <ul class="main-menu">
+
+                                <li class="active">
+                                    <a href="#" class="js-sub-menu-toggle">
+                                        <i class="fa fa-bars"></i>
+                                        <span class="text">Reports</span>
+                                        <i class="toggle-icon fa fa-angle-left"></i>
+                                    </a>
+                                    <ul class="sub-menu">
+                                        <li class="">
+                                            <a href="#" class="js-sub-menu-toggle">
+                                                <span class="text">IFRS</span>
+                                                <i class="toggle-icon fa fa-angle-left"></i>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Statement of Financial Position</a></li>
+                                                <li><a href="#">Statement of Comprehensive Income</a></li>
+                                                <li><a href="#">Changes in Equity</a></li>
+                                                <li><a href="#">Cash Flow</a></li>
+                                                <li><a href="#">Notes to the Account</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#" class="js-sub-menu-toggle">
+                                                <span class="text">MPR</span>
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li><a href="#">Balance Sheet</a></li>
+                                                <li><a href="#">Revenue</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </nav>
+                        <!-- /main-nav -->
+                        <div class="sidebar-minified js-toggle-minified">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
+
+                    </div>
+                    <!-- end left sidebar -->
+                    <!-- top general alert -->
+                    @*<div class="alert alert-danger top-general-alert">
+                            <span>To view other <strong> Fintrak software solutions,  </strong> click here </span>
+                            <button type="button" class="close">&times;</button>
+                        </div>*@
+                    <!-- end top general alert -->
+                    <!-- content-wrapper -->
+                    <div class="col-md-10 content-wrapper">
+                        <div class="row">
+                            <div class="col-lg-4 ">
+                                <ul class="breadcrumb">
+                                    <li><i class="fa fa-home"></i><a href="#">Home</a></li>
+                                    <li><a href="#">@ViewBag.ModuleName</a></li>
+                                    <li class="active">@ViewBag.PageTitle</li>
+                                </ul>
+                            </div>
+
+                        </div>
+                        <!-- main -->
+                        <div class="content">
+                            @RenderBody();
+                            <!-- /main-content -->
+                        </div>
+                        <!-- /main -->
+                    </div>
+                    <!-- /content-wrapper -->
+
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+    </div>
+    <!-- /wrapper -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        &copy; 2014-2015 Powered by FinTrak Software
+    </footer>
+    <!-- END FOOTER -->
+
+    <script type="text/javascript">
+        window.Fintrak = {};
+        (function (se) {
+            var rootPath;
+            se.rootPath = rootPath;
+        }(window.Fintrak));
+        Fintrak.rootPath = '@Url.Content("~")';
+    </script>
+
+    <!-- Javascript -->
+    <script src="~/app/assets/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="~/app/assets/js/jquery/jqueryform.js"></script>
+    <script src="~/app/assets/js/moment.js"></script>
+    <script src="~/app/libs/angular.js"></script>
+    <script src="~/app/libs/angular-resource.js"></script>
+    <script src="~/app/libs/angular-route.js"></script>
+    <script src="~/app/libs/angular-ui-router.js"></script>
+    <script src="~/app/libs/ocLazyLoad.js"></script>
+    <script src="~/app/libs/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="~/app/assets/js/bootstrap/bootstrap.js"></script>
+    <script src="~/app/assets/js/plugins/modernizr/modernizr.js"></script>
+    <script src="~/app/assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+    <script src="~/app/assets/js/king-common.js"></script>
+    <script src="demo-style-switcher/assets/js/deliswitch.js"></script>
+    <script src="~/app/assets/js/king-page.js"></script>
+    <script src="~/app/assets/js/bootstrap-colorpicker-module.min.js"></script>
+    <script src="~/app/assets/js/excel/lodash.min.js"></script>
+    <script src="~/app/assets/js/excel/jszip.js"></script>
+    <script src="~/app/assets/js/excel/xlsx.js"></script>
+    <script src="~/app/assets/js/excel/xlsx-reader.js"></script>
+    <script src="~/app/assets/js/csv/json3.min.js"></script>
+    <script src="~/app/assets/js/csv/highlight.min.js"></script>
+    <script src="~/app/assets/js/csv/angular-highlightjs.min.js"></script>
+    <script src="~/app/assets/js/csv/angular-csv-import.js"></script>
+
+    <script src="~/app/assets/js/infinite-scroll/ng-scroll-repeat.min.js"></script>
+    <script src="~/app/assets/js/angular-moment-picker/angular-moment-picker.js"></script>
+
+    @*<script src="~/app/assets/js/plugins/datatable/jquery.dataTables.js"></script>
+        <script src="~/app/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+        <script src="~/app/assets/js/plugins/datatable/TableTools.js"></script>*@
+
+    <script src="~/app/assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.colVis.bootstrap.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.colReorder.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.tableTools.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+
+    <script src="~/app/libs/spin.min.js"></script>
+    <script src="~/app/libs/angular-spinner.min.js"></script>
+    <script src="~/app/libs/angular-loading-spinner.js"></script>
+    <script src="~/app/libs/toastr.js"></script>
+    <script src="~/app/assets/js/treegrid/tree-grid-directive.js"></script>
+    <script src="~/app/assets/js/timer/ngIdleTimer.js"></script>
+
+    <!-- Loading core javascript-->
+    @*<script src="~/app/main.js"></script>
+        <script src="~/app/extraction/services/upload-service.js"></script>*@
+</body>
+</html>
+

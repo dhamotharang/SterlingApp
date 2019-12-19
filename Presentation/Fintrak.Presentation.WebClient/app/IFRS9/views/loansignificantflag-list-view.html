@@ -1,0 +1,87 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <a class="btn btn-info btn-sm" data-ui-sref="ifrs-loansignificantflag-edit({Id:0})"> Add New loan Significant flag</a>&nbsp;&nbsp;&nbsp;
+                        <!--<label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Loan Classification Number " ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadLoanClassificationSICRSignFlagBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>-->
+
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+
+                    </form>
+                </div>
+            </div>
+
+
+            <!--<div>
+                <button type="button" ng-csv="vm.cashFlow" filename="LoanClassificationSICRSignFlagExport.csv">Full Export</button>
+            </div>
+            <br />-->
+
+            
+            <table id="loanSignificantflagTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <!--<th>Loan Classification ID</th>-->
+
+                        <th style="width: 5%;">Action</th>
+                        <th>Product Type</th>
+                        <th>SubType</th>
+                        <th>SICR Flag</th>
+                        <th>Significant No</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <tr ng-repeat="loanSignificantflags in vm.loanSignificantflag">
+                        <!--<td>
+                            {{ loanSignificantflags.LoanClassificationId }}
+                        </td>-->
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-loansignificantflag-edit({Id:loanSignificantflags.Id})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ loanSignificantflags.ProductType }}
+                        </td>
+
+                        <td>
+                            {{ loanSignificantflags.SubType }}
+                        </td>
+                        <td>
+                            {{ loanSignificantflags.SICR_Flag }}
+                        </td>
+                        <td>
+                            {{ loanSignificantflags.SignificantNo }}
+                        </td>
+              
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

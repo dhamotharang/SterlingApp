@@ -1,0 +1,70 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+            <div class="col-md-12">
+                <label for="" class="control-label">Select Rundate to load Adjustments:</label>
+                <input type="date" class="input-sm" ng-model="vm.selectedRundate" ng-change="vm.load()" style="min-width:250px;">
+                <!--<button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>-->
+            </div>
+            <br />
+
+            <table id="glaarchivesTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <!-- <th>GLAdjustmentId</th> -->
+                        <th>AdjustmentCode</th>
+                        <th>GLCode</th>
+                        <th>Narration</th>
+                        <th>Indicator</th>
+                        <th>Amount</th>
+                        <th>CompanyCode</th>
+                        <!--<th>BranchCode</th>-->
+                        <th>Currency</th>
+                        <th>ReportType</th>
+                        <!--<th>RunDate</th>-->
+                        <!--<th>AdjustmentType</th>-->
+                        <th>Posted</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="glaarchive in vm.glaarchives">
+
+                        <!-- <td> {{ glaarchive.GLAdjustmentId }} </td> -->
+                        <td> {{ glaarchive.AdjustmentCode }} </td>
+                        <td> {{ glaarchive.GLCode }} </td>
+                        <td> {{ glaarchive.Narration }} </td>
+                        <td> {{ vm.flipIndicator(glaarchive.Indicator) }} </td>
+                        <td> {{ glaarchive.Amount | currency:'' }} </td>
+                        <td> {{ glaarchive.CompanyCode }} </td>
+                        <!--<td> {{ glaarchive.BranchCode }} </td>-->
+                        <td> {{ glaarchive.Currency }} </td>
+                        <td> {{ glaarchive.ReportType }} </td>
+                        <!--<td> {{ glaarchive.RunDate }} </td>-->
+                        <!--<td> {{ glaarchive.AdjustmentType }} </td>-->
+                        <td> {{ glaarchive.Posted }} </td>
+
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-glaarchive-edit({GLAdjustmentId: glaarchive.GLAdjustmentId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

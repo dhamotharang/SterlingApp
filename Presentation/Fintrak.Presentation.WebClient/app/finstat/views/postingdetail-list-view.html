@@ -1,0 +1,83 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Report Type:</label>
+                    <select class="input-sm" ng-model="vm.reportType" ng-options="reportType.Id as reportType.Name for reportType in vm.reportTypes" style="width:150px;"></select>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                </div>
+            </div>-->
+
+            
+            <table id="postingDetailTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>GLCode</th>
+                        <th>GL Description</th>
+                        <th>Transaction Description</th>
+                        <th>Indicator</th>
+                        <th>GAAP Carrying Amount</th>
+                        <th>IFRS Carrying Amount</th>
+                        <th>IFRS Adjustment</th>
+                        <!--<th>ReportType</th>-->
+                        <th>Filter</th>
+                        <th>RunDate</th>
+                        
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="postingDetail in vm.postingDetails">
+                        <td>
+                            {{ postingDetail.GLCode}}
+                        </td>
+                        <td>
+                            {{ postingDetail.GLDescription}}
+                        </td>
+                        <td>
+                            {{ postingDetail.TransDescription}}
+                        </td>
+                        <td>
+                            {{ postingDetail.Indicator}}
+                        </td>
+                        <td>
+                            {{ postingDetail.GAAPAmount | currency:''}}
+                        </td>
+                        <td>
+                            {{ postingDetail.ComputedAmount | currency:''}}
+                        </td>
+                        <td>
+                            {{ postingDetail.IFRSAmount | currency:''}}
+                        </td>
+                        <!--<td>
+                            {{ postingDetail.ReportTypeName}}
+                        </td>-->
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-postingdetailcontracts-list({filter:postingDetail.CompanyCode})">
+                                {{ postingDetail.CompanyCode}}
+                            </a>
+                        </td>
+                        <td>
+                            {{ postingDetail.RunDate | date}}
+                        </td>
+                       
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

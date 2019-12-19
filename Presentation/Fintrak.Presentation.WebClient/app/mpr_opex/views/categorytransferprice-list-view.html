@@ -1,0 +1,59 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-categorytransferprice-edit({categorytransferpriceId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="categoryTransferPriceTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>Currency Type</th>
+                        <th>Rate</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="categoryTransferPrice in vm.categoryTransferPrice">
+                        <td>
+                            {{ categoryTransferPrice.Category}}
+                        </td>
+                        <td>
+                            {{ categoryTransferPrice.Period}}
+                        </td>
+                        <td>
+                            {{ categoryTransferPrice.Year}}
+                        </td>
+                        <td>
+                            {{ categoryTransferPrice.CurrencyType}}
+                        </td>
+                        <td>
+                            {{ categoryTransferPrice.Rate}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-categorytransferprice-edit({categorytransferpriceId: categoryTransferPrice.CategoryTransferPriceId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

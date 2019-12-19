@@ -1,0 +1,1258 @@
+﻿<!--[if IE 9 ]><html class="ie ie9" lang="en" class="no-js"> <![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="en" class="no-js" data-ng-app="fintrak">
+<!--<![endif]-->
+
+<head>
+    <title>@ViewBag.Title | FinTrak</title>
+    <base href="/Index#/">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="KingAdmin - Bootstrap Admin Dashboard Theme">
+    <meta name="author" content="The Develovers">
+    <!-- CSS -->
+    <link href="~/app/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/main.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/my-custom-styles.css" rel="stylesheet" type="text/css">
+    <link href="~/app/assets/css/colorpicker.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/excel/prism.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/csv/default.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/plugins/datatable/TableTools.css" rel="stylesheet" />
+    <link href="~/app/assets/js/treegrid/treeGrid.css" rel="stylesheet" />
+    <link href="~/app/assets/js/angular-moment-picker/angular-moment-picker.css" rel="stylesheet" />
+    <link href="~/app/assets/js/angular-datatable/angular-datatables.min.css" rel="stylesheet" />
+    <link href="~/app/assets/js/ngTable/ng-table.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/app/assets/js/crdate/datePicker.css">
+    @*<script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/lodash/lodash.js"></script>
+        <script src="bower_components/ng-password-strength/dist/ng-password-strength.js"></script>*@
+    <link href="~/app/assets/js/textAngular/textAngular-1.5.3/dist/textAngular.css" rel="stylesheet" />
+    <link href="~/app/assets/js/textAngular/textAngular-1.5.3/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/app/assets/js/textAngular/textAngular-1.5.3/dist/textAngular-rangy.min.js"></script>
+    @*<script src="~/app/assets/js/textAngular/textAngular-1.5.3/dist/textAngular.js"></script>*@
+    <script src="~/app/assets/js/textAngular/textAngular-1.5.3/dist/textAngular-sanitize.min.js"></script>
+    @*<link href="~/app/css/angular-datepicker.css" rel="stylesheet" type="text/css" />*@
+    <!-- added code to apply skin -->
+    <link href="~/app/assets/css/skins/red.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/isteven-multi-select.css" rel="stylesheet" />
+
+    @*<link href="~/app/angular-multi-select-master/doc/css/simple-sidebar.css" rel="stylesheet" />
+        <link href="~/app/angular-multi-select-master/doc/css/style.css" rel="stylesheet" />
+        <link href="~/app/angular-multi-select-master/doc/highlight/styles/github.css" rel="stylesheet" />
+        <link href="~/app/angular-multi-select-master/doc/css/isteven-multi-select.css" rel="stylesheet" />
+        <script src="~/app/angular-multi-select-master/doc/js/libs/jquery.min.js"></script>
+        <script src="~/app/angular-multi-select-master/doc/js/libs/bootstrap.min.js"></script>
+        <script src="~/app/angular-multi-select-master/doc/js/libs/highlight.pack.js"></script>
+        <script src="~/app/angular-multi-select-master/doc/js/libs//angular-route.min.js"></script>
+        <script src="~/app/angular-multi-select-master/doc/js/libs/isteven-multi-select.js"></script>
+        <script src="~/app/angular-multi-select-master/doc/js/libs/paypal-button.min.js"></script>*@
+
+    <script src="~/app/assets/js/angular-idle.js"></script>
+    <script src="~/app/assets/js/angular-idle.min.js"></script>
+    @*<link href="~/app/assets/css/jqueryui.css" rel="stylesheet" type="text/css">*@
+    @*<link href="~/app/assets/css/jqueryui.min.css" rel="stylesheet" type="text/css">*@
+
+    <!-- end added code to apply skin -->
+    <!--[if lte IE 9]>
+        <link href="~/app/assets/css/main-ie.css" rel="stylesheet" type="text/css"/>
+        <link href="~/app/assets/css/main-ie-part2.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+    <!-- CSS for demo style switcher. you can remove this -->
+    @*<link href="demo-style-switcher/assets/css/style-switcher.css" rel="stylesheet" type="text/css">*@
+
+
+
+    <link href="~/app/assets/css/revamp.css" rel="stylesheet" />
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/app/assets/ico/Fintrak-Favicon_144x144.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="~/app/assets/ico/Fintrak-Favicon_114x114.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="~/app/assets/ico/Fintrak-Favicon_72x72.png">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="~/app/assets/ico/Fintrak-Favicon_57x57.png">
+    <link rel="shortcut icon" href="~/app/assets/ico/favicon.png">
+    <link href="~/Scripts/Content/toastr.css" rel="stylesheet" />
+
+
+    <!-- CSS goes in the document HEAD or added to your external stylesheet -->
+    @*<style type="text/css">
+            blink {
+                background: #eee;
+                padding: 5px;
+            }
+        </style>*@
+    @*<style type="text/css">
+            table.gradienttable {
+                font-family: verdana,arial,sans-serif;
+                font-size: 11px;
+                color: #333333;
+                border-width: 1px;
+                border-color: #999999;
+                border-collapse: collapse;
+            }
+
+                table.gradienttable th {
+                    padding: 0px;
+                    background: #d5e3e4;
+                    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q1ZTNlNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2NjZGVlMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiM2M4Y2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+                    background: -moz-linear-gradient(top, #d5e3e4 0%, #ccdee0 40%, #b3c8cc 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d5e3e4), color-stop(40%,#ccdee0), color-stop(100%,#b3c8cc));
+                    background: -webkit-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: -o-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: -ms-linear-gradient(top, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    background: linear-gradient(to bottom, #d5e3e4 0%,#ccdee0 40%,#b3c8cc 100%);
+                    border: 1px solid #999999;
+                }
+
+                table.gradienttable td {
+                    padding: 0px;
+                    background: #ebecda;
+                    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ViZWNkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjQwJSIgc3RvcC1jb2xvcj0iI2UwZTBjNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjZWNlYjciIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+                    background: -moz-linear-gradient(top, #ebecda 0%, #e0e0c6 40%, #ceceb7 100%);
+                    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ebecda), color-stop(40%,#e0e0c6), color-stop(100%,#ceceb7));
+                    background: -webkit-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: -o-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: -ms-linear-gradient(top, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    background: linear-gradient(to bottom, #ebecda 0%,#e0e0c6 40%,#ceceb7 100%);
+                    border: 1px solid #999999;
+                }
+
+                table.gradienttable th p {
+                    margin: 0px;
+                    padding: 8px;
+                    border-top: 1px solid #eefafc;
+                    border-bottom: 0px;
+                    border-left: 1px solid #eefafc;
+                    border-right: 0px;
+                }
+
+                table.gradienttable td p {
+                    margin: 0px;
+                    padding: 8px;
+                    border-top: 1px solid #fcfdec;
+                    border-bottom: 0px;
+                    border-left: 1px solid #fcfdec;
+                    border-right: 0px;
+                }
+        </style>*@
+
+</head>
+
+<body ng-controller="AppController">
+    @*<script src="~/app/js/angular-datepicker.js"></script>*@
+    <!-- WRAPPER -->
+    <div class="wrapper">
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="container">
+                <div class="row">
+                    <!-- logo -->
+                    <div class="col-md-2 logo">
+                        <a href="#"><img src="~/app/assets/img/logo_ent_small_white.png" alt="FinTrak Enterprise Solutions" /></a>
+                        <h1 class="sr-only">FinTrak Enterprise</h1>
+                    </div>
+                    <!-- end logo -->
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-3">
+
+                                @*<h3 style="color:white;font-family:'Palatino Linotype'">
+
+                                        <marquee>
+
+                                            @System.Web.Configuration.WebConfigurationManager.AppSettings["Status"]
+
+                                        </marquee>
+
+                                    </h3>*@
+                            </div>
+                            <div class="col-md-9">
+                                <div class="top-bar-right">
+                                    <!-- responsive menu bar icon -->
+                                    <a href="#" class="hidden-md hidden-lg main-nav-toggle"><i class="fa fa-bars"></i></a>
+                                    <!-- end responsive menu bar icon -->
+                                    <!-- logged user and the menu -->
+                                    <div class="logged-user">
+                                        <div class="btn-group">
+                                            <a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown">
+                                                @*<img src="~/app/assets/img/user-avatar.png" alt="User Avatar" />*@
+                                                <img ng-src="data:image/JPEG;base64,{{userProfile.Photo}}" id="photo-id" alt="User Avatar" style="width:35px;height:35px">
+                                                @*<img src="" alt="User Avatar" />*@
+                                                <span class="name">@User.Identity.Name</span> <span class="caret"></span>
+                                            </a>
+
+                                            <ul class="dropdown-menu" role="menu">
+                                                <li>
+                                                    <a href="http://localhost:6861/Home/Index#/core-userprofile-list">
+                                                        <i class="fa fa-user"></i>
+                                                        <span class="text">Profile</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <i class="fa fa-info-circle"></i>
+                                                        <span class="text">About FinTrak</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+
+                                                    <a href="@Url.Action("logout", "Account")">
+                                                        <i class="fa fa-power-off"></i>
+                                                        <span class="text">Logout</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- end logged user and the menu -->
+                                </div>
+                                <!-- /top-bar-right -->
+                            </div>
+                        </div>
+                        <!-- /row -->
+                    </div>
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- /top -->
+        <!-- BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+        <div class="bottom">
+            <div class="container">
+                <div class="row">
+                    <!-- left sidebar -->
+                    <div class="col-md-2 left-sidebar">
+
+
+                        <!-- main-nav -->
+                        <nav class="main-nav">
+
+                            <ul class="main-menu">
+
+                                @*<li class="active">
+                                        <a href="#" class="js-sub-menu-toggle">
+                                            <i class="fa fa-bars"></i>
+                                            <span class="text">Menu Lvl 1 <span class="badge element-bg-color-blue">New</span></span>
+                                            <i class="toggle-icon fa fa-angle-left"></i>
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li class="">
+                                                <a href="#" class="js-sub-menu-toggle">
+                                                    <span class="text">Menu Lvl 2</span>
+                                                    <i class="toggle-icon fa fa-angle-left"></i>
+                                                </a>
+                                                <ul class="sub-menu">
+                                                    <li><a href="#">Menu Lvl 3</a></li>
+                                                    <li><a href="#">Menu Lvl 3</a></li>
+                                                    <li><a href="#">Menu Lvl 3</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="text">Menu Lvl 2</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>*@
+
+                                @foreach (var menu in ViewBag.Menus)
+                                {
+                                    //{{getMenuTranslation(@menu.ModuleName,@menu.Alias)}}
+                                    <li @*class="active"*@>
+                                        <a href="javascript:void(0);" class="js-sub-menu-toggle">
+                                            @if (!string.IsNullOrEmpty(menu.ImageUrl))
+                                            {
+                                                <i class="fa @menu.ImageUrl fa-fw">
+                                                    @*<img src="~/app/assets/img/submenu.png" />*@
+                                                </i>
+                                            }
+                                            else
+                                            {
+                                                <i @*class="@item.ImageUrl"*@ class="fa fa-book fa-fw">
+                                                    @*<img src="~/app/assets/img/submenu.png" />*@
+                                                </i>
+                                            }
+                                            @*<i class="fa @menu.ImageUrl fa-fw"></i>*@
+                                            @*<img src="~/app/assets/img/menu.png" />*@
+                                            <span class="text">@menu.Alias</span><span class="fa arrow"></span>
+                                            <i class="toggle-icon fa fa-angle-left"></i>
+                                        </a>
+
+                                        @if (menu.Children != null)
+                                        {
+                                            <ul class="sub-menu">
+                                                @foreach (var item in menu.Children)
+                                                {
+                                                    <li class="">
+                                                        @if (item.Children.Count <= 0 && !string.IsNullOrEmpty(item.ActionUrl))
+                                                        {
+                                                            <a data-ui-sref="@item.ActionUrl">
+                                                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                                                {
+                                                                    <i class="fa @item.ImageUrl fa-fw">
+                                                                        @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                    </i>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <i @*class="@item.ImageUrl"*@ class="fa fa-bolt fa-fw">
+                                                                        @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                    </i>
+                                                                }
+                                                                <span class="submenu-title">@item.Alias</span>
+                                                                <span class="fa arrow">
+                                                                </span>
+                                                            </a>
+
+                                                            @*<a href="#">
+                                                                    <span class="text">@item.Alias</span>
+                                                                </a>*@
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="#" class="js-sub-menu-toggle">
+                                                                @if (!string.IsNullOrEmpty(item.ImageUrl))
+                                                                {
+                                                                    <i class="fa @item.ImageUrl fa-fw">
+                                                                        @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                    </i>
+                                                                }
+                                                                else
+                                                                {
+                                                                    <i @*class="@item.ImageUrl"*@ class="fa fa-leaf fa-fw">
+                                                                        @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                    </i>
+                                                                }
+                                                                @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                <span class="text">@item.Alias</span>
+
+                                                                <i class="toggle-icon fa fa-angle-left"></i>
+                                                            </a>
+
+                                                            <ul class="sub-menu">
+                                                                @foreach (var subMenu in item.Children)
+                                                                {
+                                                                    if (subMenu.Children.Count <= 0 && !string.IsNullOrEmpty(subMenu.ActionUrl))
+                                                                    {
+                                                                        <li>
+                                                                            <a @*ng-click="@ViewBag.Child= @subMenu.Alias"*@ data-ui-sref="@subMenu.ActionUrl">
+
+                                                                                @if (!string.IsNullOrEmpty(subMenu.ImageUrl))
+                                                                                {
+                                                                                    <i class="fa @subMenu.ImageUrl fa-fw">
+                                                                                        @*<img src="~/app/assets/img/submenu.png" />*@
+                                                                                    </i>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <i @*class="@subMenu.ImageUrl"*@ class="fa fa-bolt fa-fw">
+                                                                                        @*<img src="~/app/assets/img/subsub.png" />*@
+                                                                                    </i>
+                                                                                }
+                                                                                <span class="submenu-title"> @subMenu.Alias</span>
+                                                                            </a>
+                                                                        </li>
+                                                                    }
+                                                                    @*else
+                                                                        {
+                                                                            <a href="#" class="js-sub-menu-toggle">
+                                                                                <i class="fa-circle"></i>
+                                                                                <img src="~/app/assets/img/subsub.png" />
+                                                                                <span class="submenu-title">@subMenu.Alias</span>
+
+                                                                                <i class="toggle-icon fa fa-angle-left"></i>
+                                                                            </a>
+                                                                        }*@
+
+                                                                    @*<a href="#">
+                                                                            <span class="text">@subMenu.Alias</span>
+                                                                        </a>*@
+                                                                }
+                                                            </ul>
+                                                        }
+                                                    </li>
+                                                }
+                                            </ul>
+                                        }
+                                    </li>
+                                }
+
+                            </ul>
+                        </nav>
+                        <!-- /main-nav -->
+                        <div class="sidebar-minified js-toggle-minified">
+                            <i class="fa fa-angle-left"></i>
+                        </div>
+
+                    </div>
+                    <!-- end left sidebar -->
+                    <!-- top general alert -->
+                    @*<div class="alert alert-danger top-general-alert">
+                            <span>To view other <strong> Fintrak software solutions,  </strong> click here </span>
+                            <button type="button" class="close">&times;</button>
+                        </div>*@
+                    <!-- end top general alert -->
+                    <!-- content-wrapper -->
+                    <div class="col-md-10 content-wrapper">
+                        @*<div class="row">
+                                <div class="col-lg-4 ">
+                                    <ul class="breadcrumb">
+                                        <li><i class="fa fa-home"></i><a href="localhost:6861/Home/Index#/">Goto Home</a></li>
+                                        @*<li><a href="#">@ViewBag.ModuleName</a></li>
+                                        <li class="active">@ViewBag.Child</li>
+                                    </ul>
+                                </div>
+
+                            </div>*@
+                        <!-- main -->
+                        <div class="content">
+                            @RenderBody()
+                            <!-- /main-content -->
+                        </div>
+                        <!-- /main -->
+                    </div>
+                    <!-- /content-wrapper -->
+
+
+                </div>
+                <!-- /row -->
+            </div>
+            <!-- /container -->
+        </div>
+        <!-- END BOTTOM: LEFT NAV AND RIGHT MAIN CONTENT -->
+    </div>
+    <!-- /wrapper -->
+    <!-- FOOTER -->
+    <footer class="footer">
+        PI360 v3 &copy; 2014-@DateTime.Now.Year Powered by FinTrak Software
+    </footer>
+    <!-- END FOOTER -->
+
+    <script type="text/javascript">
+        window.Fintrak = {};
+        (function (se) {
+            var rootPath;
+            se.rootPath = rootPath;
+        }(window.Fintrak));
+        Fintrak.rootPath = '@Url.Content("~")';
+    </script>
+
+    <!-- Javascript -->
+    <script src="~/app/assets/js/jquery/jquery-2.1.0.min.js"></script>
+    <script src="~/app/assets/js/jquery/jqueryform.js"></script>
+    @*<script src="~/app/assets/js/moment.js"></script>*@
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="~/app/libs/angular.js"></script>
+    <script src="~/app/libs/angular-resource.js"></script>
+    <script src="~/app/libs/angular-route.js"></script>
+    <script src="~/app/libs/angular-ui-router.js"></script>
+    <script src="~/app/assets/js/angular-sanitize.min.js"></script>
+    <script src="~/app/libs/ocLazyLoad.js"></script>
+    <script src="~/app/libs/ui-bootstrap-tpls-0.11.0.js"></script>
+    <script src="~/app/assets/js/bootstrap/bootstrap.js"></script>
+    <script src="~/app/assets/js/plugins/modernizr/modernizr.js"></script>
+    <script src="~/app/assets/js/plugins/bootstrap-tour/bootstrap-tour.custom.js"></script>
+    <script src="~/app/assets/js/king-common.js"></script>
+    <script src="demo-style-switcher/assets/js/deliswitch.js"></script>
+    <script src="~/app/assets/js/king-page.js"></script>
+    <script src="~/app/assets/js/bootstrap-colorpicker-module.min.js"></script>
+    <script src="~/app/assets/js/excel/lodash.min.js"></script>
+    <script src="~/app/assets/js/excel/jszip.js"></script>
+    <script src="~/app/assets/js/excel/xlsx.js"></script>
+    <script src="~/app/assets/js/excel/xlsx-reader.js"></script>
+    <script src="~/app/assets/js/csv/json3.min.js"></script>
+    <script src="~/app/assets/js/csv/highlight.min.js"></script>
+    <script src="~/app/assets/js/csv/angular-highlightjs.min.js"></script>
+    <script src="~/app/assets/js/csv/angular-csv-import.js"></script>
+
+    <script src="~/app/assets/js/infinite-scroll/ng-scroll-repeat.min.js"></script>
+    <script src="~/app/assets/js/angular-moment-picker/angular-moment-picker.js"></script>
+    <script src="~/app/assets/js/export/ng-csv.min.js"></script>
+    @*<script src="~/app/assets/js/plugins/datatable/jquery.dataTables.js"></script>
+        <script src="~/app/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+        <script src="~/app/assets/js/plugins/datatable/TableTools.js"></script>*@
+
+    <script src="~/app/assets/js/plugins/datatable/jquery.dataTables.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.colVis.bootstrap.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.colReorder.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/exts/dataTables.tableTools.min.js"></script>
+    <script src="~/app/assets/js/plugins/datatable/dataTables.bootstrap.js"></script>
+
+    <script src="~/app/libs/spin.min.js"></script>
+    <script src="~/app/libs/angular-spinner.min.js"></script>
+    <script src="~/app/libs/angular-loading-spinner.js"></script>
+    <script src="~/app/libs/toastr.js"></script>
+    <script src="~/app/assets/js/treegrid/tree-grid-directive.js"></script>
+    <script src="~/app/assets/js/timer/ngIdleTimer.js"></script>
+
+    <script src="~/Scripts/isteven-multi-select.js"></script>
+
+    <script src="~/app/assets/js/export/FileSaver.min.js"></script>
+    <script src="~/app/assets/js/export/json-export-excel.min.js"></script>
+    <script src="~/app/assets/js/angular-datatable/angular-datatables.min.js"></script>
+
+    <script src="~/app/assets/js/ngTable/ng-table.js"></script>
+
+    <script src="~/app/assets/js/tableExport/tableExport.js"></script>
+    <script src="~/app/assets/js/tableExport/jquery.base64.js"></script>
+    @*<script src ="https://rawgit.com/betsol/angular-input-date/master/src/angular-input-date.js"> </script>*@
+    <script src="~/app/assets/js/angular-moment-picker/angular-input-date.js"></script>
+
+
+    @*TextAngularJs*@
+    <script src="~/app/assets/js/textAngular/textAngular.min.js"></script>
+    @*<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"> <!-- the reason for everything. Clean styles-->
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"><!-- Styles for right controls-->*@
+
+
+    @*<script src="~/app/assets/js/TableExport2/js/xlsx.core.min.js"></script>
+        <script src="~/app/assets/js/TableExport2/js/Blob.js"></script>
+        <script src="~/app/assets/js/TableExport2/js/FileSaver.js"></script>
+        <script src="~/app/assets/js/TableExport2/js/tableexport.js"></script>*@
+
+    <!-- Loading core javascript-->
+    <script src="~/app/main.js"></script>
+    <script src="~/app/extraction/services/upload-service.js"></script>
+
+    @*Core Solution*@
+    @*Core Module*@
+    @*Module*@
+    <script src="~/app/core/controllers/module/module-list-controller.js"></script>
+
+    @*Configuration*@
+    <script src="~/app/core/controllers/configuration/audittrail-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/general-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/company-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/company-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/companymodule-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/companymodule-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/branch-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/fiscalyear-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/fiscalyear-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/fiscalperiod-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/producttype-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/producttype-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/product-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/product-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/producttypemapping-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/financialtype-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/financialtype-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/chartofaccount-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/chartofaccount-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/ratetype-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/ratetype-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/currency-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/currency-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/currencyrate-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/activity-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/activity-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/gldefinition-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/gldefinition-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/qualitativenote-edit-controller.js"></script>
+
+    <script src="~/app/core/controllers/configuration/client-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/client-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/database-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/database-edit-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/companysecurity-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/companysecurity-edit-controller.js"></script>
+    @*<script src="~/app/core/controllers/configuration/usersession-list-controller.js"></script>
+        <script src="~/app/core/controllers/configuration/usersession-edit-controller.js"></script>*@
+    <script src="~/app/core/controllers/configuration/defaultuser-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/defaultuser-edit-controller.js"></script>
+
+    <script src="~/app/core/controllers/configuration/reportstatus-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/reportstatus-edit-controller.js"></script>
+    <script src="~/app/core/controllers/account/account-change-password-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/staff-list-controller.js"></script>
+    <script src="~/app/core/controllers/configuration/staff-edit-controller.js"></script>
+
+    <script src="~/app/core/controllers/configuration/errortracker-list-controller.js"></script>
+
+    @*<script src="~/app/core/controllers/configuration/staff-list-controller.js"></script>
+        <script src="~/app/core/controllers/configuration/staff-edit-controller.js"></script>*@
+
+    @*Account*@
+    <script src="~/app/core/services/role-search-service.js"></script>
+    <script src="~/app/core/controllers/account/role-list-controller.js"></script>
+    <script src="~/app/core/controllers/account/role-edit-controller.js"></script>
+    <script src="~/app/core/controllers/account/usersetup-list-controller.js"></script>
+    <script src="~/app/core/controllers/account/usersetup-edit-controller.js"></script>
+    <script src="~/app/core/controllers/account/userprofile-list-controller.js"></script>
+
+    @*Accessibility*@
+    <script src="~/app/core/controllers/accessibility/menurole-list-controller.js"></script>
+
+    @*Extraction*@
+    <script src="~/app/extraction/controllers/extraction/packagesetup-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/solutionrundate-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/solutionrundate-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/closedperiodtemplate-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/closedperiodtemplate-edit-controller.js"></script>
+    <script src="~/app/extraction/services/closedperiod-search-service.js"></script>
+    <script src="~/app/extraction/controllers/extraction/closedperiod-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/closedperiod-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/openclosedperiod-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/openclosedperiod-edit-controller.js"></script>
+    <script src="~/app/extraction/services/extraction-service.js"></script>
+    <script src="~/app/extraction/controllers/extraction/extraction-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/extraction-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/extractionrole-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/runextraction-list-controller.js"></script>
+    <script src="~/app/extraction/services/process-service.js"></script>
+    <script src="~/app/extraction/controllers/extraction/process-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/process-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/processrole-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/runprocess-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/upload-list-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/upload-edit-controller.js"></script>
+    <script src="~/app/extraction/controllers/extraction/uploadrole-edit-controller.js"></script>
+    <script src="~/app/extraction/services/excel-service.js"></script>
+    <script src="~/app/extraction/controllers/extraction/runupload-list-controller.js"></script>
+    <script src="~/app/extraction/directive/upload-directive.js"></script>
+
+    @*IFRS Core*@
+    <script src="~/app/finstat/controllers/registry-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/registry-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/derivedcaption-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/derivedcaption-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/ifrsbudget-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/ifrsbudget-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/qualitativenote-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/qualitativenote-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/ifrsreportpackviewer-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/revacctregistry-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/revacctregistry-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/changesinequity-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/changesinequity-list-controller.js"></script>
+
+    @*IFRS *@
+    <script src="~/app/ifrsloan/controllers/impairmentoverride-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/impairmentoverride-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralinformation-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralinformation-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/scheduletype-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/scheduletype-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/creditriskrating-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/creditriskrating-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralcategory-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralcategory-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateraltype-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/loansetup-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/loansetup-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/product-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/product-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralrealizationperiod-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/collateralrealizationperiod-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/watchlistedloan-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/watchlistedloan-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/individualimpairment-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/individualimpairment-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/individualschedule-list-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/individualschedule-edit-controller.js"></script>
+    <script src="~/app/ifrsloan/controllers/bondsummary-list-controller.js"></script>
+
+    @*IFRS9 *@
+    <script src="~/app/IFRS9/controllers/externalrating-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/externalrating-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectorrating-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectorrating-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/internalratingbased-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/internalratingbased-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomic-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomic-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ratingmapping-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ratingmapping-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/transition-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/transition-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sector-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sector-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/setup-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/setup-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/notchdifference-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/notchdifference-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomichistorical-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomichistorical-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalclassification-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalclassification-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectorialpd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectorialpd-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/computedforcastedpdlgd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectorialregressedpd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectorialregressedlgd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicvariable-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicvariable-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectorvariablemapping-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectorvariablemapping-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/pitformular-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrs9-dashboard-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanbucketdistribution-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicvdisplay-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lifetimepdclassification-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/performingloans-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/underperformingloans-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/nonperformingloans-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/summaryreport-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclcalculationmodel-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclcalculationmodel-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsequityunqouted-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsequityunqouted-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsstocksmapping-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsstocksmapping-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsstocksprimarydata-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsstocksprimarydata-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/reconciliation-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/forecastedmacroeconimcssensitivity-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/fairvaluationmodel-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/forecastedmacroeconimcsscenario-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanspreadscenario-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanspreadsensitivity-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/unquotedequityfairvalueresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/pitpdcomparism-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/markovmatrix-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ccfmodelling-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/pitpd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectoriallgd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicalsectoriallgd-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclcomparism-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/offbalancesheetexposure-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/foreigneadexchangerate-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/foreigneadexchangerate-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrspdseriesbyrating-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrslgdscenariobyinstrument-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrslgdscenariobyinstrument-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macrovariablerecoveryrates-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macrovariablerecoveryrates-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsretailpdseries-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsretailpdseries-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrscorporateecl-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/Investmentothersecl-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrssectorccf-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrssectorccf-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/probabilityweighted-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/probabilityweighted-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macrovariableestimate-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macrovariableestimate-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectormapping-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sectormapping-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sandprating-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sandprating-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicaldefaultedaccounts-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicaldefaultedaccounts-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclinputretail-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclinputretail-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lgdinputfactor-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lgdinputfactor-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicsvariablescenario-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicsvariablescenario-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/regressionoutput-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/facilityclassification-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sicrparameters-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/sicrparameters-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalpdoddistr-list-controller.js"></script>
+    @*Begin Ande Update*@
+    <script src="~/app/ifrs_extracted_data/controllers/checkdataavailability-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalccfstr-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsinvestment-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsinvestment-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanpry-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanpry-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsbondlgd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loansignificantflag-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loansignificantflag-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsbondlgd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/obeeclcomputation-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanseclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/bondseclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/odeclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsbondsmonthlyead-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsbondsmonthlyead-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsmonthlyead-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsmonthlyead-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanclassificationsicrsignflag-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loanclassificationsicrsignflag-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loaneclresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/bondseclresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/odeclresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/obeeclresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/cummulativepd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/historicaldefaultfreq-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/collateralgrowthrate-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/collateralrecamtstaging-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/cummulativedefaultamt-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/cummulativelifetimepd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/obelgdcomptresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalpdobedistr-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ccfanalysisoverdraftstrlb-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalccfpivotstrlb-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/investmentmarginalpd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalpddstrlb-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/checkifrsdataavailability-list-controller.js"></script>
+
+    @*End Ande Update*@dh
+
+
+    @*End Tosin Update*@
+    <script src="~/app/IFRS9/controllers/ifrsmarginalpdbyscenerio-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsmonthlyforwardpdmacrovar-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsprojectedcummdefaultfrq-list-controller.js"></script>
+
+    @*End Tosin Update*@
+
+    <script src="~/app/IFRS9/controllers/lgdcomptresult-list-controller.js"></script>
+
+    <script src="~/app/IFRS9/controllers/monthlyobeeadstrlb-list-controller.js"></script>
+
+
+    @*Begin Victor Update*@
+
+    <script src="~/app/IFRS9/controllers/eurobondspread-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/placementcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lgdcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/localbondspread-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalpddistributionplacement-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/bondmarginalpddistribution-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/marginalpddistribution-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/bondeclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/placementeclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lcbgeclcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eurobondspread-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/localbondspread-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicsnpl-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicsnpl-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lgdcomputationresultplacement-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/tbilleclcomputationresult-list-controller.js"></script>
+    @*End Victor Update*@
+
+    <script src="~/app/IFRS9/controllers/computedforcastedpdlgdforeign-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/lgdcomputationresultplacement-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/monthlydiscountfactor-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/monthlydiscountfactorbond-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/monthlydiscountfactorplacement-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/macroeconomicsnpl-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/offbalancesheetecl-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/impairmentcorporate-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/impairmentinvestment-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/impairmentresultobe-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/impairmentresultretail-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsfinalretailoutput-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrscustomerpd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrscustomerpd-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrscorporatepdseries-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrscorporatepdseries-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclinputretail-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/eclinputretail-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/staffloanscomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/assumption-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/assumption-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/collateralinput-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/collateralinput-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/spcumulativepd-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/spcumulativepd-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/loancommitmentcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrspdtermstructure-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrspdtermstructure-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/consolidatedloans-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/consolidatedloans-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/overdraftmonthlyead-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/overdraftlgdcomputation-list-controller.js"></script>
+    @*FINANCIAL INSTRUMENT *@
+
+    <script src="~/app/ifrsfi/controllers/fairvaluebasismap-list-controller.js"></script>
+    <script src="~/app/ifrsfi/controllers/fairvaluebasismap-edit-controller.js"></script>
+    <script src="~/app/ifrsfi/controllers/fairvaluebasisexemption-list-controller.js"></script>
+    <script src="~/app/ifrsfi/controllers/fairvaluebasisexemption-edit-controller.js"></script>
+
+    @*IFRS EXTRACTED DATA *@
+
+    <script src="~/app/ifrs_extracted_data/controllers/bonddata-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/bonddata-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/tbilldata-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/tbilldata-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loanpry-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loanpry-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loandetail-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loandetail-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/Integralfee-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/Integralfee-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/unmappedifrsproduct-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/borrowing-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/borrowing-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loanprymoratorium-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loanprymoratorium-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/ifrscustomer-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/ifrscustomer-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/ifrscustomeraccount-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/ifrscustomeraccount-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/offbalancesheetexposure-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/offbalancesheetexposure-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/placement-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/placement-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loaninterestrate-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loaninterestrate-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/depositrepaymentschedule-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/depositrepaymentschedule-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/liabilityrepaymentschedule-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loancommitment-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/loancommitment-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/inputdetail-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/inputdetail-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/nseindex-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/nseindex-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/hcclassification-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/hcclassification-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/obexposure-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/obexposure-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/obexposureccf-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/obexposureccf-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/collateraldetails-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/collateraldetails-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facclassconsolidated-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facclassconsolidated-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facrating-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facrating-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facstaging-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facstaging-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facobestaging-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/facobestaging-edit-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/cashflow-list-controller.js"></script>
+    <script src="~/app/ifrs_extracted_data/controllers/cashflow-edit-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/facilitystaging-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/facilityclassification-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrsloansinfo-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrslgdprojections-list-controller.js"></script>
+    <script src="~/app/IFRS9/controllers/ifrspdprojection-list-controller.js"></script>
+
+    @*IFRS DATA VIEW *@
+    <script src="~/app/IFRSDataView/controllers/bondcomputation-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/bondcomputationresultzero-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/bondperiodicschedule-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/equitystockcomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loanperiodicschedule-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loanschedule-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loansimpairmentresult-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/tbillscomputationresult-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/bondconsolidateddata-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loanconsolidateddata-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/tbillconsolidateddata-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/bondconsolidateddataothers-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/borrowingperiodicschedule-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/borrowingschedule-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loanconsolidateddatafsdh-list-controller.js"></script>
+    <script src="~/app/IFRSDataView/controllers/loandetailedinfo-list-controller.js"></script>
+
+    @*Finstat*@
+    <script src="~/app/finstat/controllers/glmapping-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/glmapping-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/unmappedgl-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/unmappedgl-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/gltype-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/gltype-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/instrumenttype-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/instrumenttype-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/instrumenttypeglmap-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/instrumenttypeglmap-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/autopostingtemplate-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/autopostingtemplate-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/trialbalance-list-controller.js"></script>
+    <script src="~/app/finstat/services/gl-service.js"></script>
+    <script src="~/app/finstat/dialogs/gl-dialog-controller.js"></script>
+    <script src="~/app/finstat/controllers/adjustment-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/adjustment-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/transactiondetail-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/postingdetail-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/postingdetailcontracts-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/revenueglmapping-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/revenueglmapping-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/trialbalanceconsolidated-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/ledgerdetailsummary-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/glmappingmgt-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/glmappingmgt-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/ratiodetail-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/ratiodetail-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/ratiocaption-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/ratiocaption-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/glaarchive-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/calendar-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/calendar-edit-controller.js"></script>
+    <script src="~/app/finstat/controllers/interimqualitativenote-list-controller.js"></script>
+    <script src="~/app/finstat/controllers/interimqualitativenote-edit-controller.js"></script>
+    @*MPR*@
+    @*MPR Core*@
+    @*<script src="~/app/mpr_core/controllers/teamclassificationtype-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamclassificationtype-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamdefinition-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamdefinition-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamclassification-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamclassification-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/team-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/team-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/teamclassificationmap-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/usermis-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/usermis-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/accountofficerdetail-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/accountofficerdetail-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/branchdefaultmis-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/branchdefaultmis-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/misreplacement-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/misreplacement-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/managementtree-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/managementtree-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/accountmis-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/accountmis-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/mprsetup-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/transferprice-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/transferprice-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/custaccount-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsexemption-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsexemption-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoaccountmap-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoaccountmap-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memounit-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memounit-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoglmap-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoglmap-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoproductmap-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/memoproductmap-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/captionmapping-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/captionmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/messagingsubscription-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/ratiocaptionmapping-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/ratiocaptionmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/ratios-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/ratios-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/messagingsubscription-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsinotherinformation-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsinotherinformation-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsinotherinformationtotalline-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/bsinotherinformationtotalline-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/abcratio-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/abcratio-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/sbu-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/sbu-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/sbutype-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/sbutype-edit-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/servicese-list-controller.js"></script>
+        <script src="~/app/mpr_core/controllers/servicese-edit-controller.js"></script>*@
+
+
+    @*MPR Balancesheet*@
+    @*<script src="~/app/mpr_balancesheet/controllers/bscaption-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/bscaption-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/mprproduct-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/mprproduct-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/unmappedproduct-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/bsglmappingt-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/bsglmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/nonproductmap-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/nonproductmap-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/nonproductrate-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/nonproductrate-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/productmis-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/productmis-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/balancesheetthreshold-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/balancesheetthreshold-edit-controller.js"></script>
+
+        <script src="~/app/mpr_balancesheet/controllers/accounttransferprice-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/accounttransferprice-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/generaltransferprice-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/generaltransferprice-list-controller.js"></script>
+
+        <script src="~/app/mpr_balancesheet/controllers/mprbalancesheet-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/mprbalancesheet-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/mprbalancesheetadjustment-edit-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/mprbalancesheetadjustment-list-controller.js"></script>
+
+        <script src="~/app/mpr_balancesheet/controllers/bsexemption-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/bsexemption-edit-controller.js"></script>
+
+        <script src="~/app/mpr_balancesheet/controllers/balancesheetbudget-list-controller.js"></script>
+        <script src="~/app/mpr_balancesheet/controllers/balancesheetbudget-edit-controller.js"></script>*@
+
+
+
+
+
+    @*MPR Profit&Loss*@
+    @*<script src="~/app/mpr_pl/controllers/plcaption-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/plcaption-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glmis-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glmis-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/mprglmapping-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/mprglmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/unmappedgl-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glexception-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glexception-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glreclassification-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/glreclassification-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/IncomeCentralVaultSchedule-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/IncomeCentralVaultSchedule-edit-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/MPRCommFee-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/MPRCommFee-edit-controller.js"></script>*@
+    @*<script src="~/app/mpr_pl/controllers/plincomereport-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/plincomereport-edit-controller.js"></script>*@
+
+    @*<script src="~/app/mpr_pl/controllers/revenue-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/revenue-edit-controller.js"></script>
+
+        <script src="~/app/mpr_pl/controllers/plincomereportadjustment-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/plincomereportadjustment-edit-controller.js"></script>
+
+        <script src="~/app/mpr_pl/controllers/plbudget-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/plbudget-edit-controller.js"></script>
+
+        <script src="~/app/mpr_pl/controllers/processdata-list-controller.js"></script>
+        <script src="~/app/mpr_pl/controllers/processdata-edit-controller.js"></script>*@
+
+    @*MPR OPEX*@
+    @*<script src="~/app/mpr_opex/controllers/opexbusinessrule-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexbusinessrule-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/costcentredefinition-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/costcentredefinition-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/costcentre-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/costcentre-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expensemapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expensemapping-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenseglmapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenseglmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenseproductmapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenseproductmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/staffcost-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/staffcost-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expensebasis-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expensebasis-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenserawbasis-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/expenserawbasis-edit-controller.js"></script>
+
+
+        <script src="~/app/mpr_opex/controllers/activitybase-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/activitybase-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/activitybaseratio-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/activitybaseratio-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexmisreplacement-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexmisreplacement-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexmanagementtree-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexmanagementtree-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexabcexemption-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexabcexemption-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexrawexpense-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexrawexpense-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexglmapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexglmapping-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/unmappedgl-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexreport-list-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/opexglbasis-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexglbasis-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexbasismapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexbasismapping-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/checklist-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/hoexemptionmiscode-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/hoexemptionmiscode-edit-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/fixedassetsharingratio-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/fixedassetsharingratio-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/incomecashcentrecode-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/incomecashcentrecode-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/incomecentralvaultaccounts-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/incomecentralvaultaccounts-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/incomeneaglsbu-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/incomeneaglsbu-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/categorytransferprice-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/categorytransferprice-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/lowcostremap-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/lowcostremap-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/neabranchsbushares-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/neabranchsbushares-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/neabranchsharingratio-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/neabranchsharingratio-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/neasharingratio-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/neasharingratio-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/neasharingratiofcy-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/neasharingratiofcy-edit-controller.js"></script>
+
+        <script src="~/app/mpr_opex/controllers/opexbranchmapping-list-controller.js"></script>
+        <script src="~/app/mpr_opex/controllers/opexbranchmapping-edit-controller.js"></script>*@
+
+
+    @*CDQM*@
+    @*<script src="~/app/cdqm/controllers/address-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/address-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/country-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/country-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/customermis-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/customermis-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/etlconfiguration-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/etlconfiguration-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/gendergroup-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/gendergroup-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/merchant-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/merchant-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/product-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/product-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/title-list-controller.js"></script>
+        <script src="~/app/cdqm/controllers/title-edit-controller.js"></script>
+        <script src="~/app/cdqm/controllers/customercheck-list-controller.js"></script>
+        <script src="~/app/cdqm/services/customercheck-search-service.js"></script>*@
+
+    @*Scorecard*@
+    @*<script src="~/app/scorecard/controllers/setup-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/category-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/category-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/teamclassification-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/teamclassification-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/kpi-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/kpi-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/kpiclassification-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/kpiclassification-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/dataentry-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/dataentry-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/participant-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/participant-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/teammap-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/teammap-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/threshold-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/threshold-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/actualdata-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/actualdata-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/actualmapping-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/actualmapping-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/targetdata-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/targetdata-edit-controller.js"></script>
+        <script src="~/app/scorecard/controllers/targetmapping-list-controller.js"></script>
+        <script src="~/app/scorecard/controllers/targetmapping-edit-controller.js"></script>*@
+
+    @*Budget*@
+    @*<script src="~/app/budget/controllers/operation-list-controller.js"></script>
+        <script src="~/app/budget/controllers/operation-edit-controller.js"></script>
+        <script src="~/app/budget/controllers/operationreview-edit-controller.js"></script>
+        <script src="~/app/budget/controllers/budgetinglevel-list-controller.js"></script>
+        <script src="~/app/budget/controllers/budgetinglevel-edit-controller.js"></script>
+        <script src="~/app/budget/controllers/policylevel-list-controller.js"></script>
+        <script src="~/app/budget/controllers/policylevel-edit-controller.js"></script>
+        <script src="~/app/budget/controllers/modificationlevel-list-controller.js"></script>
+        <script src="~/app/budget/controllers/modificationlevel-edit-controller.js"></script>
+        <script src="~/Scripts/blink.js"></script>*@
+
+
+
+
+    <script src="~/app/assets/js/plugins/FCharts/js/themes/fusioncharts.theme.fint.js"></script>
+    <script src="~/app/assets/js/plugins/FCharts/js/fusioncharts.charts.js"></script>
+    <script src="~/app/assets/js/plugins/FCharts/js/fusioncharts.js"></script>
+    <script src="~/app/assets/js/plugins/angular-fusioncharts.min.js"></script>
+
+
+
+</body>
+</html>

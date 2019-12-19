@@ -1,0 +1,83 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <button type="button" ng-csv="vm.borrowing" filename="BorrowingExport.csv">Full Export</button>
+            </div>
+            <br />
+            
+            <table id="borrowingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductCode</th>
+                        <th>ProductName</th>
+                        <th>Value Date</th>
+                        <th>Maturity Date</th>
+                        <th>First Repay. Date</th>
+                        <th>Amount</th>
+                        <!--<th>Periodic Repayment Amt</th>-->
+                        <th>Rate</th>
+                      
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="borrowings in vm.borrowing">
+                        <td>
+                            {{ borrowings.RefNo}}
+                        </td>
+                        <td>
+                            {{ borrowings.AccountNo}}
+                        </td>
+                        <td>
+                            {{ borrowings.ProductCode}}
+                        </td>
+                        <td>
+                            {{ borrowings.ProductName}}
+                        </td>
+                        <td>
+                            {{ borrowings.ValueDate | date }}
+                        </td>
+                        <td>
+                            {{ borrowings.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ borrowings.FirstRepaymentdate | date}}
+                        </td>
+
+                        <td>
+                            {{ borrowings.Amount | currency :"":0}}
+                        </td>
+                        <!--<td>
+                            {{ borrowings.PeriodicRepaymentAmount | currency :"":0}}
+                        </td>-->
+                        <td>
+                            {{ borrowings.Rate}}
+                        </td>
+                       
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-borrowingdata-edit({borrowingId:borrowings.BorrowingId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

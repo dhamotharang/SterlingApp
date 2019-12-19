@@ -1,0 +1,67 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+
+                    <label for="" class="control-label">Account Number :</label>
+                    <input type="text" class="input-sm" data-ng-model="vm.eclinputretails.account_number" style="width:150px" />
+                    <button class="btn btn-info btn-sm" ng-click="vm.loadbyrefno()"> Filter</button>
+                    <button class="btn btn-default btn-sm" ng-click="vm.loadDefault()"> Refresh</button>
+                    <button type="button" ng-csv="vm.eclinputretails" filename="ECLInputRetail.csv">Full Export</button>
+                
+                </div>
+            </div>
+            <br />
+            
+            <table id="sectorTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Stage</th>
+                        <th>EIR</th>
+                        <th>Sequence</th>
+                        <th>Amount</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="eclinputretail in vm.eclinputretails">
+                        <td>
+                            {{ eclinputretail.account_number}}
+                        </td>
+                        <td>
+                            {{ eclinputretail.Stage}}
+                        </td>
+                        <td>
+                            {{ eclinputretail.EIR}}
+                        </td>
+                        <td>
+                            {{ eclinputretail.SeriesValue}}
+                        </td>
+                        <td>
+                            {{ eclinputretail.Amount | currency :"":0}}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-eclinputretail-edit({eclInputRetailId: eclinputretail.EclInputRetailId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

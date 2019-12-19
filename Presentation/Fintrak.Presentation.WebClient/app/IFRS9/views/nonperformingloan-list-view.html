@@ -1,0 +1,86 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+          
+            <table id="nonperformingLoanTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" >
+
+                <thead>
+                    <tr>
+                        <th>ReferenceNo</th>
+                       
+                        <th>BalanceAmt</th>
+                        <th>UndrawnAmt</th>
+                        <th>EAD</th>
+                        <th>LGD</th>
+                        <th>LifeTime PD</th>
+                        <th>PVofRecoverables</th>
+                        <th>Significant</th>
+                        <th>Assessed</th>
+                        <th>EIR</th>
+                        <th>CashShortFall</th>
+                        <th>ExpectedLoss</th>
+                        <th>DiscountedValue</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="nonperformingLoan in vm.nonperformingLoan">
+                        <td>
+                            {{ nonperformingLoan.RefNo}}
+                        </td>
+                      
+                        <td>
+                            {{ nonperformingLoan.BalanceOutstanding | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.UndrawnAmount | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.EAD | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.Lgd}}
+                        </td>                       
+                        <td>
+                            {{ nonperformingLoan.LifeTimePD}}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.PVofCollateral | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.Significant}}
+                        </td>
+
+                        <td>
+                            {{ nonperformingLoan.AssessmentType}}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.IRR}}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.CashShortFall | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.ExpectedLoss | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ nonperformingLoan.DiscountedValue | currency :"":0 }}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

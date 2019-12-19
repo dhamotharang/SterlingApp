@@ -1,0 +1,216 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-credit-card"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <!--<br />-->
+            <!--<div>
+                <button type="button" ng-csv="vm.loanDetail" filename="loanDetailExport.csv">Full Export</button>
+            </div>-->
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+                        <a class="btn btn-info btn-sm" data-ui-sref="ifrs-loandetail-edit({loanDetailId:0})"> Add New Loan</a>&nbsp;&nbsp;&nbsp;
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" data-ng-model="vm.serachParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadLoanDetailBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <a class="btn btn-info btn-group-sm" ng-click="vm.exportAllData()">Export All</a>
+                    </form>
+                </div>
+            </div>
+
+            <!--<br />-->
+       
+            
+            <table id="loanDetailTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">Action</th>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductCode</th>
+                        <th>ProductName</th>
+                        <th>Value Date</th>
+                        <th>1st Repay Date</th>
+                        <th>Maturity Date</th>
+                        <th>Amount</th>
+                        <th>Prin.Bal</th>
+                        <th>Interest Receiv</th>
+                        <th>Past Due</th>
+                        <th>Rate</th>
+                        <th>Sector</th>
+                        <th>Rating</th>
+                        <th>Classification</th>
+                        <th>Sub Classification</th>
+                        <th>Collateral Value</th>
+                        <th>Collateral Haircut</th>
+                        <th>Collateral Recov. Amt</th>
+
+                        <th>IFRS9 Stage</th>
+
+                        <!--Access Cols-->
+                        <th>Customer Name</th>
+                        <th>Forced Sale Value</th>
+                        <th>custid</th>
+                        <th>OutstandingBal</th>
+                        <th>InitialCreditRating</th>
+                        <th>current_staging</th>
+                        <th>Classification</th>
+                        <th>ForbearanceFlag</th>
+                        <th>ForcedSaleValue</th>
+                        <th>CostRecovery</th>
+                        <th>MissedPaymentStage</th>
+                        <th>ClassificationStage</th>
+                        <th>ForbearanceStage</th>
+                        <th>CreditStaging</th>
+                        <th>ModelClassification</th>
+                        <th>ClassificationOverride</th>
+                        <th>ClassificationStageFinal</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanDetail in vm.loanDetail">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-loandetail-edit({loanDetailId:loanDetail.LoanDetailId})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ loanDetail.RefNo}}
+                        </td>
+                        <td>
+                            {{ loanDetail.AccountNo}}
+                        </td>
+                        <td>
+                            {{ loanDetail.ProductCode}}
+                        </td>
+                        <td>
+                            {{ loanDetail.ProductName}}
+                        </td>
+                        <td>
+                            {{ loanDetail.ValueDate | date }}
+                        </td>
+                        <td>
+                            {{ loanDetail.FirstRepaymentdate | date }}
+                        </td>
+                        <td>
+                            {{ loanDetail.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Amount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanDetail.PrincipalOutstandingBal | currency :"":0}}
+                        </td>
+
+                        <td>
+                            {{ loanDetail.Interest_Receiv_Pay_UnEarn | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanDetail.PastDueAmount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Rate}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Sector}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Sector}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Classification}}
+                        </td>
+                        <td>
+                            {{ loanDetail.SubClassification}}
+                        </td>
+                        <td>
+                            {{ loanDetail.CollateralValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanDetail.CollateralHaircut | number}}
+                        </td>
+                        <td>
+                            {{ loanDetail.CollateralRecoverableAmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanDetail.Stage}}
+                        </td>
+
+                        <!--Access Cols-->
+                        <td>
+                            {{ loanDetail.CUSTOMER_NAME}}
+                        </td>
+                        <td>
+                            {{ loanDetail.ForcedSaleValue}}
+                        </td>
+                        <td>
+                            {{ loanPrys.custid}}
+                        </td>
+                        <td>
+                            {{ loanPrys.OutstandingBal}}
+                        </td>
+                        <td>
+                            {{ loanPrys.InitialCreditRating}}
+                        </td>
+                        <td>
+                            {{ loanPrys.current_staging}}
+                        </td>
+                        <td>
+                            {{ loanPrys.Classification}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ForbearanceFlag}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ForcedSaleValue}}
+                        </td>
+                        <td>
+                            {{ loanPrys.CostRecovery}}
+                        </td>
+                        <td>
+                            {{ loanPrys.MissedPaymentStage}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ClassificationStage}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ForbearanceStage}}
+                        </td>
+                        <td>
+                            {{ loanPrys.CreditStaging}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ModelClassification}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ClassificationOverride}}
+                        </td>
+                        <td>
+                            {{ loanPrys.ClassificationStageFinal}}
+                        </td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

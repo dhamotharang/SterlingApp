@@ -1,0 +1,185 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <button type="button" ng-csv="vm.loanCommitment" filename="LoanCommitmentExport.csv">Full Export</button>
+            </div>
+            <br />
+            
+            <table id="loanCommitmentTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">Action</th>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductCategory</th>
+                        <th>ProductCode</th>
+                        <th>ProductName</th>
+                        <th>ProductType</th>
+                        <th>ValueDate</th>
+                        <th>Sector</th>
+                        <th>Currency</th>
+                        <th>Maturity Date</th>
+                        <th>1st RepayDate</th>
+                        <th>Amount</th>
+                        <th>ExchangeRate</th>
+                        <th>Rate</th>
+                        <th>TenorDays</th>
+                        <th>TenorMonth</th>
+                        <th>MISCode</th>
+                        <th>CollateralHaircut</th>
+                        <th>CollateralRecoverableAmt</th>
+                        <th>ODLimit</th>
+                        <th>Period</th>
+                        <th>Year</th>
+                        <th>Int.RepayDate</th>
+                        <th>Prin.RepayDate</th>
+                        <th>Prin.OutstandingBal</th>
+                        <th>PastDueAmount</th>
+                        <th>Rating</th>
+                        <th>Classification</th>
+                        <th>SubClassification</th>
+                        <th>CollateralType</th>
+                        <th>CollateralValue</th>
+                        <th>ForbearanceFlag</th>
+                        <th>Stage</th>
+                        <th>RunDate</th>
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanCommitment in vm.loanCommitment">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-loancommitment-edit({loanCommitmentId:loanCommitment.LoanCommitmentId})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ loanCommitment.RefNo}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.AccountNo}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ProductCategory}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ProductCode}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ProductName}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ProductType}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ValueDate | date }}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Sector}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Currency}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.FirstRepaymentdate | date}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Amount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ExchangeRate}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Rate}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.TenorDays}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.TenorMonth}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.MISCode}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.CollateralHaircut | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.CollateralRecoverableAmt | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ODLimit | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Period}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Year}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.InterestRepayFreq }}
+                        </td>
+                        <td>
+                            {{ loanCommitment.PrincipalRepayFreq }}
+                        </td>
+                        <td>
+                            {{ loanCommitment.PrincipalOutstandingBal | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.PastDueAmount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Rating}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Classification}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.SubClassification}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.CollateralType}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.CollateralValue | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.ForbearanceFlag}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.Stage}}
+                        </td>
+                        <td>
+                            {{ loanCommitment.RunDate | date}}
+                        </td>
+
+                        
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

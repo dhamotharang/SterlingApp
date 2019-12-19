@@ -1,0 +1,91 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.loadBySearch(vm.searchParam)">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search by Ref No || AccountNo..." ng-model="vm.searchParam" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.loadBySearch(vm.searchParam)">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.refresh()">Refresh</button>
+                    </form>
+                </div>
+            </div>
+
+            <table id="loanEADTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Account No</th>
+                        <th>Ref No</th>
+                        <th>Date PMT</th>
+                        <th>Amortized Cost</th>
+                        <th>EAD</th>
+                        <th>Product Type</th>
+                        <th>Sub Type</th>
+                        <th>Currency</th>
+                        <th>OriginYear</th>
+                        <th>Interest Accrued</th>
+                        <th>EIR</th>
+                        <th>Tenor In Days</th>
+                        <th>Stage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="IfrsMonthlyead in  vm.ifrsmonthlyead">
+                        <td>
+                            {{ IfrsMonthlyead.AccountNo }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.RefNo }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.date_pmt |date }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.AmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.EAD | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.Producttype }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.SubType }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.currency }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.OriginYear }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.InterestAccrued | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.EIR }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.TenorInDays }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthlyead.Stage }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

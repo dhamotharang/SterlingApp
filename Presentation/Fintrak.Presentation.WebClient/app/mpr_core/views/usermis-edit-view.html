@@ -1,0 +1,167 @@
+﻿
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">User</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.LoginID" ng-options="user.LoginID as user.LoginID for user in vm.users" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">PC Definition</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.ProfitCenterDefinitionCode" ng-options="definition.Code as definition.Name for definition in vm.profitCenterDefinitions" style="width:250px;" ng-change="vm.onProfitCenterDefinitionChanged(vm.userMIS.ProfitCenterDefinitionCode)"></select>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group" ng-hide="vm.useStaffId">
+                                                    <label class="col-sm-3 control-label">PC Mis</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div isteven-multi-select
+                                                             input-model="vm.profitCenters"
+                                                             output-model="newArrayPCMIS"
+                                                             button-label="Code"
+                                                             item-label="Name Code"
+                                                             on-close="getSelectAllPCMIS(newArrayPCMIS)"
+                                                             tick-property="">
+                                                        </div>
+                                                        <!--<select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="team.Code as team.Name for team in vm.profitCenters" style="width:250px;"></select>-->
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="form-group" ng-show="vm.useStaffId">
+                                                    <label class="col-sm-3 control-label">Staff</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.ProfitCenterMisCode" ng-options="staff.StaffCode as staff.Name for staff in vm.staffs" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">CC Definition</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.CostCenterDefinitionCode" ng-options="definition.Code as definition.Name for definition in vm.costCenterDefinitions" style="width:250px;" ng-change="vm.onCostCenterDefinitionChanged(vm.userMIS.CostCenterDefinitionCode)"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">CC Mis</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.userMIS.CostCenterMisCode" ng-options="team.Code as team.Name for team in vm.costCenters" style="width:250px;"></select>
+                                                    </div>
+                                                </div>
+
+                                                <h3 ng-show="vm.userMIS.UserMISId > 0">Classifications</h3>
+
+
+                                                <div class="form-group" ng-repeat="userClassification in vm.userClassifications" ng-show="vm.userMIS.UserMISId > 0">
+                                                    <label class="col-sm-3 control-label">{{userClassification.ClassificationTypeName}}</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-6">
+                                                                <div isteven-multi-select
+                                                                     input-model="userClassification.Classifications"
+                                                                     output-model="newArray"
+                                                                     button-label="Code"
+                                                                     item-label="Name Code"
+                                                                     on-close="getSelectAll(newArray)"
+                                                                     tick-property="">
+                                                                </div>
+                                                                <!--<select class="form-control" ng-model="userClassification.ClassificationCode" ng-options="classification.Code as classification.Name for classification in userClassification.Classifications" style="width:250px;"></select>-->
+                                                            </div>
+
+
+
+
+
+                                                            <!--<div class="row">
+                                                                <div class="col-sm-12">
+                                                                    <h5>Segment</h5>
+                                                                    <div class="fauxCode hljs xml">
+
+                                                                        Selected Item(s) = [
+                                                                        <table>
+                                                                            <tr class="hljs-tag" ng-repeat="row in newArray">
+                                                                                <td>&nbsp;</td>
+                                                                                <td>{</td>
+                                                                                <td><span class="hljs-attribute">Code</span>: <span class="hljs-value">"{{row.Code}}"</span>,</td>
+                                                                                <td>}<span ng-if="$index < modernWebBrowsers.length - 1">,</span></td>
+                                                                            </tr>
+                                                                        </table>
+                                                                        ];
+                                                                    </div>
+                                                                </div>
+                                                            </div>-->
+
+
+
+
+
+
+
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

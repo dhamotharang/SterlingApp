@@ -1,0 +1,7 @@
+﻿
+<div ng-show="vm.viewModelHelper.modelIsValid == false" class="alert alert-danger">
+    <h4 class="alert-heading">Fintrak Errors!</h4>
+    <ul data-ng-repeat="e in vm.viewModelHelper.modelErrors">
+        <li>{{ e }}</li>
+    </ul>
+</div>

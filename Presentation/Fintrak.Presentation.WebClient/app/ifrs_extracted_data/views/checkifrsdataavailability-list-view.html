@@ -1,0 +1,122 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+
+                <div class="widget-content">
+                    <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                        <button class="close" data-dismiss="alert">&times;</button>
+                        <i class="fa fa-info-circle"></i> {{vm.instruction}}
+                    </div>
+
+                    <!--  <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                          <li class="active" ng-click="vm.loadtBillscomPapers(1)"><a href="#tBills" role="tab" data-toggle="tab">Treasury Bills</a></li>
+                          <li ng-click="vm.loadtBillscomPapers(2)"><a href="#comPapers" role="tab" data-toggle="tab">Commercial Papers</a></li>
+                      </ul> -->
+
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tBills">
+
+
+
+                            <!--<label for="" class="control-label">&nbsp;&nbsp; Classification:</label>
+                            <select class="input-sm" ng-change="vm.getClassification(1)" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:150px;"></select>
+                            <<button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification(1)">Load</button>
+                            <label for="" class="control-label">&nbsp;&nbsp;&nbsp;Maturity Date :</label>
+                            <select class="input-sm" ng-change="vm.getTbillbyMatDate(1)" ng-model="vm.MaturityDate" ng-options="maturitydates.MaturityDate as maturitydates.MaturityDate for maturitydates in vm.distinctMaturityDate" style="width:150px;" | date:'dd-MM-yyyy'></select>
+                            <button class="btn btn-info btn-sm" ng-click="vm.getTbillbyMatDate(1)"> Load</button>  -->
+
+                                <label for="" class="control-label">Staging Date:</label>
+                              <!--<input type="date" ng-model="vm.endDate" class="input-sm" style="width:200px" />-->
+                                <input type="text" ng-model="vm.runDate" class="input-sm" data-datepicker-popup="dd/MM/yyyy" data-is-open="vm.openedEndDate" style="width:100px;" />
+                                <button type="button" class="btn btn-default btn-sm" ng-click="vm.openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                                <a class="btn btn-info btn-sm" data-ng-click="vm.rundatacheck(vm.runDate)">Run a Check </a>
+                                </div>
+
+                                <!--<div class="input-group mb-3">
+                                    <input type="text" class="form-control"
+                                           aria-label="Recipient's username"
+                                           aria-describedby="basic-addon2"
+                                           ng-model="vm.qualitativeNotes.RunDate"
+                                           data-datepicker-popup="dd/MM/yyyy"
+                                           data-is-open="vm.openedRunDate"
+                                           style="background-color:lightblue" />
+
+                                    <div class="input-group-append">
+                                        <button ng-click="vm.openRunDate($event)" class="btn btn-outline-secondary" type="button"> <i class="glyphicon glyphicon-calendar"></i> </button>
+                                    </div>
+                                </div>-->
+
+
+                            </div>
+
+
+
+                            <br />
+
+                            <table id="ifrsCDataAvTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                <thead>
+                                    <tr>
+                                        <th>Extraction Date</th>
+                                        <th>Extraction Package</th>                                       
+                                        <th>RecCount</th>
+                                        <th>ColorCode</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="ckdata in vm.CkData">
+
+
+                                        <td>
+                                            {{ ckdata.ExtractionDate | date }}
+                                        </td>
+
+                                        <td>
+                                            {{ ckdata.Package }}
+                                        </td>
+                                        
+                                        <td>
+                                            {{ ckdata.RecCount | number }}
+                                        </td>
+                                        <td ng-style="{'background-color': ckdata.ColorCode }" >
+                                            {{ ckdata.ColorCode}}
+                                        </td>
+
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                        <div class="col-md-6"></div>
+
+
+                    </div>
+
+
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+
+                <label for="" class="control-label">Sector:</label>
+                <select class="input-sm" ng-model="vm.sector" ng-options="sector.Code as sector.Description for sector in vm.sectors" style="width: 250px;"></select>
+                <label for="" class="control-label">Year:</label>
+                <select class="input-sm" ng-model="vm.year" ng-options="distinctYear.RefNo as distinctYear.RefNo for distinctYear in vm.distinctYears" style="width:100px;"></select>
+                <label for="" class="control-label">Macro Economic Variable:</label>
+                <select class="input-sm" ng-model="vm.microeconomic" ng-options="microeconomic.Name as microeconomic.Description for microeconomic in vm.microeconomics" style="width: 250px;"></select>
+                <input type="number" class="input-sm" data-ng-model="vm.Value" style="width:100px" />
+                <button type="button" class="btn btn-success btn-xs" ng-click="vm.Save()">Save</button>
+                <button type="button" class="btn btn-default btn-large" ng-click="vm.Compute()">Compute</button>
+            </div> 
+
+            <br />
+            
+            <table id="forecastedMacroeconimcsScenarioTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Sector</th>
+                        <!--<th>Type</th>-->
+                        <th>Variable</th>
+                        <th>Value</th>
+                       
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="forecastedMacroeconimcsScenario in vm.forecastedMacroeconimcsScenarios">
+                        <td>
+                            {{ forecastedMacroeconimcsScenario.Year}}
+                        </td>
+                        <td>
+                            {{ forecastedMacroeconimcsScenario.SectorName}}
+                        </td>
+                        <!--<td>
+                            {{forecastedMacroeconimcsScenario.TypeName}}
+                        </td>-->
+                        <td>
+                            {{ forecastedMacroeconimcsScenario.VariableName}}
+                        </td>
+                        <td>
+                            {{ forecastedMacroeconimcsScenario.Value}}
+                        </td>
+                      
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-forecastedmacroeconimcssensitivity-edit({forecastedmacroeconimcssensitivityId: forecastedMacroeconimcsScenario.ForecastedMacroeconimcsScenarioId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

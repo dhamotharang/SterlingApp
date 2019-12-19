@@ -1,0 +1,173 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div>
+                <label for="" class="control-label">Portfolio:</label>
+                <select class="input-sm" ng-model="vm.Portfolio" ng-options="Portfolio.Name as Portfolio.Name for Portfolio in vm.Portfolios" style="width:250px;"></select>
+                <button type="button" class="btn btn-default btn-sm" ng-click="vm.getPortfolio()">Load</button>
+
+          
+            </div> 
+            <br />
+            
+            <table id="OffBalanceSheetExposureTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Customer Name</th>
+                        <th>Effective Date</th>
+                        <th>Maturity Date</th>
+                        <th>Amount[FCY]</th>
+                        <th>Ex. Rate</th>
+                        <th>Amount[NGN]</th>
+                        <th>Currency</th>
+                        <th>Portfolio</th>
+                        <th>TenorMonths</th>
+                        <th>Rating</th>
+                        <th>Stage</th>
+                        <th>Type</th>
+                        <!--<th>Can Crystalize</th>-->
+                        <!--Access Cols-->
+                        <!--<th>ACCOUNT_NUMBER</th>
+                        <th>SETTLEMENT_ACCOUNT</th>-->
+                        <th>Forbearance_flag</th>
+                        <th>CBN_Sector</th>
+                        <th>Initial_Credit_Rating</th>
+                        <th>Days_past_due</th>
+                        <th>Classification</th>
+                        <th>Payment Structure</th>
+                        <th>Interest_payment_structure</th>
+                        <th>CUST_ID</th>
+                        <th>Secured_Unsecured</th>
+                        <!--<th>Forced_sale_value</th>
+                        <th>Cash_OMV</th>
+                        <th>Cash_FSV</th>
+                        <th>Cost_of_recovery</th>-->
+                        <th>Facility_type</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="offBalanceSheetExposure in vm.OffBalanceSheetExposures">
+                        <td>
+                            {{ offBalanceSheetExposure.RefNo}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.CUSTOMER_NAME}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.TRNX_DATE | date }}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.MATURITY_DATE | date}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Amount_FCY | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Ex_Rate | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Amount_NGN | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.CUR}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Portfolio}}
+                        </td>
+
+                        <td>
+                            {{ offBalanceSheetExposure.TenorMonths}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.RATING}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Staging}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Type}}
+                        </td>
+                        <!--<td>
+                            {{ offBalanceSheetExposure.CanCrystallize}}
+                        </td>-->
+
+
+                        <!--Access Cols-->
+                        <!--<td>
+                            {{ offBalanceSheetExposure.ACCOUNT_NUMBER}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.SETTLEMENT_ACCOUNT}}
+                        </td>-->
+                        <td>
+                            {{ offBalanceSheetExposure.Forbearance_flag}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.CBN_Sector}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Initial_Credit_Rating}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Days_past_due}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Classification}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Principal_payment_structure}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Interest_payment_structure}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.CUST_ID}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Secured_Unsecured}}
+                        </td>
+                        <!--<td>
+                            {{ offBalanceSheetExposure.Forced_sale_value}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Cash_OMV}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Cash_FSV}}
+                        </td>
+                        <td>
+                            {{ offBalanceSheetExposure.Cost_of_recovery}}
+                        </td>-->
+                        <td>
+                            {{ offBalanceSheetExposure.Facility_type}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-offbalancesheetexposure-edit({ObeId: offBalanceSheetExposure.ObeId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,246 @@
+
+<html data-ng-app="RESTClientModule">
+@{
+    ViewBag.Title = "Angular JS Filters and Sorting";
+}
+
+
+<body>
+    <img src="~/Images/blank.gif" alt="" width="1" height="10" />
+    <table width="99%" style=" border-bottom:3px solid #3273d5;">
+        <tr>
+            <td width=" 250">
+                <table width="99%">
+                    <tr>
+                        <td>
+                            Welcome Mr. {{'SHANU'}} .
+                        </td>
+                    </tr>
+                </table>
+            </td>
+
+            <td class="style1" align="center">
+                <h3>Shanu - ANgularJs Filter and Sorting with simple Animation using MVC and WCF Rest Service  :)</h3>
+
+            </td>
+            <td align="right">
+                <div ng-controller="AngularJs_WCFController">
+                    Today Date is :
+                    {{date | date:'yyyy-MM-dd'}}
+                </div>
+            </td>
+        </tr>
+    </table>
+    <img src="~/Images/blank.gif" alt="" width="1" height="10" />
+
+
+
+    <table id="tblContainer" data-ng-controller="AngularJs_WCFController" style='width: 99%;table-layout:fixed;'>
+        <tr>
+            <td>
+
+                <table style=" background-color:#FFFFFF; border: solid 2px #6D7B8D; padding: 5px;width: 99%;table-layout:fixed;" cellpadding="2" cellspacing="2">
+                    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+                        <td>
+                            Toy Image
+                        </td>
+                        <td>
+                            Toy Details
+                        </td>
+                    </tr>
+                    <tr style="height: 30px; background-color:#FFFFFF ; color:#336699 ;border: solid 1px #659EC7;">
+                        <td>
+                            <div>
+                                <div class="animate-show" ng-show="showAnim">
+                                    <img alt="" src="~/Images/Actual/{{Imagename}}" />
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <h3 style="color:#9F000F"> Toy Code : <b>{{ToyCode}} </b></h3><br />
+
+                            <h3 style="color:#9F000F"> Toy Name : <b>{{ToyName}} </b></h3><br />
+
+                            <h3 style="color:#9F000F"> Toy Price : <b>{{ToyPrize}} </b></h3><br />
+                        </td>
+                    </tr>
+                </table>
+
+
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+
+
+                <table style=" background-color:#FFFFFF; border: solid 2px #6D7B8D; padding: 5px;width: 99%;table-layout:fixed;" cellpadding="2" cellspacing="2">
+                    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+                        <td width="40" align="center">
+                            <b>Image</b>
+                        </td>
+                        
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="predicate = 'Toy_ID'; reverse=!reverse">
+
+                            <b>Toy Code</b>
+                        </td>
+
+                        <td width="120" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="predicate = 'Toy_Name'; reverse=!reverse">
+                            <b>Toy Name</b>
+                        </td>
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="predicate = 'Toy_Price'; reverse=!reverse">
+                            <b>Price</b>
+                        </td>
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="predicate = 'Item_Date'; reverse=!reverse">
+                            <b>Date</b>
+                        </td>
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;cursor: pointer;" ng-click="predicate = 'AddedBy'; reverse=!reverse">
+                            <b>User Name</b>
+                        </td>
+                    </tr>
+
+
+
+                    <tr style="height: 30px; background-color:#336699 ; color:#FFFFFF ;border: solid 1px #659EC7;">
+
+                        <td width="40" align="center">
+                            Filter By ->
+                        </td>
+
+                        <td width="40" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+
+                            <input ng-model="search.Toy_ID" style="width:100px">
+
+                        </td>
+
+                        <td width="120" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+                            <input ng-model="search.Toy_Name" placeholder="filter Name...">
+
+                        </td>
+
+                        <td width="40" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;"></td>
+
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+
+                            <input ng-model="search.Item_Date">
+
+                        </td>
+
+                        <td width="90" align="center" style="border: solid 1px #FFFFFF; padding: 5px;table-layout:fixed;">
+
+                            <input ng-model="search.AddedBy">
+
+                        </td>
+
+                    </tr>
+
+
+                    <tbody data-ng-repeat="detail in getToyDetailsDisp | filter:search  | orderBy:predicate:reverse" ng-animate="{enter: 'animate-enter', leave: 'animate-leave'}">
+
+
+                        <tr>
+
+                            <td align="center" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    <img src="~/Images/Thumb/{{detail.Image_Name}}" alt="{{detail.Toy_Name}}" ng-mouseover="showImage(detail.Image_Name,detail.Toy_ID,detail.Toy_Name,detail.Toy_Price,1)"
+                                         ng-mouseleave="showImage(detail.Image_Name,detail.Toy_ID,detail.Toy_Name,detail.Toy_Price,2)">
+
+                                </span>
+
+
+                            </td>
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    {{detail.Toy_ID}}
+
+                                </span>
+
+
+                            </td>
+
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    {{detail.Toy_Name}}
+
+                                </span>
+
+
+                            </td>
+
+
+                            <td align="right" style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    {{detail.Toy_Price}}
+
+                                </span>
+
+
+                            </td>
+
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    {{detail.Item_Date}}
+
+                                </span>
+
+
+                            </td>
+
+
+                            <td style="border: solid 1px #659EC7; padding: 5px;table-layout:fixed;">
+
+                                <span style="color:#9F000F">
+
+                                    {{detail.AddedBy}}
+
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+
+
+
+                </table>
+
+            </td>
+        </tr>
+
+
+
+
+
+
+    </table>
+
+
+
+    <img src="~/Images/blank.gif" alt="" width="1" height="10" />
+
+</body>
+
+</html>
+
+<script src="~/Scripts/angular.js"></script>
+<script src="~/Scripts/angular-animate.js"></script>
+<script src="~/Scripts/angular-animate.min.js"></script>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Scripts/shanuAngularScript/Modules.js"></script>
+<script src="~/Scripts/shanuAngularScript/Services.js"></script>
+<script src="~/Scripts/shanuAngularScript/Controllers.js"></script>

@@ -1,0 +1,184 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                        <!--<li ><a href="#roles" role="tab" data-toggle="tab"><i class="fa fa-home"></i> Roles</a></li>-->
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Login ID</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.userSetup.LoginID" style="width:350px;background-color:lightblue" ng-disabled="vm.userSetup.UserSetupId > 0" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Name</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.userSetup.Name" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Email</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="email" id="remail" class="form-control input-sm" data-ng-model="vm.userSetup.Email" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Staff ID</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.userSetup.StaffID" style="width:250px;" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="checkbox-list">
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.userSetup.Active" />&nbsp;
+                                                            Active
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.userSetup.MultiCompanyAccess" />&nbsp;
+                                                            Multi-Companies user
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.userSetup.IsApplicationUser" />&nbsp;
+                                                            Is application user
+                                                        </label>
+                                                        <label class="checkbox-inline">
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;
+                                                            <input type="checkbox" ng-model="vm.userSetup.IsReportUser" />&nbsp;
+                                                            Is report user
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <h3 ng-show="vm.userSetup.IsApplicationUser">Application Roles</h3>
+
+                                                <div class="form-group" ng-repeat="userRole in vm.userRoles" ng-show="vm.userSetup.IsApplicationUser">
+                                                    <label class="col-sm-3 control-label">{{userRole.SolutionName}}</label>
+                                                    <div class="col-sm-6">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <select class="form-control" ng-model="userRole.RoleId" ng-options="role.RoleId as role.Name for role in userRole.Roles" style="width:250px; ">
+                                                                    <option value="" selected>--Select--</option>
+                                                                </select>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <h3 ng-show="vm.userSetup.IsReportUser">Report Roles</h3>
+
+                                            <div class="form-group" ng-repeat="userReportRole in vm.userReportRoles" ng-show="vm.userSetup.IsReportUser">
+                                                <label class="col-sm-3 control-label">{{userReportRole.SolutionName}}</label>
+                                                <div class="col-sm-9 controls">
+                                                    <div class="row">
+                                                        <div class="col-xs-6">
+                                                            <select class="form-control" ng-model="userReportRole.RoleId" ng-options="role.RoleId as role.Name for role in userReportRole.Roles" style="width:250px;"></select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <h3>Companies</h3>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label"></label>
+                                                <div class="checkbox-list">
+                                                    <label class="checkbox-inline" ng-repeat="userCompany in vm.userCompanies">
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <input type="checkbox" ng-model="userCompany.IsChecked" />&nbsp;
+                                                        {{userCompany.CompanyName}}
+                                                    </label>
+
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group mbn">
+                                                <label class="col-sm-3 control-label"></label>
+                                                <div class="col-sm-9 controls">
+                                                    <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                        <i class="fa fa-save"></i>&nbsp;
+                                                        Save
+                                                    </button>
+                                                    <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                    <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    <button type="button" class="btn btn-success btn-xs" ng-click="vm.resetpassword(vm.userSetup.LoginID)">
+                                                        <i class="fa fa-save"></i>&nbsp;
+                                                        Reset Password
+                                                    </button>
+                                                </div>
+
+
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    &nbsp;&nbsp;
+                    <!--<div class="form-group mbn">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9 controls">
+                            <button type="button" class="btn btn-success" ng-click="vm.saveUserRole()" >
+                                <i class="fa fa-save"></i>&nbsp;
+                                Save
+                            </button>
+                        </div>
+                    </div>-->
+                </div>
+                <!--<div id="tab-edit" class="tab-pane fade in active">
+                    <div class="row">
+                        xxxxxx
+                    </div>
+                </div>-->
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+

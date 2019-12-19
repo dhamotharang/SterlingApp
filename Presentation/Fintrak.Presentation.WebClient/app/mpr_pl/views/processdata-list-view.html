@@ -1,0 +1,186 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+
+                <!--<div class="col-md-2">
+                    <label for="" class="control-label">Transaction Adjustment</label>
+                    <ng-csv-import class="import"
+                                   content="vm.csv.content"
+                                   header="vm.csv.header"
+                                   header-visible="vm.csv.headerVisible"
+                                   separator="vm.csv.separator"
+                                   separator-visible="vm.csv.separatorVisible"
+                                   result="vm.csv.result"
+                                   encoding="vm.csv.encoding"
+                                   encoding-visible="vm.csv.encodingVisible">
+
+
+                    </ng-csv-import>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info btn-sm" ng-click="vm.importData()" ng-disabled="vm.csv.content === null"> Upload</button>
+                </div>
+
+                <div class="col-md-2">
+                    <label for="" class="control-label">Transaction Edit</label>
+                    <ng-csv-import class="import"
+                                   content="vm.csv1.content1"
+                                   header="vm.csv1.header1"
+                                   header-visible="vm.csv1.headerVisible1"
+                                   separator="vm.csv1.separator1"
+                                   separator-visible="vm.csv1.separatorVisible1"
+                                   result="vm.csv1.result1"
+                                   encoding="vm.csv1.encoding1"
+                                   encoding-visible="vm.csv1.encodingVisible1"></ng-csv-import>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info btn-sm" ng-click="vm.importData1()" ng-disabled="vm.csv1.content1 === null"> Upload</button>
+                </div>-->
+
+            </div>
+                <br />
+
+                <table id="processDataTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>TransactionData Id</th>
+                            <th>Account Officer</th>
+                            <th>Branch Code</th>
+                            <th>Currency</th>
+                            <th>Customer Name</th>
+                            <th>DRCR</th>
+                            <th>Entry User</th>
+                            <th>ExchangeRate</th>
+                            <th>GLCode</th>
+                            <th>GL Name</th>
+                            <th>Amount</th>
+                            <th>LCY Amount</th>
+                            <th>MISCode</th>
+                            <th>Narrative</th>
+                            <th>Product</th>
+                            <th>RCREUser</th>
+                            <th>RelatedAccount</th>
+                            <th>SUBGLCode</th>
+                            <th>TransCode</th>
+                            <th>TransDate</th>
+                            <th>TransReference</th>
+                            <th>EventNo</th>
+                            <th>BatchNo</th>
+                            <th>ValueDate</th>
+                            <th>TransClassification</th>
+                            <th>EntryStatus</th>
+                            <th style="width: 3%;">Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!--<tr ng-scroll-repeat="processData in vm.processData" page-size="20" tolerance="200">-->
+                        <tr ng-repeat="processData in vm.processData">
+
+                            <td>
+                                {{processData.ProcessDataId}}
+                            </td>
+
+                            <td>
+                                {{processData.AccountOfficerCode}}
+                            </td>
+                            <td>
+                                {{processData.BranchCode}}
+                            </td>
+                            <td>
+                                {{processData.CurrencyCode}}
+                            </td>
+                            <td>
+                                {{processData.CustomerName}}
+                            </td>
+                            <td>
+                                {{processData.DRCR}}
+                            </td>
+                            <td>
+                                {{processData.EntryUser}}
+                            </td>
+                            <td>
+                                {{processData.ExchangeRate}}
+                            </td>
+
+                            <td>
+                                {{processData.GLCode}}
+                            </td>
+                            <td>
+                                {{processData.GLName}}
+                            </td>
+                            <td>
+                                {{processData.Amount}}
+                            </td>
+                            <td>
+                                {{processData.LCYAmount}}
+                            </td>
+                            <td>
+                                {{processData.MISCode}}
+                            </td>
+                            <td>
+                                {{processData.Narrative}}
+                            </td>
+                            <td>
+                                {{processData.ProductCode}}
+                            </td>
+                            <td>
+                                {{processData.RCREUser}}
+                            </td>
+                            <td>
+                                {{processData.RelatedAccount}}
+                            </td>
+                            <td>
+                                {{processData.SUBGLCode}}
+                            </td>
+                            <td>
+                                {{processData.TransCode}}
+                            </td>
+                            <td>
+                                {{processData.TransDate | date:'dd-MM-yyyy'}}
+                            </td>
+                            <td>
+                                {{processData.TransReference}}
+                            </td>
+                            <td>
+                                {{processData.EventNo}}
+                            </td>
+                            <td>
+                                {{processData.BatchNo}}
+                            </td>
+
+                            <td>
+                                {{processData.ValueDate | date:'dd-MM-yyyy'}}
+                            </td>
+
+                            <td>
+                                {{processData.TransClassification}}
+                            </td>
+                            <td>
+                                {{processData.EntryStatus}}
+                            </td>
+
+                            <td>
+                                <a class="btn btn-orange btn-xs" data-ui-sref="mpr-processdata-edit({processdataId: processData.ProcessDataId})">
+                                    Edit
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>

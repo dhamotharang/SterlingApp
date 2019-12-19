@@ -1,0 +1,76 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-ifrsequityunqouted-edit({ifrsequityunqoutedId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="ifrsEquityUnqoutedTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Units</th>
+                        <th>EPS</th>
+                        <th>Book Value</th>
+                        <th>Cash Flow</th>
+                        <th>Sales</th>
+                        <th>Sector</th>
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsEquityUnqouted in vm.ifrsEquityUnqouteds">
+                        <td>
+                            {{ ifrsEquityUnqouted.Stock_code}}
+                        </td>
+                        <td>
+                            {{ ifrsEquityUnqouted.Stock_description}}
+                        </td>
+
+                        <td>
+                            {{ ifrsEquityUnqouted.Units}}
+                        </td>
+                        <td>
+                            {{ ifrsEquityUnqouted.EPS}}
+                        </td>
+
+                        <td>
+                            {{ ifrsEquityUnqouted.Book_value}}
+                        </td>
+                        <td>
+                            {{ ifrsEquityUnqouted.Cash_flow}}
+                        </td>
+
+                        <td>
+                            {{ ifrsEquityUnqouted.Sales}}
+                        </td>
+                        <td>
+                            {{ ifrsEquityUnqouted.Sector_code}}
+                        </td>
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrsequityunqouted-edit({ifrsequityunqoutedId: ifrsEquityUnqouted.IfrsEquityUnqoutedId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

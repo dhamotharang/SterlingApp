@@ -1,0 +1,137 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.getIfrsCorporateEcl(vm.refNo)">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search by Ref No..." data-ng-model="vm.refNo" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.getIfrsCorporateEcl(vm.refNo)">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.reloadPage()">Refresh</button>
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                    </form>
+                </div>
+            </div>
+            <br />
+
+            <table id="ifrsCorporateEclTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Ref No.</th>
+                        <th>Period</th>
+                        <th>Prob Wgtd Best</th>
+                        <th>LGD Macro Best</th>
+                        <th>PD Best</th>
+                        <th>LGD Best</th>
+                        <th>ECL Best</th>
+                        <th>Prob Wgtd Optimistic</th>
+                        <th>LGD Macro Optimistic</th>
+                        <th>PD Optimistic</th>
+                        <th>LGD Optimistic</th>
+                        <th>ECL Optimistic</th>
+                        <th>Prob Wgtd Downturn</th>
+                        <th>LGD Macro Downturn</th>
+                        <th>PD Downturn</th>
+                        <th>LGD Downturn</th>
+                        <th>ECL Downturn</th>
+                        <th>Unsecured Exp</th>
+                        <th>Interest Factor</th>
+                        <th>interest Rate</th>
+                        <th>EIR</th>
+                        <th>Discount Factor</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsCorporateEcl in vm.ifrsCorporateEcls">
+                        <td>
+                            {{ ifrsCorporateEcl.refno}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.period}}
+                        </td>
+
+                        <td>
+                            {{ ifrsCorporateEcl.probwighted_best}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.lgd_macro_best}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.pdbest}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.lgdbest}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.eclbest}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.prob_wighted_opt}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.lgd_macro_optim}}
+                        </td>
+
+                        <td>
+                            {{ ifrsCorporateEcl.pdoptimistic}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.lgdoptimistic}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.ecloptimisitc}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.probwighted_down}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.lgd_macro_down}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.pd_down}}
+                        </td>
+
+                        <td>
+                            {{ ifrsCorporateEcl.lgdDown}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.ecldownturn}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.unsecured_exposure}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.interestfactor}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.interest_rate}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.eir}}
+                        </td>
+                        <td>
+                            {{ ifrsCorporateEcl.discount_factor}}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrscorporateecl-edit({ifrsCorporateEclId: ifrsCorporateEcl.ifrsCorporateEclId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,133 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+
+                <div class="row">
+                    <div class="col-md-7">
+                        <!--<label for="" class="control-label">Search Type :</label>
+                        <select class="input-sm" ng-model="vm.selectedsearchType" ng-options="searchType.Name as searchType.Name for searchType in vm.searchTypes" style="width:150px;"></select>
+                        <input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:350px" />
+                    </div>
+
+                    <div class="col-md-5">
+                        <label for="" class="control-label">Count:</label>
+                        <input type="number" class="input-sm" data-ng-model="vm.number" style="width:150px;" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBalanceSheetAdjustments()">Load</button>-->
+                        <label for="" class="control-label">Search Type :</label>
+                        <select class="input-sm" ng-model="vm.selectedsearchType" ng-options="searchType.Name as searchType.Name for searchType in vm.searchTypes" style="width:150px;"></select>
+                        <input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:300px" />
+                        <label for="" class="control-label">Count:</label>
+                        <input type="number" class="input-sm" data-ng-model="vm.number" style="width:100px;" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadBalanceSheetAdjustments()">Load</button>
+                    </div>
+
+
+                    <div class="col-md-5">
+                        <label for="" class="control-label">Code:</label>
+                        <select class="input-sm" ng-model="vm.Code" ng-options="codes.Code as codes.Code for codes in vm.codebyUser" style="width:150px;" ng-change="(vm.loadBalanceSheetAdjustmentsbycode())"></select>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.deletemprbalancesheetadjustment()">Delete</button>
+                    </div>
+
+                </div>
+                <br />
+                <!--<div class="col-md-6">
+
+        </div>-->
+                <!--<div class="col-md-2">
+            Choose file to import data
+        </div>-->
+                <div class="col-md-2">
+                    <ng-csv-import class="import"
+                                   content="vm.csv.content"
+                                   header="vm.csv.header"
+                                   header-visible="vm.csv.headerVisible"
+                                   separator="vm.csv.separator"
+                                   separator-visible="vm.csv.separatorVisible"
+                                   result="vm.csv.result"
+                                   encoding="vm.csv.encoding"
+                                   encoding-visible="vm.csv.encodingVisible"></ng-csv-import>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-info btn-sm" ng-click="vm.importData()" ng-disabled="vm.csv.content === null"> Upload</button>
+                </div>
+            </div>
+            <table id="mprBalanceSheetAdjustmentTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>AccountNo</th>
+                        <th>AccountName</th>
+                        <th>Team</th>
+                        <th>AccountOfficer</th>
+                        <th>ProductCode</th>
+                        <th>Category</th>
+                        <th>CurrencyType</th>
+                        <th>ActualBal</th>
+                        <th>AverageBal</th>
+                        <th>Interest</th>
+                        <th>RunDate</th>    
+                        <th style="width: 3%;">Action</th>             
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="mprBalanceSheetAdjustment in vm.mprBalanceSheetAdjustments" page-size="20" tolerance="200">
+                        <td>
+                            {{ mprBalanceSheetAdjustment.Code}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.AccountNo}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.AccountName}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.TeamCode}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.ProductCode}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.Category}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.CurrencyType}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.ActualBal | currency:''}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.AverageBal | currency:''}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.Interest}}
+                        </td>
+                        <td>
+                            {{ mprBalanceSheetAdjustment.Rundate | date }}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-mprbalancesheetadjustment-edit({mprbalancesheetadjustmentId: mprBalanceSheetAdjustment.BalancesheetAdjustmentId})">
+                                Edit
+                            </a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

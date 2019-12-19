@@ -1,0 +1,62 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Select Sector Source :</label>
+                    <select class="input-sm" ng-change="vm.loadSectors()" ng-model="vm.selectedsource" ng-options="source.Id as source.Name for source in vm.sources" style="width:150px;">
+                        <option value="" ng-disabled="true" selected>--Select Category--</option>
+                    </select>
+                </div>
+            </div>
+            <br />-->
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-sectormapping-edit({SectorMapping_Id:0})">New Mapping</a>
+            </div> 
+            <br />
+            
+            <table id="sectormappingTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>CBN Sector</th>
+                        <th>LGD Assigned Sector</th>
+                        <th>CCF Assigned Sector</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="sectormappings in vm.sectormappings">
+                        <td>
+                            {{ sectormappings.CBNSector}}
+                        </td>
+                        <td>
+                            {{ sectormappings.LGDSectorMapping}}
+                        </td>
+                        <td>
+                            {{ sectormappings.CCFMapping}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-sectormapping-edit({SectorMapping_Id: sectormappings.SectorMapping_Id})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

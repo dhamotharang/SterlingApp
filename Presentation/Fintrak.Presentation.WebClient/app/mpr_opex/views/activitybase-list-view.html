@@ -1,0 +1,55 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-activitybase-edit({activitybaseId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="activityBaseTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Service Code</th> 
+                        <th>Service Description</th> 
+                        <th>Service Category</th>
+                        <th>Weight</th>                           
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="activityBase in vm.activityBase">
+                        <td>
+                            {{ activityBase.ServiceCode}}
+                        </td>
+                        <td>
+                            {{ activityBase.ServiceDescription}}
+                        </td>
+                        <td>
+                            {{ activityBase.ServiceCategory}}
+                        </td>
+                        <td>
+                            {{ activityBase.Weight}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-activitybase-edit({activitybaseId: activityBase.ActivityBaseId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

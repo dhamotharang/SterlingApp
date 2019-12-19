@@ -1,0 +1,104 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadODEclComputationResultBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+                        <!--<a href="Home/LoadExcelrevenue" target="_blank">Export</a>-->
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+                        <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData('split ')">Split then Export</div>
+                    </form>
+                </div>
+            </div>
+
+            <!--<div>
+                <button type="button" ng-csv="vm.odeCLCmputationResultTable" filename="LoanPryExport.csv">Full Export</button>
+            </div>
+            <br />-->
+
+            <table id="odeECLComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>CustID</th>
+                        <th>AccountNo</th>
+                        <th>CustomerName</th>
+                        <th>Date</th>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>Stage</th>
+                        <th>Cur</th>
+                        <th>Rate</th>
+                        <th>EAD</th>
+                        <th>EAD_Trans</th>
+                        <th>EIR</th>
+                        <th>PrincipalOutBal</th>
+                        <th>TotalRecAmt</th>
+                        <th>LGD</th>
+                        <th>DisFactor</th>
+                        <th>PDBest</th>
+                        <th>PDOptimistic</th>
+                        <th>PDDownTurn</th>
+                        <th>ECLBest</th>
+                        <th>ECLOptimistic</th>
+                        <th>ECLDownTurn</th>
+                        <th>ECLWeightAvg</th>
+                        <th>Rundate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="odeCLComputationResults in vm.odeCLCmputationResult">
+
+
+                        <td>{{ odeCLComputationResults.AccountNo}}</td>
+                        <td>{{ odeCLComputationResults.Refno }}</td>
+                        <td>{{ odeCLComputationResults.CustomerName}}</td>
+                        <td>{{ odeCLComputationResults.date_pmt | date}}</td>
+                        <td>{{ odeCLComputationResults.Producttype}}</td>
+                        <td>{{ odeCLComputationResults.SubType}}</td>
+                        <td>{{ odeCLComputationResults.Stage}}</td>
+                        <td>{{ odeCLComputationResults.Currency}}</td>
+                        <td>{{ odeCLComputationResults.ExchangeRate | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.AmortizedCost | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.AmortizedCost_Trans | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.EIR | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.PrincipalOutBal | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.TotalRecoverableAmt | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.LGD | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.DiscountFactor | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.PDBest}}</td>
+                        <td>{{ odeCLComputationResults.PDOptimistic}}</td>
+                        <td>{{ odeCLComputationResults.PDDownTurn}}</td>
+                        <td>{{ odeCLComputationResults.FinalECLBest | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.FinalECLOptimistic | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.FinalECLDownTurn | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.FinalECLWeightAvg | currency :"":0}}</td>
+                        <td>{{ odeCLComputationResults.Rundate | date }}</td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

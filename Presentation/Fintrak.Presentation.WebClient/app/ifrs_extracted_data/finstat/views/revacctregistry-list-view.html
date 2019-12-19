@@ -1,0 +1,75 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="finstat-revacctregistry-edit({revenueId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="revacctregistryTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Caption</th>
+                        <th>Position</th>
+                        <th>Ref. Note</th>
+                        <th>Fin Sub Type</th>
+                        <th>Parent</th>
+                        <th>Total line</th>
+                        <th>Class</th>
+                        <th>Color</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="revacctregistry in vm.registries">
+                        <td>
+                            {{ revacctregistry.Code}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.Caption}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.Position}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.RefNote}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.FinSubType}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.ParentName}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.IsTotalLine}}
+                        </td>
+                        <td>
+                            {{ revacctregistry.Class}}
+                        </td>
+                        <td style="background-color:{{revacctregistry.Color}}">
+                            {{ revacctregistry.Color}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-revacctregistry-edit({revenueId: revacctregistry.RevenueId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

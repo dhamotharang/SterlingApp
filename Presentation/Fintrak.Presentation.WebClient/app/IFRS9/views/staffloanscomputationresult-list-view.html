@@ -1,0 +1,135 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.getStaffLoansComputationResult(vm.SearchParam)">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search by Staff Name..." data-ng-model="vm.SearchParam" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.getStaffLoansComputationResult(vm.SearchParam)">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.reloadPage()">Refresh</button>
+                    </form>
+                </div>
+            </div>
+
+            <!--<div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-impairmentresultobe-edit({Impairment_Id:0})"> Create New</a>
+            </div>--> 
+            <br />
+            
+            <table id="staffLoansComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>Name</th>
+                        <th>ProductType</th>
+                        <th>ValueDate</th>
+                        <th>Amount</th>
+                        <th>Rate</th>
+                        <th>PrimeLendingRate</th>
+                        <th>TenorYear</th>
+                        <th>TenorMonth</th>
+                        <th>PeriodPaid</th>
+                        <th>OutstandPeriod</th>
+                        <th>Payments</th>
+                        <th>DiscountMarketValue</th>
+                        <th>DiscountDifference</th>
+                        <th>AmountRecoMonthly</th>
+                        <th>PayRecoTotal</th>
+                        <th>StraightLineExpense</th>
+                        <th>InterestRecoIFRS</th>
+                        <th>InterestRecoNGAAP</th>
+                        <th>InterestDifferential</th>
+                        <th>Rundate</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="staffLoansComputationResult in vm.staffLoansComputationResults">
+                        <td>
+                            {{ staffLoansComputationResult.RefNo}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.Name}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.ProductType}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.ValueDate}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.Amount}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.Rate}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.PrimeLendingRate}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.TenorYear}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.TenorMonth}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.PeriodPaid}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.OutstandPeriod}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.Payments}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.DiscountMarketValue}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.DiscountDifference}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.AmountRecoMonthly}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.PayRecoTotal}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.StraightLineExpense}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.InterestRecoIFRS}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.InterestRecoNGAAP}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.InterestDifferential}}
+                        </td>
+                        <td>
+                            {{ staffLoansComputationResult.Rundate}}
+                        </td>
+
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-impairmentresultobe-edit({impairment_Id: staffLoansComputationResult.Impairment_Id})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

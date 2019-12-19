@@ -1,0 +1,81 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-productmis-edit({productmisId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="productMISTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Product Code</th>
+                        <th>Product Name</th>
+                        <th>Caption Code</th>
+                        <th>Caption Name</th>
+                        <th>Team Definition</th>
+                        <th>Team Code</th>
+                        <th>Team Name</th>
+                        <th>Officer Definition</th>
+                        <th>Officer Code</th>
+                        <th>Officer Name</th>
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="productMIS in vm.productMISs">
+                        <td>
+                            {{ productMIS.ProductCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.ProductName}}
+                        </td>
+                        <td>
+                            {{ productMIS.CaptionCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.CaptionName}}
+                        </td>
+                        <td>
+                            {{ productMIS.TeamDefinitionCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.TeamCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.TeamName}}
+                        </td>
+                        <td>
+                            {{ productMIS.AccountOfficerDefinitionCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.AccountOfficerCode}}
+                        </td>
+                        <td>
+                            {{ productMIS.AccountOfficerName}}
+                        </td>
+
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-productmis-edit({productmisId: productMIS.ProductMISId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

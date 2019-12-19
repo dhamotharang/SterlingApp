@@ -1,0 +1,168 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">GL Code</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.unMappedGL.GLCode" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">GL Description</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.unMappedGL.GLDescription" style="width:250px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">GL Parent</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.unMappedGL.GLParentCode" style="width:250px;" />
+                                                    </div>
+                                                </div>
+                                               
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Main Caption</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.unMappedGL.CaptionCode" ng-options="mainCaption.Code as mainCaption.Name for mainCaption in vm.mainCaptions" style="width:250px;background-color:lightblue" ng-change="vm.onMainCaptionChanged(vm.unMappedGL.CaptionCode)"></select>
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.unMappedGL.SubCaption" ng-options="caption.Code as caption.Name for caption in vm.subCaptions" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="input-sm" ng-model="vm.unMappedGL.SubCaption" style="width:250px;background-color:lightblue">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                        <ul id="color-dropdown-menu" class="dropdown-menu dropdown-menu" role="menu">
+                                                            <li ng-repeat="caption in vm.subCaptions" class="input-sm"><a ng-click="vm.onSubCaptionChanged(caption)">{{caption.Name}}</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                               
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Position</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.unMappedGL.SubPosition" style="width:150px;background-color:lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption 1</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="input-sm" ng-model="vm.unMappedGL.SubCaption1" style="width:250px">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                        <ul id="color-dropdown-menu" class="dropdown-menu dropdown-menu" role="menu">
+                                                            <li ng-repeat="caption in vm.subCaption1s" class="input-sm"><a ng-click="vm.onSubCaption1Changed(caption)">{{caption.Name}}</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption 2</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="input-sm" ng-model="vm.unMappedGL.SubCaption2" style="width:250px">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                        <ul id="color-dropdown-menu" class="dropdown-menu dropdown-menu" role="menu">
+                                                            <li ng-repeat="caption in vm.subCaption2s" class="input-sm"><a ng-click="vm.onSubCaption2Changed(caption)">{{caption.Name}}</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption 3</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="input-sm" ng-model="vm.unMappedGL.SubCaption3" style="width:250px">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                        <ul id="color-dropdown-menu" class="dropdown-menu dropdown-menu" role="menu">
+                                                            <li ng-repeat="caption in vm.subCaption3s" class="input-sm"><a ng-click="vm.onSubCaption3Changed(caption)">{{caption.Name}}</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Sub Caption 4</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="input-sm" ng-model="vm.unMappedGL.SubCaption4" style="width:250px">
+                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                                        <ul id="color-dropdown-menu" class="dropdown-menu dropdown-menu" role="menu">
+                                                            <li ng-repeat="caption in vm.subCaption4s" class="input-sm"><a ng-click="vm.onSubCaption4Changed(caption)">{{caption.Name}}</a></li>
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+     
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Company</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.unMappedGL.CompanyCode" ng-options="company.Code as company.Name for company in vm.companies" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>
+
+                                                
+                                                
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                       
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+        </div>
+    </div>
+</div>
+
+   

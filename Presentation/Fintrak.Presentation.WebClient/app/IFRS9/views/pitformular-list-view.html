@@ -1,0 +1,51 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            
+            <table id="pitFormularTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Sector</th>
+                        <th>Formula</th>
+                        <th>Result</th>
+                        <th>Type</th>
+                        <th>Rundate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pitFormular in vm.pitFormulars">
+                        <td>
+                            {{ pitFormular.Sector_code}}
+                        </td>
+                        <td>
+                            {{ pitFormular.Equation}}
+                        </td>
+
+                        <td>
+                            {{ pitFormular.ComputedPd}}
+                        </td>
+                        <td>
+                            {{ pitFormular.Type}}
+                        </td>
+                        <td>
+                            {{ pitFormular.Rundate | date }}
+                        </td>
+                      
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

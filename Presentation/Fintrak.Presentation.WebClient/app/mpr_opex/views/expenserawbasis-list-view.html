@@ -1,0 +1,51 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-expenserawbasis-edit({expenserawbasisId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="expenseRawBasisTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Basis Code</th>
+                        <th>MIS Code</th>
+                        <th>Weight</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="expenseRawBasis in vm.expenseRawBasis">
+                        <td>
+                            {{ expenseRawBasis.BasisName}}
+                        </td>
+                        <td>
+                            {{ expenseRawBasis.MISName}}
+                        </td>
+                        <td>
+                            {{ expenseRawBasis.Weight}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-expenserawbasis-edit({expenserawbasisId: expenseRawBasis.ExpenseRawBasisId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

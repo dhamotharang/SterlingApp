@@ -1,0 +1,38 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div>
+                <label for="" class="control-label">Report Name / Report Date : </label>
+                <select class="input-sm" ng-model="vm.ifrsreportpackviewer.ReportDescription" ng-options="report.ReportName as report.ReportDescription for report in vm.ifrsreportpackviewer" style="width:250px;"></select>
+                <select class="input-sm" ng-model="vm.reportdate.RunDate" ng-options="rundate.RunDate as rundate.RunDate|date:'yyyy-MMM-dd' for rundate in vm.reportdate" style="width:150px;"></select>
+                <button id="btnDisplayReport" ng-click="vm.loadSelectedReport()">Display Report</button>
+                <br />
+                <br />
+            </div>
+            <br />
+                <iframe ng-src="{{vm.srr}}" align="middle" width="1400" height="950" frameborder="0"></iframe>
+            <br />
+
+            <script type="text/javascript">
+                function displayReport() {
+                    var src = "{vm.src}"
+                    var iframe = document.getElementById('ReportDisplayFrame')
+                    iframe.src = src
+                    iframe.contentWindow.location.reload()
+                }
+            </script>
+
+        </div>
+
+    </div>
+</div>

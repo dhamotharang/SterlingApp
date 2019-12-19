@@ -1,0 +1,77 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-ifrsstocksprimarydata-edit({ifrsstocksprimarydataId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="ifrsStocksPrimaryDataTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Description</th>
+                        <th>Current Stock Price</th>
+                        <th>Share Volume</th>
+                        <th>EPS</th>
+                        <th>Book Value</th>
+                        <th>Cash Flow</th>
+                        <th>Sales</th>
+                        <th>Sector</th>
+                       
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsStocksPrimaryData in vm.ifrsStocksPrimaryDatas">
+                        <td>
+                            {{ ifrsStocksPrimaryData.Stock_code}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Company_name}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Current_stock_price}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Share_volume}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.EPS}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Book_value}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Cash_flow}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Sales}}
+                        </td>
+                        <td>
+                            {{ ifrsStocksPrimaryData.Sector_code}}
+                        </td>
+                      
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrsstocksprimarydata-edit({ifrsstocksprimarydataId: ifrsStocksPrimaryData.IfrsStocksPrimaryDataId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

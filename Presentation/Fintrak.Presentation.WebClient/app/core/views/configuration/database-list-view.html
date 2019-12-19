@@ -1,0 +1,71 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-database-edit({databaseId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="databaseTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Database Name</th>
+                        <th>Server Name</th>
+                        <!--<th>UserName</th>
+                        <th>Password</th>-->
+                        <th>Integrated Security</th>
+                        <th>Company</th>
+                        <th>Solution</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="database in vm.database">
+                        <td>
+                            {{database.Title}}
+                        </td>
+                        <td>
+                            {{database.DatabaseName}}
+                        </td>
+                        <td>
+                            {{database.ServerName}}
+                        </td>
+                        <!--<td>
+                            {{database.UserName}}
+                        </td>
+                        <td>
+                            {{database.Password}}
+                        </td>-->
+                        <td>
+                            {{database.IntegratedSecurity}}
+                        </td>
+                        <td>
+                            {{database.CompanyCode}}
+                        </td>
+                        <td>
+                            {{database.SolutionName}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-database-edit({databaseId:database.DatabaseId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

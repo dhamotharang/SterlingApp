@@ -1,0 +1,244 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+
+           <!--  
+               
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadMarginalCCFPivotSTRLBBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+           --->
+
+            <table id="marginalccfPIVOTstrlbTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>OBEType</th>
+                        <th>COL</th>
+
+                        <th>0</th>
+                        <th>1</th>
+                        <th>2</th>
+                        <th>3</th>
+                        <th>4</th>
+                        <th>5</th>
+                        <th>6</th>
+                        <th>7</th>
+                        <th>8</th>
+                        <th>9</th>
+                        <th>10</th>
+                        <th>11</th>
+                        <th>12</th>
+                        <th>13</th>
+                        <th>14</th>
+                        <th>15</th>
+                        <th>16</th>
+                        <th>17</th>
+                        <th>18</th>
+                        <th>19</th>
+                        <th>20</th>
+                        <th>21</th>
+                        <th>22</th>
+                        <th>23</th>
+                        <th>24</th>
+                        <th>25</th>
+                        <th>26</th>
+                        <th>27</th>
+                        <th>28</th>
+                        <th>29</th>
+                        <th>30</th>
+                        <th>31</th>
+                        <th>32</th>
+                        <th>33</th>
+                        <th>34</th>
+                        <th>35</th>
+                        <th>36</th>
+                        <th>37</th>
+                        <th>38</th>
+                        <th>39</th>
+                        <th>40</th>
+                        <th>41</th>
+                        <th>42</th>
+                        <th>43</th>
+                        <th>44</th>
+                        <th>45</th>
+                        <th>46</th>
+                        <th>47</th>
+                        <th>48</th>
+                        <th>49</th>
+                        <th>50</th>
+                        <th>51</th>
+                        <th>52</th>
+                        <th>53</th>
+                        <th>54</th>
+                        <th>55</th>
+                        <th>56</th>
+                        <th>57</th>
+                        <th>58</th>
+                        <th>59</th>
+                        <th>60</th>
+                        <th>61</th>
+                        <th>62</th>
+                        <th>63</th>
+                        <th>64</th>
+                        <th>65</th>
+                        <th>66</th>
+                        <th>67</th>
+                        <th>68</th>
+                        <th>69</th>
+                        <th>70</th>
+                        <th>71</th>
+                        <th>72</th>
+                        <th>73</th>
+                        <th>74</th>
+                        <th>75</th>
+                        <th>76</th>
+                        <th>77</th>
+                        <th>78</th>
+                        <th>79</th>
+                        <th>80</th>
+                        <th>81</th>
+                        <th>82</th>
+                        <th>83</th>
+                        <th>84</th>
+                        <th>85</th>
+                        <th>86</th>
+                        <th>87</th>
+                        <th>88</th>
+                        <th>89</th>
+                        <th>90</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="marginalccfPIVOTstrlbs in vm.marginalccfPIVOTstrlb">
+
+                        <td>{{ marginalccfPIVOTstrlbs.OBEType }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.COL }}</td>
+
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF0 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF1 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF2 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF3 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF4 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF5 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF6 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF7 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF8 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF9 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF10 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF11 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF12 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF13 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF14 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF15 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF16 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF17 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF18 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF19 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF20 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF21 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF22 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF23 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF24 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF25 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF26 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF27 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF28 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF29 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF30 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF31 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF32 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF33 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF34 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF35 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF36 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF37 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF38 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF39 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF40 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF41 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF42 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF43 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF44 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF45 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF46 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF47 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF48 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF49 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF50 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF51 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF52 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF53 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF54 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF55 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF56 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF57 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF58 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF59 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF60 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF61 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF62 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF63 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF64 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF65 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF66 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF67 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF68 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF69 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF70 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF71 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF72 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF73 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF74 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF75 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF76 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF77 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF78 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF79 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF80 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF81 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF82 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF83 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF84 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF85 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF86 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF87 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF88 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF89 | number:0 }}</td>
+                        <td>{{ marginalccfPIVOTstrlbs.MCCF90 | number:0 }}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

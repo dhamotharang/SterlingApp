@@ -1,0 +1,104 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row" style="padding-top: 10px">
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label for="" class="control-label">Actions Performed :</label>
+                        <select class="input-sm" ng-model="vm.actionsPerformed" ng-options="action.Id as action.Name for action in vm.actions" style="width:150px;">
+                            <option ng-selected="true" ng-disabled="true">---Select Action Type---</option>
+                        </select>
+                    </div>
+                    <div class="col-md-7">
+                        <!--<input type="date" id="Date1" class="input-sm" data-ng-model="vm.client.Name" style="width: 250px; background-color: lightblue" />-->
+                        <!--<a class="btn btn-info btn-xs" data-ui-sref="core-role-edit({roleId:0})"> Create New</a>-->
+                        <!--<input type="text" class="form-control input-sm" data-ng-model="vm.client.Name" style="width: 250px; background-color: lightblue" />-->
+                        <b>Audit Date Range</b>&nbsp;&nbsp; From:
+                        <input type="text" id="startDate" ng-model="vm.startDate" class="input-sm" data-datepicker-popup="dd-MM-yyyy" data-is-open="vm.openedStartDate" style="width:100px;" />
+                        <!--<input type="text" ng-model="vm.startDate" class="input-sm" style="width:100px;" />-->
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openStartDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        <!--<input type="date" class="input-sm" data-ng-model="vm.StartDate"  style="width: 250px; background-color: lightblue" required />-->&nbsp;&nbsp;
+                        To:
+                        <!--<input type="date" class="input-sm" data-ng-model="vm.EndDate"  style="width: 250px; background-color: lightblue" required />-->
+                        <input type="text" id="endDate" ng-model="vm.endDate" class="input-sm" data-datepicker-popup="dd-MM-yyyy" data-is-open="vm.openedEndDate" style="width:100px;" />
+                        <!--<input type="text" ng-model="vm.endDate" class="input-sm"  style="width:100px;" />-->
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.openEndDate($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+
+                        <!--<input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:350px" />-->
+                        <!--<select class="input-sm" ng-model="vm.roleType" ng-options="roleType.Id as roleType.Name for roleType in vm.roleTypes" style="width:150px;"></select>
+                        <select class="input-sm" ng-model="vm.roleType" ng-options="roleType.Id as roleType.Name for roleType in vm.roleTypes" style="width:150px;"></select>-->
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.filterByAction()">Load</button>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+            <table id="auditTrailTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+
+                <thead>
+                    <tr>
+                        <th>Date and Time of action </th>
+                        <th>TableName</th>
+                        <th>Employee</th>
+                        <!--<th>Action</th>-->
+                        <th>Action Description</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    <tr ng-repeat="auditTrails in vm.auditTrails">
+
+                        <td>
+                            {{ auditTrails.RevisionStamp }}
+                        </td>
+                        <td>
+                            {{ auditTrails.TableName }}
+                        </td>
+                        <td>
+                            {{ auditTrails.UserName }}
+                        </td>
+
+                        <!--<td>
+                            {{ auditTrails.ActionName }}
+                        </td>-->
+
+                        <td>
+                            {{ auditTrails.ActionDescription }}
+                        </td>
+
+                        <!--<td>
+                            <div>
+                                <ul>
+
+                                    <li g-repeat="auditTrails in details">
+
+                                        <a href="{{ auditTrails.OldData }}">{{ auditTrails.OldData }}</a>
+
+                                    </li>
+                                </ul>
+                            </div>
+
+
+                        </td>-->
+
+                        <!--<td></td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            
+            <table id="computedForcastedPDLGDForeignTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Rating</th>
+                        <th>PD</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="computedForcastedPDLGDForeign in vm.computedForcastedPDLGDForeign">
+                        <td>
+                            {{ computedForcastedPDLGDForeign.Year}}
+                        </td>
+                        <td>
+                            {{ computedForcastedPDLGDForeign.Sector_Code}}
+                        </td>
+                        <td>
+                            {{ computedForcastedPDLGDForeign.PD_LGD}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

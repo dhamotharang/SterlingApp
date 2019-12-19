@@ -1,0 +1,67 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="scd-participant-edit({participantId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="participantTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>KPI Code</th>
+                        <th>KPI Name</th>
+                        <th>Staff Code</th>
+                        <th>Staff Name</th>
+                        <th>KPI Collection Code</th>
+                        <th>KPI Collection Name</th>
+                        <th>Status</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="participant in vm.participants">
+                        <td>
+                            {{participant.KPICode}}
+                        </td>
+                        <td>
+                            {{participant.KPIName}}
+                        </td>
+                        <td>
+                            {{participant.StaffCode}}
+                        </td>
+                        <td>
+                            {{participant.StaffName}}
+                        </td>
+                        <td>
+                            {{participant.TeamClassificationCode}}
+                        </td>
+                        <td>
+                            {{participant.TeamClassificationName}}
+                        </td>
+                        <td>
+                            {{participant.StatusName}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="scd-participant-edit({participantId:participant.ParticipantId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

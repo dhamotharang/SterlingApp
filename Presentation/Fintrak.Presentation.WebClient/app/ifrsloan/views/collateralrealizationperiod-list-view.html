@@ -1,0 +1,117 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-fire"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active" ng-click="vm.loadCategories()"><a href="#CollateralCategory" role="tab" data-toggle="tab">Collateral Category</a></li>
+                <li  ng-click="vm.loadCollatReal()"><a href="#CollateralRealization" role="tab" data-toggle="tab">LGD Input Drivers</a></li>
+                <!--<li ng-click=""><a href="#CollateralForecast" role="tab" data-toggle="tab">Collateral Forecast</a></li>-->
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade" id="CollateralCategory">
+                    <div>
+                        <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-collateralcategory-edit({collateralcategoryId:0})"> Create New</a>
+                    </div>
+                    <br />
+
+                    <table id="collateralCategoryTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name</th>
+                                <th style="width: 3%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="collateralCategory in vm.collateralCategories">
+
+                                <td>
+                                    {{ collateralCategory.Code}}
+                                </td>
+                                <td>
+                                    {{ collateralCategory.Name}}
+                                </td>
+
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-collateralcategory-edit({collateralcategoryId: collateralCategory.CollateralCategoryId})">
+                                        Edit Category or Add Collateral Type
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade in active" id="CollateralRealization">
+                    <div>
+                        <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-collateralrealizationperiod-edit({collateralrealizationperiodId:0})"> Create New</a>
+                    </div>
+                    <br />
+
+                    <table id="collateralRealizationPeriodTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <!--<th>Duration In Year(s)</th>-->
+                                <th>Average Recovery Rate(%)</th>
+                                <th>Hair Cut(%)</th>
+                                <!--<th>Growth Rate(%)</th>-->
+                                <th>TimeToRecovery</th>
+                                <th>Inflation Rate(%)</th>
+                                <th>Depreciation Rate(%)</th>
+                                <th style="width: 3%;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="collateralRealizationPeriod in vm.collateralRealizationPeriods">
+                                <td>
+                                    {{ collateralRealizationPeriod.TypeCode}}
+                                </td>
+                                <td>
+                                    {{ collateralRealizationPeriod.AvgRecoveryCost}}
+                                </td>
+                                <td>
+                                    {{ collateralRealizationPeriod.HairCut}}
+                                </td>
+                                <!--<td>
+                                    {{ collateralRealizationPeriod.GrowthRate}}
+                                </td>-->
+                                <td>
+                                    {{ collateralRealizationPeriod.TimeToRecovery}}
+                                </td>
+                                <td>
+                                    {{ collateralRealizationPeriod.Inflation}}
+                                </td>
+                                <td>
+                                    {{ collateralRealizationPeriod.Depreciation}}
+                                </td>
+                         
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-collateralrealizationperiod-edit({collateralrealizationperiodId: collateralRealizationPeriod.CollateralRealizationPeriodId})">
+                                        Edit
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="CollateralForecast">
+                    <center><h3>Available Soon  <i class="fa fa-bullhorn"></i></h3> </center>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,177 @@
+<style>
+    .widget-content {
+        overflow-x: hidden !important;
+    }
+</style>
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <ul class="nav nav-tabs nav-tabs-custom-colored" role="tablist">
+                <li class="active" ng-click="vm.loadtBillscomPapers(1)"><a href="#tBills" role="tab" data-toggle="tab">Treasury Bills</a></li>
+                <li ng-click="vm.loadtBillscomPapers(2)"><a href="#comPapers" role="tab" data-toggle="tab">Commercial Papers</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade in active" id="tBills">
+                    <div class="row">
+                        <label for="" class="control-label">&nbsp;&nbsp; Classification:</label>
+                        <select class="input-sm" ng-change="vm.getClassification(1)" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:150px;"></select>
+                        <!--<button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification(1)">Load</button>-->
+
+                        <label for="" class="control-label">&nbsp;&nbsp;&nbsp;Maturity Date :</label>
+                        <select class="input-sm" ng-change="vm.getTbillbyMatDate(1)" ng-model="vm.MaturityDate" ng-options="maturitydates.MaturityDate as maturitydates.MaturityDate for maturitydates in vm.distinctMaturityDate" style="width:150px;" | date:'dd-MM-yyyy'></select>
+
+                        <!--<button class="btn btn-info btn-sm" ng-click="vm.getTbillbyMatDate(1)"> Load</button>-->
+
+                        <label for="" class="control-label">&nbsp;&nbsp;&nbsp;Current Market Yield :</label>
+                        <input type="text" class="input-sm" data-ng-model="vm.ifrsTbills.CurrentMarketYield" style="width:100px" />
+                        <button class="btn btn-info btn-sm" ng-click="vm.updateTbillsbyMatDate()"> Update</button>
+                        <button type="button" ng-csv="vm.ifrsTbills" filename="IfrsTbillExport.csv">Full Export</button>
+                    </div>
+                    <br />
+
+                    <table id="ifrsTbillTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">Action</th>
+                                <th>RefNo</th>
+                                <th>Description</th>
+                                <th>Classification</th>
+                                <th>Effective Date</th>
+                                <th>Maturity Date</th>
+                                <th>CleanPrice</th>
+                                <th>FaceValue</th>
+                                <th>Interest Rate</th>
+                                <th>Market Yield</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ifrsTbill in vm.ifrsTbills">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-tbills-edit({tbillId: ifrsTbill.TbillId})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.RefNo}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.Description}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.Classification}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.EffectiveDate | date }}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.MaturityDate | date}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.CleanPrice | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.FaceValue | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.InterestRate}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.CurrentMarketYield}}
+                                </td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="tab-pane fade" id="comPapers">
+                    <div class="row">
+                        <label for="" class="control-label">&nbsp;&nbsp; Classification:</label>
+                        <select class="input-sm" ng-change="vm.getClassification(2)" ng-model="vm.classification" ng-options="classification.Name as classification.Name for classification in vm.classifications" style="width:150px;"></select>
+                        <!--<button type="button" class="btn btn-default btn-sm" ng-click="vm.getClassification(2)">Load</button>-->
+
+                        <label for="" class="control-label">&nbsp;&nbsp;&nbsp;Maturity Date :</label>
+                        <select class="input-sm" ng-change="vm.getTbillbyMatDate(2)" ng-model="vm.MaturityDate" ng-options="maturitydates.MaturityDate as maturitydates.MaturityDate for maturitydates in vm.distinctMaturityDate" style="width:150px;" | date:'dd-MM-yyyy'></select>
+
+                        <!--<button class="btn btn-info btn-sm" ng-click="vm.getTbillbyMatDate(2)"> Load</button>-->
+
+                        <!--<label for="" class="control-label">&nbsp;&nbsp;&nbsp;Current Market Yield :</label>
+                        <input type="text" class="input-sm" data-ng-model="vm.ifrsTbill.CurrentMarketYield" style="width:100px" />
+                        <button class="btn btn-info btn-sm" ng-click="vm.updateTbillsbyMatDate()"> Update</button>-->
+                        <button type="button" ng-csv="vm.ifrsTbills" filename="IfrsTbillExport.csv">Full Export</button>
+                    </div>
+                    <br />
+
+                    <table id="ifrsComPaperTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                        <thead>
+                            <tr>
+                                <th style="width: 3%;">Action</th>
+                                <th>RefNo</th>
+                                <th>Description</th>
+                                <th>Classification</th>
+                                <th>Effective Date</th>
+                                <th>Maturity Date</th>
+                                <th>CleanPrice</th>
+                                <th>FaceValue</th>
+                                <th>Interest Rate</th>
+                                <th>Market Yield</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="ifrsTbill in vm.ifrsTbills">
+                                <td>
+                                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-tbills-edit({tbillId: ifrsTbill.TbillId})">
+                                        Edit
+                                    </a>
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.RefNo}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.Description}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.Classification}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.EffectiveDate | date }}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.MaturityDate | date}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.CleanPrice | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.FaceValue | currency :"":0}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.InterestRate}}
+                                </td>
+                                <td>
+                                    {{ ifrsTbill.CurrentMarketYield}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

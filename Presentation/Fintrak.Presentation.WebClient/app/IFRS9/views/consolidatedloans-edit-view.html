@@ -1,0 +1,321 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div class="row">
+                                                    <div class="col-md-4">
+
+                                                        <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>AcctNo</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.AcctNo" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Classification</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.Classification" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>ProductName</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.ProductName" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>ValueDate</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.ValueDate" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>MaturityDate</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.MaturityDate" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Sector</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.Sector" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>SubSector</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.SubSector" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>ProductType</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.ProductType" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Amount</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.Amount" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>CurrentBalance</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.CurrentBalance" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>AdjustedBalances</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.AdjustedBalances" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>LoanType</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.LoanType" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="col-md-4">
+
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>Rate</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.Rate" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>HC1</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.HC1" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>HC2</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.HC2" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY1</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY1" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB1</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB1" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR1</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR1" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY2</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY2" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB2</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB2" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR2</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR2" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY3</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY3" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB3</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB3" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR3</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR3" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                    <div class="col-md-4">
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY4</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY4" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB4</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB4" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR4</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR4" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY5</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY5" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB5</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB5" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR5</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR5" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>PAY6</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.PAY6" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>OB6</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.OB6" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RR6</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="text" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RR6" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <label class="col-sm-3 control-label"><b>RunDate</b></label>
+                                                            <div class="col-sm-9 controls">
+                                                                <input type="date" class="form-control input-sm" data-ng-model="vm.consoliDATEDLoans.RunDate" style="width:250px;background-color:lightblue" />
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div>
+
+                                                            <div class="form-group mbn footbtns">
+                                                                <label class="col-sm-3 control-label"><b></b></label>
+                                                                <div class="col-sm-9 controls">
+                                                                    <button type="button" class="btn btn-success" ng-click="vm.save()">
+                                                                        <i class="fa fa-save"></i>&nbsp;
+                                                                        Save
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-danger" data-ng-click="vm.delete()">Delete</button>
+                                                                    <button type="button" class="btn btn-default" data-ng-click="vm.cancel()">Cancel</button>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </div>
+
+
+
+                                               
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+

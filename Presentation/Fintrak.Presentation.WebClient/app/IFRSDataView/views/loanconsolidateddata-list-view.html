@@ -1,0 +1,98 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <!--<button type="button" ng-csv="vm.loanConsolidatedData" filename="LoanConsolidatedDataExport.csv">Full Export</button>-->
+                <button ng-click="vm.exportToExcel('#LoanConsolidatedDataTable')">Export</button>
+            </div> 
+            <br />
+            
+            <table id="LoanConsolidatedDataTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>AccountNo</th>
+                        <th>ProductName</th>
+                        <th>ValueDate</th>
+                        <th>Amount</th>
+                        <th>Tenor</th>
+                        <th>Feeamount</th>
+                        <th>EarnedFee</th>
+                        <th>Unearnedfee</th>
+                        <th>AmortizedCost</th>
+                        <th>Rate</th>
+                        <th>FirstRepaymentDate</th>
+                        <th>MaturityDate</th>
+                        <th>PrincipalRepayFreq</th>
+                        <th>LD</th>
+                        
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanConsolidatedData in vm.loanConsolidatedData">
+                        <td>
+                            {{ loanConsolidatedData.RefNo}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.AccountNo}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.ProductName}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Valuedate | date}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Amount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Tenor}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Feeamount | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.EarnedFee | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Unearnedfee | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.AmortizedCost | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.Rate}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.FirstRepaymentDate | date}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.MaturityDate | date}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.PrincipalRepayFreq}}
+                        </td>
+                        <td>
+                            {{ loanConsolidatedData.LD}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

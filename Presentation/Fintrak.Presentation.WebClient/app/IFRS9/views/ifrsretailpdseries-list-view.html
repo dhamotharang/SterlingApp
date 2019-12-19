@@ -1,0 +1,118 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <!--<div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <a class="btn btn-info btn-xs" data-ui-sref="core-product-edit({productId:0})"> Create New</a>
+                    </div>
+                    <!--<div class="col-md-2">
+               Choose file to import data
+            </div>
+                    <div class="col-md-3">
+                        <ng-csv-import class="import"
+                                       content="vm.csv.content"
+                                       header="vm.csv.header"
+                                       header-visible="vm.csv.headerVisible"
+                                       separator="vm.csv.separator"
+                                       separator-visible="vm.csv.separatorVisible"
+                                       result="vm.csv.result"
+                                       encoding="vm.csv.encoding"
+                                       encoding-visible="vm.csv.encodingVisible"></ng-csv-import>
+                    </div>
+                    <div class="col-md-1">
+                        <button class="btn btn-info btn-sm" ng-click="vm.importData()" ng-disabled="vm.csv.content === null"> Upload</button>
+                    </div>
+                </div>
+
+            </div>-->
+
+
+            <br />
+            <div class="row">
+                <div class="col-md-7">
+                    <form ng-submit="vm.searchBy('refNo','string')">
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Search items..." data-ng-model="vm.queryOptions.FilterOption" style="width:350px" />
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.searchBy('refNo','string')">Load</button>
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.reloadPage()">Refresh</button>
+                    </form>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-5">
+                    <form ng-submit="vm.goToPage(vm.queryOptions.CurrentPage)">
+                        <div>
+                            <button type="button" ng-disabled="vm.queryOptions.CurrentPage <= 1" class="btn btn-info btn-xs" ng-click="vm.goToPage('prev')">Prev</button>
+                            &nbsp;
+                            <input type="text" class="input-sm" data-ng-model="vm.queryOptions.CurrentPage" style="width:100px" /> of {{vm.queryOptions.TotalPages}} page(s)
+                            &nbsp;
+                            <button type="button" ng-disabled="vm.queryOptions.CurrentPage >= vm.queryOptions.TotalPages" class="btn btn-info btn-xs" ng-click="vm.goToPage('next')">Next</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5">
+                    <div>Displaying {{(((vm.currentPage - 1) * vm.pageSize) + 1)}} to {{(((vm.currentPage - 1) * vm.pageSize) + vm.queryOptions.DisplayedRows)}} of {{vm.queryOptions.TotalRecords}} records</div>
+                </div>
+                <div class="col-md-2">
+                    <form ng-submit="vm.resizePage()">
+                        <input type="text" class="input-sm" data-ng-model="vm.queryOptions.PageSize" style="width:50px" /> items/page
+                    </form>
+                </div>
+            </div>
+
+            <br />
+
+            <table id="ifrsRetailPdSeriesTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Ref No.</th>
+                        <th>PD (BEST) (%)</th>
+                        <th>PD (Downturn) (%)</th>
+                        <th>PD (Optimistic) (%)</th>
+                        <th>Month</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ifrsRetailPdSeries in vm.ifrsRetailPdSeries">
+                        <td>
+                            {{ ifrsRetailPdSeries.refno }}
+                        </td>
+                        <td>
+                            {{ (ifrsRetailPdSeries.LifeTimePD_BEST * 100) }}
+                        </td>
+                        <td>
+                            {{ (ifrsRetailPdSeries.LifeTimePD_Downturn * 100) }}
+                        </td>
+
+                        <td>
+                            {{ (ifrsRetailPdSeries.LifeTimePD_Optimistic * 100) }}
+                        </td>
+                        <td>
+                            {{ ifrsRetailPdSeries.Month }}
+                        </td>
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-ifrsretailpdseries-edit({pdSeriesId: ifrsRetailPdSeries.PdSeriesId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

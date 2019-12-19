@@ -1,0 +1,80 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number..." ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadMonthlyObeEadSTRLBBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="monthlyOBEEADstrlbTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+
+                        <th>Refno</th>
+                        <th>ProductType</th>
+                        <th>SubType</th>
+                        <th>Amount</th>
+                        <th>Currency</th>
+                        <th>ExchangeRate</th>
+                        <th>OBEType</th>
+                        <th>OriginYr</th>
+                        <th>date_pmt</th>
+                        <th>MarginalCCF</th>
+                        <th>Nodays</th>
+                        <th>NoOfDayMonth</th>
+                        <th>TTInDays</th>
+                        <th>EAD</th>
+                        <th>stage</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="monthlyOBEEADstrlbs in vm.monthlyOBEEADstrlb">
+
+                        <td>{{ monthlyOBEEADstrlbs.Refno }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.ProductType }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.SubType }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.Amount  | currency :"":0}}</td>
+                        <td>{{ monthlyOBEEADstrlbs.Currency }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.ExchangeRate  | currency :"":0}}</td>
+                        <td>{{ monthlyOBEEADstrlbs.OBEType }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.OriginYr }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.date_pmt | date }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.MarginalCCF }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.Nodays }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.NoOfDayMonth }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.TTInDays }}</td>
+                        <td>{{ monthlyOBEEADstrlbs.EAD | currency :"":0}}</td>
+                        <td>{{ monthlyOBEEADstrlbs.stage | number }}</td>
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

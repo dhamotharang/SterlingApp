@@ -1,0 +1,90 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <label for="" class="control-label">Type:</label>
+                    <select class="input-sm" ng-model="vm.adjustmentType" ng-options="adjustmentType.Id as adjustmentType.Name for adjustmentType in vm.adjustmentTypes" style="width:150px;"></select>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                </div>
+                <br>
+                <br>
+                <div class="form-group">
+                   <!-- <h3><label class="col-sm-3 control-label" style="background-color:lightyellow">Balance : {{vm.totalBalance | currency:''}} </label></h3>-->
+                 
+                </div>
+
+            </div>
+            <br />
+            <table id="consolidatedTrialBalanceTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th width="30px" style="text-align:left !important;">Branch</th>
+                        <th style="text-align:left !important;">GL Code</th>
+                        <th style="text-align:left !important;">Description</th>
+                        <!--<th>GL Head Code</th>-->
+                        <th width="25px" style="text-align:left !important;">Currency</th>
+                        <th width="20px" style="text-align:center !important;">Rate</th>
+                        <th width="150px" style="text-align:center !important;">Debit</th>
+                        <th width="150px" style="text-align:center !important;">Credit</th>
+                        <th width="150px" style="text-align:center !important;">Base Balance</th>
+                        <th width="100px" style="text-align:left !important;">Date</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="consolidatedTrialBalance in vm.consolidatedTrialBalances">
+                        <td>
+                            {{ consolidatedTrialBalance.BranchCode}}
+                        </td>
+                        <td>
+                            {{ consolidatedTrialBalance.GLCode}}
+                        </td>
+                        <td>
+                            {{ consolidatedTrialBalance.Description}}
+                        </td>
+                        <!--<td>
+                            {{ consolidatedTrialBalance.GLSubHeadCode}}
+                        </td>-->
+                        <td>
+                            {{ consolidatedTrialBalance.Currency}}
+                        </td>
+                        <td style="text-align:right !important;">
+                            {{ consolidatedTrialBalance.ExchangeRate}}
+                        </td>
+                        <td style="text-align:right !important;">
+                            {{ consolidatedTrialBalance.Debit | currency:''}}
+                        </td>
+                        <td style="text-align:right !important;">
+                            {{ consolidatedTrialBalance.Credit | currency:''}}
+                        </td>
+                        <td style="text-align:right !important;">
+                            {{ consolidatedTrialBalance.LCY_Balance | currency:''}}
+                        </td>
+                        <td>
+                            {{ consolidatedTrialBalance.TransDate | date}}
+                        </td>
+                       
+                        <!--<td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="finstat-trialbalance-edit({trialbalanceId: consolidatedTrialBalance.TrialBalanceId})">
+                                Edit
+                            </a>
+                        </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

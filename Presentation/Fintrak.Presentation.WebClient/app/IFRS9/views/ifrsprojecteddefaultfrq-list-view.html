@@ -1,0 +1,247 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+
+
+            <table id="projcummdefault" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>YOO</th>
+                        <th>OriginationYearBal</th>
+                        <th>DefaulAmt_yr0</th>
+                        <th>DefaulAmt_yr1</th>
+                        <th>DefaulAmt_yr2</th>
+                        <th>DefaulAmt_yr3</th>
+                        <th>DefaulAmt_yr4</th>
+                        <th>DefaulAmt_yr5</th>
+                        <th>DefaulAmt_yr6</th>
+                        <th>DeaultAmt_yr7</th>
+                        <th>DeaultAmt_yr8</th>
+                        <th>DeaultAmt_yr9 </th>
+                        <th>DeaultAmt_yr10</th>
+                        <th>DeaultAmt_yr11</th>
+                        <th>DeaultAmt_yr12</th>
+                        <th>DeaultAmt_yr13</th>
+                        <th>DeaultAmt_yr14</th>
+                        <th>DeaultAmt_yr15</th>
+                        <th>OB yr16</th>
+                        <th>DeaultAmt_yr17</th>
+                        <th>DeaultAmt_yr18</th>
+                        <th>DeaultAmt_yr19</th>
+                        <th>DeaultAmt_yr20</th>
+                        <th>DeaultAmt_yr21</th>
+                        <th>DeaultAmt_yr22</th>
+                        <th>DeaultAmt_yr23</th>
+                        <th>DeaultAmt_yr24</th>
+                        <th>DeaultAmt_yr25</th>
+                        <th>DeaultAmt_yr26</th>
+                        <th>DeaultAmt_yr27</th>
+                        <th>DeaultAmt_yr28</th>
+                        <th>DeaultAmt_yr29</th>
+                        <th>DeaultAmt_yr30</th>
+                        <th>DeaultAmt_yr31</th>
+                        <th>DeaultAmt_yr32</th>
+                        <th>DeaultAmt_yr33</th>
+                        <th>DeaultAmt_yr34</th>
+                        <th>DeaultAmt_yr35</th>
+                        <th>DeaultAmt_yr36</th>
+                        <th>DeaultAmt_yr37</th>
+                        <th>DeaultAmt_yr38</th>
+                        <th>DeaultAmt_yr39</th>
+                        <th>DeaultAmt_yr40</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="IfrsMonthly in  vm.ifrsprojectedcummdefault">
+                        <td>
+                            {{ IfrsMonthly.ProductType }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.sub_type }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.Origin_yr }}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.AdjBal | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr1 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr2 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr3 | number}}
+                        </td>
+
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr4 | number}}
+                        </td>
+
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr5 | number}}
+                        </td>
+
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr6 | number}}
+                        </td>
+
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr7 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr8 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr9 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr10 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr11 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr12 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr13 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr14 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr15 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr16 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr17 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr18 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr19 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr20 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr21 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr22 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr23 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr24 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr25 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr26 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr27 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr28 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr29 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr30 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr31 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr32 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr33 | number}}
+                        </td>
+
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr34 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr35 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr36 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr37 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr38 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr39 | number}}
+                        </td>
+                        <td>
+                            {{ IfrsMonthly.OutBalAfter_yr40 | number}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

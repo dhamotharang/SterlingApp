@@ -1,0 +1,69 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <label for="" class="control-label">Type:</label>
+                <select class="input-sm" ng-change="vm.loadChange()" ng-model="vm.type" ng-options="type.Id as type.Name for type in vm.types" style="width: 250px;"></select>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-macroeconomicsvariablescenario-edit({MacroeconomicsId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="macroeconomicsVariableScenariosTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Variable</th>
+                        <th>Frequency</th>
+                        <th>StartDate</th>
+                        <th>Optimistic</th>
+                        <th>Best</th>
+                        <th>Downturn</th>
+                        <th>Rundate</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="macroeconomicsVariableScenario in vm.macroeconomicsVariableScenarios">
+                        <td>
+                            {{ macroeconomicsVariableScenario.Variable }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.Frequency }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.StartDate }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.Optimistic }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.Best }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.Downturn }}
+                        </td>
+                        <td>
+                            {{ macroeconomicsVariableScenario.Rundate }}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-macroeconomicsvariablescenario-edit({MacroeconomicsId: macroeconomicsVariableScenario.MacroeconomicsId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

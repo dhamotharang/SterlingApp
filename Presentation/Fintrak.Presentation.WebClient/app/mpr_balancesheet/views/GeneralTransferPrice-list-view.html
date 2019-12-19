@@ -1,0 +1,77 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="mpr-generaltransferprice-edit({generaltransferpriceId:0})"> Create New</a>
+            </div>
+            <br />
+
+            <table id="generalTransferPriceTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>
+                            Delete
+                        </th>
+                        <th>Category</th>
+                        <th>Currency Type</th>
+                        <th>Rate</th>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>MIS Code</th>
+                
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="generalTransferPrice in vm.generalTransferPrices">
+                        <td>
+                            <input type="checkbox"
+                                   value="{{generalTransferPrice.GeneralTransferPriceId}}"
+                                   ng-checked="selection.indexOf(generalTransferPrice.GeneralTransferPriceId) > -1"
+                                   ng-click="toggleSelection(generalTransferPrice.GeneralTransferPriceId)" /> {{generalTransferPrice.GeneralTransferPriceId}}
+                        </td>
+                        
+                        <td>
+                            {{ generalTransferPrice.CategoryName}}
+                        </td>
+                        <td>
+                            {{ generalTransferPrice.CurrencyTypeName}}
+                        </td>
+                        <td>
+                            {{ generalTransferPrice.Rate}}
+                        </td>
+                        <td>
+                            {{ generalTransferPrice.Year}}
+                        </td>
+                        <td>
+                            {{ generalTransferPrice.Period}}
+                        </td>
+                        <td>
+                            {{ generalTransferPrice.MISCode}}
+                        </td>
+                        
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-generaltransferprice-edit({generaltransferpriceId: generalTransferPrice.GeneralTransferPriceId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a class="btn btn-info btn-xs" ng-click="vm.delete()"> Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

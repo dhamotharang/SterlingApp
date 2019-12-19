@@ -1,0 +1,149 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div type="button" class="btn btn-success btn-sm" ng-click="vm.exportAllData()">Export</div>
+
+
+            <!--
+
+             <div class="row">
+                 <div class="col-md-12">
+                     <form>
+
+                         <label for="" class="control-label">Main Search: </label>
+                         <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                         <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCummulativePDBySearch()">Load</button>
+                         <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                     </form>
+                 </div>
+             </div>
+
+            --->
+
+            <table id="cummulaTIVEpdTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>HC1</th>
+                        <th>HC2</th>
+                        <th>YOO</th>
+                        <th>OriginationYearBal</th>
+                        <th>CummPD_Yr0</th>
+                        <th>CummPD_Yr1</th>
+                        <th>CummPD_Yr2</th>
+                        <th>CummPD_Yr3</th>
+                        <th>CummPD_Yr4</th>
+                        <th>CummPD_Yr5</th>
+                        <th>CummPD_Yr6</th>
+                        <th>CummPD_Yr7</th>
+                        <th>CummPD_Yr8</th>
+                        <th>CummPD_Yr9</th>
+                        <th>CummPD_Yr10</th>
+                        <th>CummPD_Yr11</th>
+                        <th>CummPD_Yr12</th>
+                        <th>CummPD_Yr13</th>
+                        <th>CummPD_Yr14</th>
+                        <th>CummPD_Yr15</th>
+                        <th>CummPD_Yr16</th>
+                        <th>CummPD_Yr17</th>
+                        <th>CummPD_Yr18</th>
+                        <th>CummPD_Yr19</th>
+                        <th>CummPD_Yr20</th>
+                        <th>CummPD_Yr21</th>
+                        <th>CummPD_Yr22</th>
+                        <th>CummPD_Yr23</th>
+                        <th>CummPD_Yr24</th>
+                        <th>CummPD_Yr25</th>
+                        <th>CummPD_Yr26</th>
+                        <th>CummPD_Yr27</th>
+                        <th>CummPD_Yr28</th>
+                        <th>CummPD_Yr29</th>
+                        <th>CummPD_Yr30</th>
+                        <th>CummPD_Yr31</th>
+                        <th>CummPD_Yr32</th>
+                        <th>CummPD_Yr33</th>
+                        <th>CummPD_Yr34</th>
+                        <th>CummPD_Yr35</th>
+                        <th>CummPD_Yr36</th>
+                        <th>CummPD_Yr37</th>
+                        <th>CummPD_Yr38</th>
+                        <th>CummPD_Yr39</th>
+                        <th>CummPD_Yr40</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="cummulaTIVEpd in vm.cummulaTIVEpd">
+
+                        <td>{{ cummulaTIVEpd.ProductType	 }}</td>
+                        <td>{{ cummulaTIVEpd.Sub_type }}</td>
+                        <td>{{ cummulaTIVEpd.Origin_Yr }}</td>
+                        <td>{{ cummulaTIVEpd.AdjBal | number }}</td>
+
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr }}</td>
+
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr1 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr2 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr3 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr4 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr5 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr6 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr7 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr8 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr9 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr10 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr11 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr12 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr13 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr14 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr15 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr16 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr17 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr18 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr19 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr20 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr21 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr22 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr23 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr24 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr25 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr26 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr27 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr28 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr29 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr30 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr31 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr32 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr33 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr34 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr35 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr36 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr37 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr38 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr39 }}</td>
+                        <td>{{ cummulaTIVEpd.OutBalAfter_Yr40 }}</td>
+
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

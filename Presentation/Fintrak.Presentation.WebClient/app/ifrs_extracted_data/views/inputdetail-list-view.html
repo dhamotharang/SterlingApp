@@ -1,0 +1,136 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-flask"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-xs-10">
+                    <label for="" class="control-label">Reference No:</label>
+                    <input type="text" class="input-sm" data-ng-model="vm.refNo" placeholder="Enter facility Refno..." style="width:150px;" />
+                    <button type="button" class="btn btn-primary btn-sm" ng-click="vm.insertbyrefno()">Load</button>
+                </div>
+
+                <div class="col-md-2">
+                    <button type="button" class="btn btn-success btn-block btn-sm" ng-click="vm.computeECL()">Compute ECL</button>
+                </div>
+            </div>
+                <br />
+
+                <table id="inputDetailTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                    <thead>
+                        <tr>
+                            <th>RefNo</th>
+                            <th>Customer Name</th>
+                            <th>OLD Rating</th>
+                            <th>NEW Rating</th>
+                            <th>OLD CollateralType</th>
+                            <th>NEW CollateralType</th>
+                            <th>OLD CollateralValue</th>
+                            <th>NEW CollateralValue</th>
+                            <th>OLD Stage</th>
+                            <th>NEW Stage</th>
+                            <th style="width: 3%;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="inputDetail in vm.inputDetail">
+                            <td>
+                                {{ inputDetail.RefNo}}
+                            </td>
+                            <td>
+                                {{ inputDetail.CustomerName}}
+                            </td>
+                            <td>
+                                {{ inputDetail.OldRating}}
+                            </td>
+                            <td>
+                                {{ inputDetail.Rating}}
+                            </td>
+                            <td>
+                                {{ inputDetail.OldCollateralType}}
+                            </td>
+                            <td>
+                                {{ inputDetail.CollateralType}}
+                            </td>
+                            <td>
+                                {{ inputDetail.OldCollateralValue | currency :"":0}}
+                            </td>
+                            <td>
+                                {{ inputDetail.CollateralValue | currency :"":0}}
+                            </td>
+                            <td>
+                                {{ inputDetail.OldStage}}
+                            </td>
+                            <td>
+                                {{ inputDetail.Stage}}
+                            </td>
+
+                            <td>
+                                <span><a class="btn btn-orange btn-xs" data-ui-sref="ifrs-inputdetail-edit({inputDetailId:inputDetail.InputDetailId})">
+                                    Edit 
+                                </a>|
+                                <a class="btn btn-orange btn-xs" ng-click="vm.delete(inputDetail.InputDetailId)">
+                                    Remove
+                                </a></span>
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-legal"></i> {{vm.viewName2}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <br />
+
+            <table id="integralFeeTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <th>CustomerName</th>
+                        <th>OLD ECL Average</th>
+                        <th>NEW ECL Average</th>
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="eclWeightedAvg in vm.eclWeightedAvg">
+                        <td>
+                            {{ eclWeightedAvg.Refno}}
+                        </td>
+                        <td>
+                            {{ eclWeightedAvg.CustomerName}}
+                        </td>
+                        <td>
+                            {{ eclWeightedAvg.OldFinalECLWeightAvg | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ eclWeightedAvg.FinalECLWeightAvg | currency :"":0}}
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,95 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+          
+            <table id="performingLoanTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" >
+
+                <thead>
+                    <tr>
+                        <th>ReferenceNo</th>
+                        
+                        <!--<th>Tenor</th>-->                        
+                       
+                        <th>BalanceAmt</th>
+                        <th>UndrawnAmt</th>
+                        <th>EAD</th>
+                        <th>LGD</th>
+                        <th>12Month PD</th>
+                        
+                        <th>PVofRecoverables</th> 
+                        <th>Significant</th> 
+                        <th>Assessed</th>  
+                        <th>EIR</th>  
+                        <th>CashShortFall</th>                                            
+                        <th>ExpectedLoss</th>
+                        <th>DiscountedValue</th>
+                       
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="performingLoan in vm.performingLoan">
+                        <td>
+                            {{ performingLoan.RefNo}}
+                        </td>                       
+                                            
+                        <!--<td>
+                            {{ performingLoan.Tenor}}
+                        </td>-->                    
+                       
+                        <td>
+                            {{ performingLoan.BalanceOutstanding | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ performingLoan.UndrawnAmount | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ performingLoan.EAD | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ performingLoan.Lgd}}
+                        </td>
+                        <td>
+                            {{ performingLoan.AnnualPD}}
+                        </td>
+                       
+                        <td>
+                            {{ performingLoan.PVofCollateral | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ performingLoan.Significant}}
+                        </td>
+                       
+                        <td>
+                            {{ performingLoan.AssessmentType}}
+                        </td>
+                        <td>
+                            {{ performingLoan.IRR}}
+                        </td>
+                        <td>
+                            {{ performingLoan.CashShortFall | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ performingLoan.ExpectedLoss | currency :"":0 }}
+                        </td>
+                        <td>
+                            {{ performingLoan.DiscountedValue | currency :"":0 }}
+                        </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+</div>

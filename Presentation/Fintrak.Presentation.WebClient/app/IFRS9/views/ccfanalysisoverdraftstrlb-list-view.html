@@ -1,0 +1,64 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form>
+
+                        <label for="" class="control-label">Main Search: </label>
+                        <input type="text" class="input-sm" placeholder="Enter Reference Number or Account Number" ng-model="vm.searchParam " style="width:300px" />
+                        <button type="button" class="btn btn-default btn-sm" ng-click="vm.loadCcfAnalysisOverDraftSTRLBBySearch()">Load</button>
+                        <button type="button" class="btn btn-info btn-sm" ng-click="vm.refresh()">Refresh</button>
+
+                    </form>
+                </div>
+            </div>
+
+            <table id="ccfanalysisOVERDRAFTstrlbTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Seq</th>
+                        <th>CCFType</th>
+                        <th>InitialCCF</th>
+                        <th>CCF</th>
+                        <th>MonthlyCCF</th>
+                        <th>CumMonthlyCCF</th>
+                        <th>MarginalCCF</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="ccfanalysisOVERDRAFTstrlbs in vm.ccfanalysisOVERDRAFTstrlb">
+
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.Seq}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.CCFType}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.InitialCCF}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.CCF}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.MonthlyCCF}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.CumMonthlyCCF}}</td>
+                        <td>{{ ccfanalysisOVERDRAFTstrlbs.MarginalCCF}}</td>
+
+                    </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+
+    </div>
+</div>

@@ -1,0 +1,55 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="core-staff-edit({staffId:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="staffTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>Staff Code</th>
+                        <th>Staff Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="staff in vm.staff">
+                        <td>
+                            {{staff.StaffCode}}
+                        </td>
+                        <td>
+                            {{staff.Name}}
+                        </td>
+                        <td>
+                            {{staff.Email}}
+                        </td>
+                        <td>
+                            {{staff.Phone}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="core-staff-edit({staffId:staff.StaffId})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

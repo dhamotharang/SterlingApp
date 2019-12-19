@@ -1,0 +1,62 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs-loanclassificationsicrsignflag-edit({Id:0})"> Maintain New Flag</a>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-7">
+                    <label for="" class="control-label">Classification :</label>
+
+                    <select class="input-sm" ng-model="vm.Value" ng-options="grpClass.Key as grpClass.Value for grpClass in vm.grpClass" ng-change="vm.load(vm.Value)" style="width:300px;"></select>
+                </div>
+
+            </div>   
+            
+            <table id="classSICRSignFlagTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 8%;">Action</th>
+                        <th>Product Type</th>
+                        <th>SubType</th>
+                        <th>SICR Parameter</th>
+                        <th>SICR Flag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="loanClassSICRSignFlag in vm.loanclassificationsicrsignflag">
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrs-loanclassificationsicrsignflag-edit({Id: loanClassSICRSignFlag.Id})">
+                                Edit
+                            </a>
+                        </td>
+                        <td>
+                            {{ loanClassSICRSignFlag.ProductType}}
+                        </td>
+                        <td>
+                            {{ loanClassSICRSignFlag.SubType}}
+                        </td>
+                        <td>
+                            {{ loanClassSICRSignFlag.SICRParameterName}}
+                        </td>
+                        <td>
+                            {{ loanClassSICRSignFlag.SICR_Flag}}
+                        </td>          
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

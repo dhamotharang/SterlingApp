@@ -1,0 +1,187 @@
+﻿<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#general" role="tab" data-toggle="tab"><i class="fa fa-home"></i> General</a></li>
+                    </ul>
+
+                    <div id="general" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="tab-content">
+                                        <form action="#" class="form-horizontal">
+                                            <div class="form-body">
+
+                                                <div data-ng-include="'app/common/views/validation-view.html'"></div>
+
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Company</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.creditRiskRating.CompanyCode" ng-options="company.Code as company.Name for company in vm.companies" style="width:250px;background-color:lightblue"></select>
+                                                    </div>
+                                                </div>-->
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">RefNo :</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.RefNo" ng-options="indschedule.Key as indschedule.Value for indschedule in vm.distinctrefnos" style="width:250px ; background-color: lightblue"></select><button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Reference Number</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <select class="form-control" ng-model="vm.individualImpairments.RefNo" ng-options="referenceNumber.Key as referenceNumber.Value for referenceNumber in vm.referenceNumbers" style="width:250px;background-color:lightblue" ng-change="vm.load()"></select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Account Number</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.individualImpairments.AccountNo" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Product Name</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.individualImpairments.ProductName" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Amount</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="number" class="form-control input-sm" data-ng-model="vm.individualImpairments.Amount" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Value Date</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="date" ng-model="vm.individualImpairments.ValueDate" class="form-control input-sm" style="width:200px;background-color:lightblue" />
+                                                        <!--<input type="text" class="form-control input-sm" data-ng-model="vm.individualImpairments.ValueDate" style="width: 250px; background-color: lightblue" />-->
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Maturity Date</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="date" ng-model="vm.individualImpairments.MaturityDate" class="form-control input-sm" style="width:200px;background-color:lightblue" />
+                                                       <!-- <input type="text" class="form-control input-sm" data-ng-model="vm.individualImpairments.MaturityDate" style="width: 250px; background-color: lightblue" />-->
+                                                    </div>
+                                                </div>
+
+                                                <!--<div class="form-group">
+                                                    <label class="col-sm-3 control-label">Run Date</label>
+                                                    <div class="col-sm-9 controls">
+                                                        <input type="text" class="form-control input-sm" data-ng-model="vm.individualImpairments.RunDate" style="width: 250px; background-color: lightblue" />
+                                                    </div>
+                                                </div>-->
+
+                                                <div class="form-group mbn">
+                                                    <label class="col-sm-3 control-label"></label>
+                                                    <div class="col-sm-9 controls">
+                                                        <button type="button" class="btn btn-success btn-xs" ng-click="vm.save()">
+                                                            <i class="fa fa-save"></i>&nbsp;
+                                                            Save
+                                                        </button>
+                                                        <button type="button" class="btn btn-danger btn-xs" data-ng-click="vm.delete()">Delete</button>
+                                                        <button type="button" class="btn btn-default btn-xs" data-ng-click="vm.cancel()">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" data-ng-show="vm.showPeriod">
+                <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#periods" role="tab" data-toggle="tab"><i class="fa fa-home"></i> Collateral Types</a></li>
+                    </ul>
+
+                    <div id="periods" class="tab-content">
+                        <div id="tab-edit" class="tab-pane fade in active">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="tab-content">
+                                        <div class="portlet box">
+                                            <div class="portlet-header">
+                                                <div class="caption">
+                                                    <!--<button class="btn btn-success" ng-click="vm.createCountry()"> Create</button>-->
+                                                    <a class="btn btn-info btn-xs" data-ui-sref="ifrsloan-collateraltype-edit({individualimpairmentId: vm.individualImpairments.IndividualImpairmentId,categorycode:vm.individualImpairments.Code, collateraltypeId: 0})">Create</a>
+                                                </div>
+
+                                                <br />
+
+                                            </div>
+                                            <div class="portlet-body">
+                                                <div class="row mbm">
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+
+
+                                                            <table id="collateralTypeTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                                                                <thead>
+                                                                    <tr>
+
+                                                                        <th>Code</th>
+                                                                        <th>Name</th>
+
+                                                                        <th style="width: 3%;">Action</th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr ng-repeat="collateralType in vm.collateralTypes">
+
+                                                                        <td>
+                                                                            {{ collateralType.Code}}
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ collateralType.Name}}
+                                                                        </td>
+
+                                                                        <td>
+                                                                            <a class="btn btn-orange btn-xs" data-ui-sref="ifrsloan-collateraltype-edit({individualimpairmentId: vm.individualImpairments.IndividualImpairmentId,categorycode:collateralType.CategoryCode, collateraltypeId: collateralType.CollateralTypeId})">
+                                                                                Edit
+                                                                            </a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+

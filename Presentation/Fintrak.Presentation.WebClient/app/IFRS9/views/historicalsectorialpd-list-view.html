@@ -1,0 +1,126 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrs9-historicalsectorialpd-edit({historicalsectorialpdId:0})"> PD Computation</a>
+            </div> 
+            <br />
+            <div class="form-group">
+                <label class="col-sm-3 control-label"></label>
+                <div class="checkbox-list">
+                    <!--<label class="checkbox-inline">
+                        <input type="radio" value="1" name="status" class="radio" id="pd" ng-click="vm.pd(true)" ng-checked="true" >
+                        <label for="pd">PD</label>
+                    </label>-->
+                    <!--<label class="checkbox-inline">
+                        <input type="radio" value="2" name="status" class="radio" id="lgd" ng-click="vm.lgd(false)">
+                        <label for="lgd">LGD</label>
+                    </label>-->
+                    <!--<label class="checkbox-inline">
+                        <input type="radio" value="3" name="status" class="radio" id="pdlgd" ng-click="vm.pdlgd(false)">
+                        <label for="pdlgd">Combined</label>
+                    </label>-->
+                </div>
+            </div>
+            
+            <table id="historicalSectorialPDTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" ng-show="vm.pdtblstatus">
+
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>Grouping</th>
+                        <th>Description</th>
+                        <!--<th>PD</th>-->
+                        <th>Average PD</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="historicalSectorialPD in vm.historicalSectorialPDs">
+                        <td>
+                            {{ historicalSectorialPD.Year}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.Period}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.SectorCode}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.SectorName}}
+                        </td>
+
+                        <!--<td>
+                            {{ historicalSectorialPD.PD}}
+                        </td>-->
+                        <td>
+                            {{ historicalSectorialPD.AvgPD}}
+                        </td>
+                        <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-historicalsectorialpd-edit({historicalsectorialpdId: historicalSectorialPD.HistoricalSectorialPDId})">
+                        Edit
+                    </a>
+                </td>-->
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <table id="historicalSectorialLGDTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable" ng-show="vm.lgdtblstatus">
+
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Period</th>
+                        <th>Sector Code</th>
+                        <th>Sector Name</th>
+                        <!--<th>LGD</th>-->
+                        <th>Average LGD</th>
+
+                        <!--<th style="width: 3%;">Action</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="historicalSectorialPD in vm.historicalSectorialPDs">
+                        <td>
+                            {{ historicalSectorialPD.Year}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.Period}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.SectorCode}}
+                        </td>
+                        <td>
+                            {{ historicalSectorialPD.SectorName}}
+                        </td>
+
+                        <!--<td>
+                            {{ historicalSectorialPD.PD}}
+                        </td>-->
+                        <td>
+                            {{ historicalSectorialPD.AvgPD}}
+                        </td>
+                        <!--<td>
+                    <a class="btn btn-orange btn-xs" data-ui-sref="ifrs9-historicalsectorialpd-edit({historicalsectorialpdId: historicalSectorialPD.HistoricalSectorialPDId})">
+                        Edit
+                    </a>
+                </td>-->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

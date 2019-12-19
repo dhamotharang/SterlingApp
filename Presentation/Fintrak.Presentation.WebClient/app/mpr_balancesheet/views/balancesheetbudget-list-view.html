@@ -1,0 +1,119 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-9">
+                    <label for="" class="control-label">Type:</label>
+                    <select class="input-sm" ng-model="vm.budgetType" ng-options="budgetType.Id as budgetType.Name for budgetType in vm.budgetTypes" style="width:150px;"></select>
+                    <select class="input-sm" ng-model="vm.selectedYear" ng-options="year.Key as year.Value for year in vm.years" style="width:100px;"></select>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.load()">Load</button>
+                    <input type="text" class="input-sm" data-ng-model="vm.searchValue" style="width:150px" />
+                    <button type="button" class="btn btn-default btn-sm" ng-click="vm.getSearch()">Search</button>
+
+                    <button ng-click="vm.exportToExcel('#budgetTable')">Export</button>
+                   
+                </div>
+                <br>
+                <br>
+               
+            </div>
+            <br />
+            <table id="budgetTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+
+                <thead>
+                    <tr>
+                        <th>
+                            Delete
+                        </th>
+                        <th width="70px">Mis Code</th>
+                        <th>Caption</th>
+                        <th width="150px">Month 1</th>
+                        <th width="150px">Month 2</th>
+                        <th width="150px">Month 3</th>
+                        <th width="150px">Month 4</th>
+                        <th width="150px">Month 5</th>
+                        <th width="150px">Month 6</th>
+                        <th width="150px">Month 7</th>
+                        <th width="150px">Month 8</th>
+                        <th width="150px">Month 9</th>
+                        <th width="150px">Month 10</th>
+                        <th width="150px">Month 11</th>
+                        <th width="150px">Month 12</th>
+                        <th style="width: 3%;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="budget in vm.budgets">
+                        <td>
+                            <input type="checkbox"
+                                   value="{{budget.BudgetId}}"
+                                   ng-checked="selection.indexOf(budget.BudgetId) > -1"
+                                   ng-click="toggleSelection(budget.BudgetId)" /> {{budget.BudgetId}}
+                        </td>
+                        <td>
+                            {{ budget.MisCode}}
+                        </td>
+                        <td>
+                            {{ budget.CaptionName}}
+                        </td>
+                        <td>
+                            {{ budget.Mth1 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth2 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth3 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth4 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth5 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth6 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth7 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth8 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth9 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth10 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth11 | currency :"":0}}
+                        </td>
+                        <td>
+                            {{ budget.Mth12 | currency :"":0}}
+                        </td>
+                        <td>
+                            <a class="btn btn-orange btn-xs" data-ui-sref="mpr-balancesheetbudget-edit({budgetId: budget.BudgetId,budgettype:vm.budgetType})">
+                                Edit
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>
+                <a class="btn btn-info btn-xs" ng-click="vm.delete()"> Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

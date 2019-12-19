@@ -1,0 +1,135 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3>
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+          
+            <br />
+
+            <table id="bondEclComputationResultTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th>RefNo</th>
+                        <!--<th>CustomerName</th>-->
+                        <th>Date</th>
+                        <th>YTM</th>
+                        <th>Code</th>
+                        <th>FacilityType</th>
+                        <th>Stage</th>
+                        <th>Seq</th>
+                        <th>AmortizedCost</th>
+                        <th>Currency</th>
+                        <th>Rate</th>
+                        <th>LifetimePD</th>
+                        <th>DisFactor</th>
+                        <th>DisCollValue</th>
+                        <th>LGD</th>
+                        <th>Sector</th>
+                        <th>CollStatus</th>
+                        <th>UnAdjusted ECL</th>
+                        <th>MacroBest</th>
+                        <th>ECLBest</th>
+                        <th>MacroOpt</th>
+                        <th>ECLOpt</th>
+                        <th>MacroDownTurn</th>
+                        <th>ECLDownTurn</th>
+                        <th>Prob.Weighted.ECL</th>
+                        <th>Rundate</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="bondEclComputationResult in vm.bondEclComputationResults">
+                        <td>
+                            {{ bondEclComputationResult.Refno }}
+                        </td>
+                        <!--<td>
+                            {{ bondEclComputationResult.CustomerName }}
+                        </td>-->
+                        <td>
+                            {{ bondEclComputationResult.date_pmt | date:'dd-MM-yyyy'}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.YTM}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Code}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.FacilityType}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Stage }}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Seq }}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.AmortizedCost | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Currency}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Exchange}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.LifetimePD}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.DiscountFactor }}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.DiscountedCollateralValue | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.LGD }}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.Sector}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.CollateralStatus}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.ECLOutput | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.MEcoECLBest | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.FinalECLBest | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.MEcoECLOptimistic | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.FinalECLOptimistic | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.MEcoECLDownTurn | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.FinalECLDownTurn | number}}
+                        </td>
+                        <td>
+                            {{ bondEclComputationResult.FinalECLWeightAvg | number}}
+                        </td> 
+                        <td>
+                            {{ bondEclComputationResult.Rundate | date:'dd-MM-yyyy'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+
+
+<div class="main-content">
+    <div class="widget widget-table">
+        <div class="widget-header">
+            <h3><i class="fa fa-table"></i> {{vm.viewName}}</h3> 
+        </div>
+        <div class="widget-content">
+            <div class="alert alert-info fade in" data-ng-show="vm.showInstruction">
+                <button class="close" data-dismiss="alert">&times;</button>
+                <i class="fa fa-info-circle"></i> {{vm.instruction}}
+            </div>
+
+            <div>
+                <a class="btn btn-info btn-xs" data-ui-sref="ifrspdtermstructure-edit({Id:0})"> Create New</a>
+            </div> 
+            <br />
+            
+            <table id="dataclassificationTable" class="table table-hover table-striped table-bordered table-advanced tablesorter display datatable">
+
+                <thead>
+                    <tr>
+                        <th style="width: 3%;">Action</th>
+                        <th>Rating</th>
+                        <th>Yr1</th>
+                        <th>Yr2</th>
+                        <th>Yr3</th>
+                        <th>Yr4</th>
+                        <th>Yr5</th>
+                        <th>Yr6</th>
+                        <th>Yr7</th>
+                        <th>Yr8</th>
+                        <th>Yr9</th>
+                        <th>Yr10</th>
+                        <th>Yr11</th>
+                        <th>Yr12</th>
+                        <th>Yr13</th>
+                        <th>Yr14</th>
+                        <th>Yr15</th>                 
+                        </tr>
+                </thead>
+                <tbody>
+                   <tr ng-repeat="data in vm.IfrsPdTermStructure">
+                       <td>
+                           <a class="btn btn-orange btn-xs" data-ui-sref="ifrspdtermstructure-edit({Id: data.ID})">
+                               Edit
+                           </a>
+                       </td>
+                     <td>
+                       {{ data.Rating }}
+                     </td>
+                     <td>
+                       {{ data._1 }}
+                     </td>
+                       <td>
+                           {{ data._2 }}
+                       </td>
+                       <td>
+                           {{ data._3 }}
+                       </td>
+                       <td>
+                           {{ data._4 }}
+                       </td>
+                       <td>
+                           {{ data._5 }}
+                       </td>
+                       <td>
+                           {{ data._6 }}
+                       </td>
+                       <td>
+                           {{ data._7 }}
+                       </td>
+                       <td>
+                           {{ data._8 }}
+                       </td>
+                       <td>
+                           {{ data._9 }}
+                       </td>
+                       <td>
+                           {{ data._10 }}
+                       </td>
+                       <td>
+                           {{ data._11 }}
+                       </td>
+                       <td>
+                           {{ data._12 }}
+                       </td>
+                       <td>
+                           {{ data._13 }}
+                       </td>
+                       <td>
+                           {{ data._14 }}
+                       </td>
+                       <td>
+                           {{ data._15 }}
+                       </td>         
+      
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
